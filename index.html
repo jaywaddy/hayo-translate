@@ -14,48 +14,9 @@
     <script>
 
         //Translator App
-        // const userInput = document.querySelector('input').value;
 
-        // const dictionary = [
-        //     // H
-        //     {
-        //         english: 'hello',
-        //         planco: 'hayo'
-        //     },
-        //     // W
-        //     {
-        //         english: 'world',
-        //         planco: 'wuntow'
-        //     }
-        // ];
-
-        // const planco = function (dicionary, english) {
-        //     const index = dictionary.findIndex(function (word, index) {
-        //         return word.english.toLowerCase() === english.toLowerCase();
-        //     });
-
-        //     return dictionary[index].planco;
-        // }
-
-        // let array = [],
-        //     string = '';
-
-        // class Translate {
-        //     constructor (word) {
-        //         this.english = word,
-        //         this.planco = planco
-        //     }
-
-        //     run() {
-        //         string += `${placno} `;
-        //         return string;
-        //     }
-        // }
-
-        // const translate = new Translate('hello');
-
-        //------------------------------------------------------------------------------
         const App = {
+
             dictionary: [
                 // H
                 {
@@ -67,36 +28,9 @@
                     input: 'world',
                     planco: 'wuntow'
                 }
-            ],
-
-            // input: document.querySelector('input').value,
-
-            // translate: function (input) {
-            //     for (let i = 0; i < array.langth; i++) {
-            //         function fill () {
-            //             return array = this.input.split(' ');
-            //         }
-            //         let translate = new Translate(array[i]);
-            //     }
-            // }
+            ]
         };
         
-        // function locate (word) {
-        //     return word.input === 'hello';
-        // }
-
-        // // console.log(App.dictionary[0].planco)
-
-        // class Translate {
-        //     constructor (word) {
-        //         this.input = word
-        //     }
-
-        //     run() {
-
-        //     }
-        // }
-
         let input = document.querySelector('input');
         let submit = document.querySelector('.submit');
 
@@ -106,48 +40,23 @@
 
         function concat() {
             let array = [];
+            let str = '';
 
             for (let i = 0; i < input.value.split(' ').length; i++) {
                 // Stores each word from userInput in an array 
                 array.push(input.value.split(' ')[i]);
                 
                 // Find equivilant in dicionary
+                const index = App.dictionary.findIndex(function (word, index) {
+                    str += `${word.english === array[i]} `;
+                });
             }
-            return array;
+            return str;
         }
 
         let grab = App.dictionary.findIndex(function() {
             App.dictionary.english === 'hello'
         });
-
-
-
-
-      
-        // function locate(word) {
-
-        // }
-
-        // function run() {
-        //     let text = document.querySelector('input').value,
-        //     array = text.split(' ');
-
-        //     for (let i = 0; i < array.length; i++) {
-        //         if (array[i] == Object.keys(dictionary)) {
-        //             console.log('we have a match!');
-        //         } else {
-        //             console.log('try a different idea.')
-        //         }
-        //     }
-
-        //     console.log(array)
-        // }
-        
-        // document.querySelector('.submit').addEventListener('click', () => {
-        //     run();
-        // });
-
-
 
     </script>
 </body>
