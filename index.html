@@ -10,54 +10,10 @@
     <h1>Hayo Translate</h1>
     <input type="text" id="text-input" value="hello world">
     <input class="submit" type="submit">
+
+    <h2>Output</h2>
+    <p class="output"></p>
     
-    <script>
-
-        //Translator App
-
-        const App = {
-
-            dictionary: [
-                // H
-                {
-                    input: 'hello',
-                    planco: 'hayo'
-                },
-                // W
-                {
-                    input: 'world',
-                    planco: 'wuntow'
-                }
-            ]
-        };
-        
-        let input = document.querySelector('input');
-        let submit = document.querySelector('.submit');
-
-        submit.addEventListener('click', function() {
-            console.log(concat());
-        });
-
-        function concat() {
-            let array = [];
-            let str = '';
-
-            for (let i = 0; i < input.value.split(' ').length; i++) {
-                // Stores each word from userInput in an array 
-                array.push(input.value.split(' ')[i]);
-                
-                // Find equivilant in dicionary
-                const index = App.dictionary.findIndex(function (word, index) {
-                    str += `${word.english === array[i]} `;
-                });
-            }
-            return str;
-        }
-
-        let grab = App.dictionary.findIndex(function() {
-            App.dictionary.english === 'hello'
-        });
-
-    </script>
+    <script src="js/hayo.js"></script>
 </body>
 </html>
