@@ -1,16 +1,3 @@
-// Dictionary.
-const App = {
-
-    word: [
-        // H
-        { eng: 'hello', plc: 'hayo' },
-
-        // W
-        { eng: 'world', plc: 'wuntow' }
-    ]
-    
-};
-
 const input = document.querySelector('input');
 const submit = document.querySelector('.submit');
 const output = document.querySelector('.output');
@@ -41,7 +28,7 @@ function concat() {
 
             if ( array[i] === App.word[j].eng ) {
 
-                str += `${App.word[j].plc} `
+                str += `${App.word[j].plc} `;
 
             }
 
