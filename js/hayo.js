@@ -1,4 +1,4 @@
-// Dictionary
+// Dictionary.
 const App = {
 
     word: [
@@ -26,34 +26,29 @@ function concat() {
     let array = [];
     let str = '';
 
-    // Loop through input array
+    // Loop through input values, adds each to array.
     for ( let i = 0; i < input.value.split(' ').length; i++ ) {
 
-        // Loop through dictionary to match object values to array values
+        array.push(input.value.split(' ')[i].toLowerCase());
+        
+    }
+
+    // Loop through array.
+    for ( let i = 0; i < array.length; i++ ) {
+
+        // Search through dictionary to match input with planco.
         for ( let j = 0; j < App.word.length; j++ ) {
 
-            str += `${array[i] = App.word[j].eng} `;
+            if ( array[i] === App.word[j].eng ) {
 
-            if ( App.word[j].eng === array[i] ) {
-                
-                console.log('TRUE');
-                str += `${array[i] = App.word[j][1]} `;
-
-            } else {
-
-                // Unidentified words
-                // console.log('UNIDENTIFIED SCRIPT');
+                str += `${App.word[j].plc} `
 
             }
 
-        } // End of dictionary loop
+        } // End of search.
 
-        // Stores each word from userInput in an array 
-        array.push(input.value.split(' ')[i].toLowerCase());
-        
-        
-    } // End of array loop
+    }; // End of array loop.
 
     return output.textContent = str;
 
-} // End of concat()
+} // End of concat().
