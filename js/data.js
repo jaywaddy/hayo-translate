@@ -1,7 +1,7 @@
 // Dictionary.
 const App = {
 
-    word: [
+    data: [
         // A
         { eng: 'A', plc: 'a', pos: 'con', pro: 'ey' },
         { eng: 'A.M.', plc: 'e.d.', pos: 'n', pro: 'eh-day' },
@@ -463,7 +463,8 @@ const App = {
         { eng: 'Zero', plc: 'zoop', pos: 'num', pro: 'zoop' },
         { eng: 'Zero-G', plc: 'Zoop-G', pos: 'n', pro: 'zoop-jee' },
         { eng: 'Zone', plc: 'zinn', pos: 'n', pro: 'zin' },
-        { eng: 'Zoom', plc: 'zuul', pos: 'v', pro: 'zool' },
+        { eng: 'Zoom', plc: 'zuul', pos: 'v', pro: 'zool' }
+
     ]
     
 };

@@ -4,14 +4,15 @@ const output = document.querySelector('.output');
 
 submit.addEventListener('click', function() {
 
-    concat();
+    translate();
 
 });
 
-function concat() {
+function translate() {
 
     let array = [];
     let str = '';
+    let counter;
 
     // Loop through input values, adds each to array.
     for ( let i = 0; i < input.value.split(' ').length; i++ ) {
@@ -23,16 +24,28 @@ function concat() {
     // Loop through array.
     for ( let i = 0; i < array.length; i++ ) {
 
+        counter = 0;
+
         // Search through dictionary to match input with planco.
-        for ( let j = 0; j < App.word.length; j++ ) {
+        for ( let j = 0; j < App.data.length; j++ ) {
+            
+            if ( array[i] === App.data[j].eng.toLowerCase() ) {
 
-            if ( array[i] === App.word[j].eng.toLowerCase() ) {
+                str += `${App.data[j].plc} `;
 
-                str += `${App.word[j].plc} `;
+            } else {
 
-            }   else {
-                console.log('ERROR')
+                counter += 1;
+
             }
+
+            // Word not found (all items have been searched with no match).
+            if ( counter === App.data.length ) {
+
+                str += `${array[i]} `;
+                console.log(`${array[i]} is not in the dictionary.`);
+
+            } 
 
         } // End of search.
 
