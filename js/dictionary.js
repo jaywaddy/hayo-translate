@@ -306,20 +306,103 @@ const App = {
         // I
 
         // J
+        { eng: 'Jackpot', plc: 'dalocham', pos: 'n', pro: 'dal-o-cham' },
+        { eng: 'Janitor', plc: 'pinako', pos: 'n', pro: 'pin-a-koh' },
+        { eng: 'January', plc: 'jinajuma', pos: 'n', pro: 'jin-a-joo-ma' },
+        { eng: 'Japan', plc: 'Japae', pos: 'n', pro: 'Jap-ey' },
+        { eng: 'Jealous', plc: 'viuse', pos: 'adj', pro: 'vee-oos' },
+        { eng: 'Jester', plc: 'beson', pos: 'n', pro: 'bes-on' },
+        { eng: 'Jet', plc: 'zeja', pos: 'n', pro: 'zej-a' },
+        { eng: 'Jingle', plc: 'jeng', pos: 'n', pro: 'jeng' },
+        { eng: 'Job', plc: 'bode', pos: 'n', pro: 'bode' },
+        { eng: 'Join', plc: 'jojo', pos: 'v', pro: 'jo-jo' },
+        { eng: 'Journey', plc: 'ovujil', pos: 'v/n', pro: 'oh-voo-jil' },
+        { eng: 'Joy', plc: 'jebu', pos: 'n', pro: 'jeb-oo' },
+        { eng: 'Juice', plc: 'juss', pos: 'n', pro: 'jus' },
+        { eng: 'July', plc: 'istru', pos: 'n', pro: 'ist-roo' },
+        { eng: 'Jump', plc: 'vanarl', pos: 'v', pro: 'van-arl' },
+        { eng: 'Jumper', plc: 'goodel', pos: 'n', pro: 'goo-del' },
+        { eng: 'Junction', plc: 'yajemsho', pos: 'n', pro: 'ya-jem-sho' },
+        { eng: 'June', plc: 'artija', pos: 'n', pro: 'art-ee-ja' },
+        { eng: 'Jungle', plc: 'yungarl', pos: 'n', pro: 'yun-garl' },
+        { eng: 'Junior', plc: 'nilp', pos: 'n', pro: 'nilp' },
+        { eng: 'Just', plc: 'jano', pos: 'con', pro: 'ja-no' },
+        { eng: 'Justice', plc: 'muvoja', pos: 'n', pro: 'moo-vo-ja' },
 
         // K
+        { eng: 'Keep', plc: 'capa', pos: 'v', pro: 'ca-pa' },
+        { eng: 'Kerb', plc: 'wilpair', pos: 'n', pro: 'wilp-air' },
+        { eng: 'Kettle', plc: 'kayuta', pos: 'n', pro: 'kay-oo-ta' },
+        { eng: 'Key', plc: 'tako', pos: 'n', pro: 'tak-o', con: 'computer' },
+        // { eng: 'Key', plc: 'ralum', pos: 'n', pro: 'ral-um', con: 'lock' },
+        { eng: 'Kick', plc: 'kibra', pos: 'n', pro: 'kib-ra' },
+        { eng: 'Kid', plc: 'dee', pos: 'n', pro: 'dee' },
+        { eng: 'Kind', plc: 'yonv', pos: 'n', pro: 'yonv' },
+        { eng: 'King', plc: 'darq', pos: 'n', pro: 'dark' },
+        { eng: 'Kiosk', plc: 'koyuva', pos: 'n', pro: 'koy-oo-va' },
+        { eng: 'Kiss', plc: 'smush', pos: 'v/n', pro: 'smush' },
+        { eng: 'Kit', plc: 'tatha', pos: 'n', pro: 'tath-a' },
+        { eng: 'Knight', plc: 'nurida', pos: 'n', pro: 'nur-ee-da' },
+        { eng: 'Knot', plc: 'tyanpo', pos: 'v/n', pro: 'ty-an-po' },
+        { eng: 'Know', plc: 'lejey', pos: 'v', pro: 'ley-jey' },
+        { eng: 'Korea', plc: 'Kurra', pos: 'n', pro: 'Kur-ah' },
+        { eng: 'Kraken', plc: 'krakka', pos: 'n', pro: 'krak-ah' },
 
         // L
 
         // M
 
         // N
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
+        { eng: '', plc: '', pos: '', pro: '' },
 
         // O
 
         // P
 
         // Q
+        { eng: 'Q&A', plc: 'D&R', pos: 'n', pro: 'day-at-ar' },
+        { eng: 'QA', plc: 'YT', pos: 'n', pro: 'wye-tee' },
+        { eng: 'Quality', plc: 'yimpa', pos: 'n', pro: 'yim-pa' },
+        { eng: 'Quarter', plc: 'qifluner', pos: 'n', pro: 'kif-loo-na' },
+        { eng: 'Queen', plc: 'quyena', pos: 'n', pro: 'koo-nen-a' },
+        { eng: 'Question', plc: 'duuya', pos: 'v/n', pro: 'doo-ya' },
+        { eng: 'Queue', plc: 'shufe', pos: 'n', pro: 'shoof-er' },
+        { eng: 'Quick', plc: 'hizzun', pos: 'adj', pro: 'hiz-un' },
+        { eng: 'Quiet', plc: 'zamou', pos: 'adj', pro: 'za-mou' },
+        { eng: 'Quit', plc: 'lixo', pos: 'v', pro: 'liks-oh' },
+        { eng: 'Quite', plc: 'kiito', pos: 'adv', pro: 'kee-toh' },
+        { eng: 'Quoin', plc: 'kwato', pos: 'kwah-toe', pro: 'n' },
 
         // R
 
