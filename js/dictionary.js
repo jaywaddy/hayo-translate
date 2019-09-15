@@ -328,6 +328,33 @@ const App = {
         // T
 
         // U
+        { eng: 'Ubiquitous', plc: 'ofuzapon', pos: 'adj', pro: 'o-foo-za-pon' },
+        { eng: 'UI', plc: 'HU', pos: 'n', pro: 'huh-yoo' },
+        { eng: 'Ultimate', plc: 'waxemica', pos: 'waxemica', pro: 'wacks-em-ee-ka' },
+        { eng: 'Ultra', plc: 'talerza', pos: 'adj', pro: 'tal-er-za' },
+        { eng: 'Unanimous', plc: 'unarzapon', pos: 'adj', pro: 'un-ar-za-pon' },
+        { eng: 'Under', plc: 'urada', pos: 'prep', pro: 'ur-ah-da' },
+        { eng: 'Underpin', plc: 'uradapidet', pos: 'v', pro: 'ur-ah-da-pid-et' },
+        { eng: 'Understand', plc: 'uradatund', pos: 'v', pro: 'ur-ah-da-tund' },
+        { eng: 'Undertake', plc: 'uradajanil', pos: 'v', pro: 'ur-ah-da-jan-il' },
+        { eng: 'Underwhelm', plc: 'uradamurwa', pos: 'v', pro: 'ur-ah-da-mur-wa' },
+        { eng: 'Uniform', plc: 'onietabel', pos: 'n', pro: 'on-ee-et-ab-el' },
+        { eng: 'Unique', plc: 'zaquel', pos: 'adj', pro: 'zak-wel' },
+        { eng: 'Unit', plc: 'ubol', pos: 'n', pro: 'ub-ol' },
+        { eng: 'Universe', plc: 'ulexu', pos: 'n', pro: 'ul-eks-oo' },
+        { eng: 'Unless', plc: 'unaminu', pos: 'adv', pro: 'un-a-min-oo' },
+        { eng: 'Unlock', plc: 'unacaruc', pos: 'v/n', pro: 'un-a-cah-ruk' },
+        { eng: 'Until', plc: 'unatiq', pos: 'adv', pro: 'un-a-teek' },
+        { eng: 'Up', plc: 'assii', pos: 'adv', pro: 'ass-ee' },
+        { eng: 'Update', plc: 'assiideta', pos: 'v/n', pro: 'ass-ee-det-a' },
+        { eng: 'Upgrade', plc: 'assiiabohl', pos: 'v/n', pro: 'ass-ee-a-bohl' },
+        { eng: 'Upload', plc: 'assiieval', pos: 'v/n', pro: 'ass-ee-ev-al' },
+        { eng: 'Upvote', plc: 'assiithuudo', pos: 'v/n', pro: 'ass-ee-thood-o' },
+        { eng: 'URL', plc: 'ORL', pos: 'abbr', pro: 'orl' },
+        { eng: 'Us', plc: 'uss', pos: 'pron', pro: 'uss' },
+        { eng: 'Use', plc: 'har', pos: 'v', pro: 'har' },
+        { eng: 'Utility', plc: 'wadisti', pos: 'n', pro: 'wad-is-tee' },
+        { eng: 'Utopia', plc: 'marvizon', pos: 'n', pro: 'mar-viz-on' },
 
         // V
 
