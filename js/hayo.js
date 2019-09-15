@@ -26,10 +26,12 @@ function concat() {
         // Search through dictionary to match input with planco.
         for ( let j = 0; j < App.word.length; j++ ) {
 
-            if ( array[i] === App.word[j].eng ) {
+            if ( array[i] === App.word[j].eng.toLowerCase() ) {
 
                 str += `${App.word[j].plc} `;
 
+            }   else {
+                console.log('ERROR')
             }
 
         } // End of search.
