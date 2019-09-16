@@ -1,0 +1,86 @@
+h1, h2, p, a, textarea {
+
+    color: white;
+    text-decoration: none;
+    font-family: 'Yantramanav', sans-serif;
+    font-weight: 300;
+    font-size: 16px;
+    letter-spacing: 0.5px;
+
+}
+
+ul {
+    
+    list-style: none;
+
+}
+
+a {
+
+    text-decoration: underline;
+
+}
+
+.links a {
+
+    text-transform: uppercase;
+    text-decoration: none;
+
+}
+
+.t30 {
+
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+.t24 {
+
+    font-size: 30px;
+    font-weight: 600;
+
+}
+
+.t16 {
+
+    font-size: 16px;
+
+}
+
+.t12 {
+
+    font-size: 12px;
+
+}
+
+// Repeated text
+.planco-text {
+
+    margin-top: 20px;
+
+}
+
+.feedback {
+
+    display: flex;
+    
+    a {
+
+        flex-flow: row;
+        position: absolute;
+        width: 103px;
+        margin-top: 400px;
+        transform: translateX( -100% );
+
+    }
+
+}
+
+footer {
+
+    margin-top: auto;
+    width: 50%;
+    opacity: 0.5;
+
+}

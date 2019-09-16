@@ -4,7 +4,19 @@
     height: 400px;
     display: flex;
 
-    // border: solid pink 1px;
+    
+
+    .lang {
+
+        position: absolute;
+        transform: translate( 30px, 20px );
+
+        p {
+            
+            color: $blue;
+
+        }
+    }
 
     .input-box {
 
@@ -20,19 +32,15 @@
             background: none;
 
             position: absolute;
-            width: 80%;
-            height: 70%;
+            width: 85%;
+            height: 75%;
             resize: none;
             outline: none;
-            transform: translate( 11%, 11% );
+            transform: translate( 30px, 50px );
 
-            font-family: 'Yantramanav', sans-serif;
-            font-weight: 600;
-            font-size: 24px;
+            // border: solid red 1px;
+
             color: $dark;
-
-            &:active {
-            }
 
         }
 
@@ -51,12 +59,10 @@
 
             // border: solid red 1px;
 
-            width: 80%;
-            height: 70%;
-            transform: translate( 13%, 11% );
-            font-family: 'Yantramanav', sans-serif;
-            font-weight: 600;
-            font-size: 24px;
+            width: 85%;
+            height: 75%;
+            transform: translate( 30px, 50px );
+
             color: $blue;
 
         }

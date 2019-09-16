@@ -308,7 +308,7 @@ const App = {
         // J
         { eng: 'Jackpot', plc: 'dalocham', pos: 'n', pro: 'dal-o-cham' },
         { eng: 'Janitor', plc: 'pinako', pos: 'n', pro: 'pin-a-koh' },
-        { eng: 'January', plc: 'jinajuma', pos: 'n', pro: 'jin-a-joo-ma' },
+        { eng: 'January', plc: 'Jinajuma', pos: 'n', pro: 'jin-a-joo-ma' },
         { eng: 'Japan', plc: 'Japae', pos: 'n', pro: 'Jap-ey' },
         { eng: 'Jealous', plc: 'viuse', pos: 'adj', pro: 'vee-oos' },
         { eng: 'Jester', plc: 'beson', pos: 'n', pro: 'bes-on' },
