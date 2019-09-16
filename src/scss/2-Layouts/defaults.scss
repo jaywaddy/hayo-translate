@@ -1,0 +1,49 @@
+// Base styles
+* {
+
+    margin: 0;
+    padding: 0;
+
+    body {
+
+        background: $blue;
+        color: white;
+    
+        font-family: 'Yantramanav', sans-serif;
+        font-weight: 300;
+    
+        h1, h2, p, a {
+
+            color: white;
+            text-decoration: none;
+
+        }
+
+        a {
+
+            text-transform: uppercase;
+
+        }
+
+        ul {
+            
+            list-style: none;
+
+        }
+
+    } // End of body
+
+} // End of *
+
+// Wrappers
+
+.container {
+
+    width: 50%;
+    margin-top: 100px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+    // border: solid orange 1px;
+
+}

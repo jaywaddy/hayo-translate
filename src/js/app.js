@@ -1,12 +1,5 @@
-const input = document.querySelector('input');
-const submit = document.querySelector('.submit');
+const input = document.querySelector('.input');
 const output = document.querySelector('.output');
-
-submit.addEventListener('click', function() {
-
-    translate();
-
-});
 
 function translate() {
 
@@ -54,3 +47,7 @@ function translate() {
     return output.textContent = str;
 
 } // End of concat().
+
+setInterval( () => {
+    translate();
+}, 2000 )
