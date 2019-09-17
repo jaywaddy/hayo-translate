@@ -1,3 +1,28 @@
+// Fonts.
+@font-face {
+
+    src: url(../fonts/OPTIEagle-Bold.otf);
+    font-family: planco;
+
+}
+
+@font-face {
+
+    src: url(../fonts/Yantramanav-Regular.ttf);
+    font-family: yantramanav;
+    font-weight: 400;
+
+}
+
+@font-face {
+
+    src: url(../fonts/Yantramanav-Bold.ttf);
+    font-family: yantramanav;
+    font-weight: 600;
+
+}
+
+// Text stles.
 h1, h2, p, a, textarea, input {
 
     color: white;
@@ -57,7 +82,7 @@ a {
 // Repeated text
 .planco-text {
 
-    margin-top: 20px;
+    margin-top: 50px;
 
 }
 
@@ -69,7 +94,8 @@ a {
 
         flex-flow: row;
         position: absolute;
-        width: 103px;
+        white-space: nowrap;
+        // width: 103px;
         margin-top: 400px;
         transform: translateX( -100% );
 

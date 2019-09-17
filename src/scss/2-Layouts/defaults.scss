@@ -49,6 +49,18 @@ html {
 
     transition: 0.2s;
     opacity: 0;
-    pointer-events: none;
+
+}
+
+.show {
+
+    transition: 0.2s;
+    opacity: 1;
+
+}
+
+.disable {
+
+    display: none;
 
 }

@@ -15,6 +15,13 @@
 
         display: flex;
         margin-right: auto;
+        transform: scale( 0.9 );
+
+        text {
+
+            font-family: planco;
+
+        }
 
         &:hover {
 
@@ -23,72 +30,6 @@
         }
     
     }
-
-    .search {
-
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-
-        input {
-
-            background: none;
-            border: none;
-            outline: none;
-
-            display: flex;
-            flex-direction: row;
-            width: 400px;
-            border: solid white 2px;
-            border-radius: 10px;
-            padding: 5px 5px 5px 10px;
-
-            transition: 0.2s;
-
-            &::placeholder {
-
-                color: white;
-                opacity: 0.5;
-
-                transition: 0.2s;
-
-            }
-
-
-            &:focus, &:hover {
-
-                background: rgba( 114, 209, 255, 0.2 );
-                border-color: $light-blue;
-                border-radius: 10px;
-                // color: $light-blue;
-    
-            }
-            
-        } // End of input
-
-        
-
-        .search-icon {
-
-            margin-right: 5px;
-            transform: translateX( -130% );
-
-            &:hover {
-
-                cursor: pointer;
-
-            }
-        }
-
-        // add class in JS.
-        .search-focus {
-
-            background: rgba( 114, 209, 255, 0.2 );
-            border-color: $light-blue;
-
-        }
-
-    } // End of .search
     
     .links {
     
@@ -108,7 +49,7 @@
                 a {
     
                     list-style: none;
-                    font-weight: 400;
+                    font-weight: 600;
                     border: solid rgba( 255, 255, 255, 0 ) 2px;
                     border-radius: 50px;
                     padding: 10px 20px;
@@ -118,6 +59,7 @@
                     &:hover {
     
                         background: white;
+                        border-color: white;
                         color: $blue;
     
                         transition: 0.2s;
@@ -128,7 +70,9 @@
     
                 .active-link {
     
-                    border: solid white 3px;
+                    border: solid $light-blue 2px;
+                    background: rgba( 114, 209, 255, 0.2 );
+                    color: $light-blue;
     
                 }
     

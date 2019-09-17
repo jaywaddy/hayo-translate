@@ -1,24 +1,23 @@
-const input = document.querySelector('.input');
-const output = document.querySelector('.output');
-const charCount = document.querySelector('.counter');
+const input = document.querySelector( '.input' );
+const output = document.querySelector( '.output' );
+const charCount = document.querySelector( '.counter' );
 
 let timer;
 
 window.onload = () => {
 
     input.focus();
-    translate();
 
     // App function.
     timer = setInterval( () => {
 
-        translate();
+        runApp();
 
     }, 1000 );
 
-};
+}
 
-function translate() {
+function runApp() {
 
     let array = [];
     let str = '';
@@ -32,6 +31,7 @@ function translate() {
         
     }
 
+    // STREAKS!!!
     
     // Loop through array.
     for ( let i = 0; i < array.length; i++ ) {
@@ -40,7 +40,7 @@ function translate() {
 
         let counter = 0;
 
-        // Search through dictionary to match input with planco.
+        // Search through dictionary to match input with Planco word.
         for ( let j = 0; j < App.data.length; j++ ) {
 
             const match = App.data[j].plc;
@@ -62,19 +62,19 @@ function translate() {
 
             }
 
-            // Word not found (all items have been searched with no match).
+            // When all items have been searched with no match.
             if ( counter === App.data.length ) {
   
                 str += word;
             } 
-
-        } // End of search.
+        
+        } // End of search loop.
 
         char += word.length;
 
-    }; // End of array loop.
+    } // End of array loop.
 
     output.innerHTML = str;
     charCount.textContent = char;
 
-} // End of concat().
+} // End of runApp().
