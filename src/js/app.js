@@ -1,32 +1,20 @@
 const input = document.querySelector('.input');
 const output = document.querySelector('.output');
+const charCount = document.querySelector('.counter');
 
 let timer;
 
 window.onload = () => {
 
     input.focus();
+    translate();
 
-    document.addEventListener( 'click', ( element ) => {
+    // App function.
+    timer = setInterval( () => {
 
-        if ( element.target.id !== 'input' ) {
+        translate();
 
-            // Stop translate().
-            clearInterval( timer );
-            translate();
-
-        } else if ( element.target.id === 'input' ) {
-
-            // App function.
-            timer = setInterval( () => {
-
-                translate();
-
-            }, 1000 );
-
-        }
-
-    });
+    }, 1000 );
 
 };
 
@@ -34,6 +22,8 @@ function translate() {
 
     let array = [];
     let str = '';
+    let char = 0;
+    
 
     // Loop through input values, adds each to array (including punctuation).
     for ( let i = 0, string = input.value.split( /(\W+|\s)/ ); i < string.length; i++ ) {
@@ -80,8 +70,11 @@ function translate() {
 
         } // End of search.
 
+        char += word.length;
+
     }; // End of array loop.
 
-    return output.innerHTML = str;
+    output.innerHTML = str;
+    charCount.textContent = char;
 
 } // End of concat().

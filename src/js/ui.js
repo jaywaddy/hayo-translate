@@ -19,8 +19,6 @@ clearBtn.addEventListener( 'click', function() {
 
 }); // End clear text.
 
-// Word counter.
-
 // Copy button.
 copyBtn.addEventListener('click', () => {
 
