@@ -1,4 +1,4 @@
-h1, h2, p, a, textarea {
+h1, h2, p, a, textarea, input {
 
     color: white;
     text-decoration: none;
@@ -74,13 +74,5 @@ a {
         transform: translateX( -100% );
 
     }
-
-}
-
-footer {
-
-    margin-top: auto;
-    width: 50%;
-    opacity: 0.5;
 
 }

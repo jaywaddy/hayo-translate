@@ -44,6 +44,29 @@
 
         }
 
+        .clear {
+
+            margin-top: 62px;
+            margin-left: 93%;
+
+            transition: 0.2s;
+
+            &:hover {
+
+                cursor: pointer;
+
+            }
+
+        }
+
+        // add class in JS.
+        .hide {
+
+            opacity: 0;
+            pointer-events: none;
+
+        }
+
     }
 
     .output-box {
@@ -62,8 +85,15 @@
             width: 85%;
             height: 75%;
             transform: translate( 30px, 50px );
+            overflow-wrap: break-word;
+            overflow-y: auto;
 
             color: $blue;
+
+            .test {
+                color: $blue;
+                opacity: 0.6;
+            }
 
         }
     }

@@ -14,10 +14,20 @@
 <body>
     <header class="nav-wrap">
 
-        <div class="logo" alt="logo"><svg xmlns="http://www.w3.org/2000/svg" width="139" height="62" viewBox="0 0 139 62"><defs><style>.a{fill:#fff;font-size:43px;font-family:OPTIEagle-Bold, OPTIEagle;font-weight:700;}</style></defs><g transform="translate(-435 -20)"><text class="a" transform="translate(435 69)"><tspan x="0" y="0">H</tspan></text><text class="a" transform="translate(469 69)"><tspan x="0" y="0">A</tspan></text><text class="a" transform="translate(499 69)"><tspan x="0" y="0">Y</tspan></text><text class="a" transform="translate(533 69)"><tspan x="0" y="0">O</tspan></text></g></svg></div>
+        <div class="logo" alt="logo">
+            <svg xmlns="http://www.w3.org/2000/svg" width="139" height="62" viewBox="0 0 139 62"><g transform="translate(-435 -20)"><text transform="translate(435 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">H</tspan></text><text transform="translate(469 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">A</tspan></text><text transform="translate(499 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">Y</tspan></text><text transform="translate(533 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">O</tspan></text></g></svg>
+        </div>
 
         <nav class="links">
             <ul>
+                <li>
+                    <div class="search">
+                        <input type="text" placeholder="search">
+                        <div class="search-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22.984" height="18" viewBox="0 0 22.984 18"><g transform="translate(-1243 -76)"><g transform="translate(1243 76)" fill="none" stroke="#fff" stroke-width="3"><circle cx="9" cy="9" r="9" stroke="none"/><circle cx="9" cy="9" r="7.5" fill="none"/></g><line x2="7.491" y2="4" transform="translate(1257.786 88.5)" fill="none" stroke="#fff" stroke-width="3"/></g></svg>
+                        </div>
+                    </div>
+                </li>
                 <li><a href="#" class="active-link">translate</a></li>
                 <li><a href="#">dictionary</a></li>
                 <li><a href="#">about</a></li>
@@ -38,6 +48,9 @@
                         <p>English</p>
                     </div>
                     <textarea class="input t24" maxlength="250"></textarea>
+                    <div class="clear">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="17.209" height="17.209" viewBox="0 0 17.209 17.209"><g transform="translate(-904.439 -241.439)"><line x2="15.088" y2="15.088" transform="translate(905.5 242.5)" fill="none" stroke="#cc0024" stroke-width="3"/><line y1="15.088" x2="15.088" transform="translate(905.5 242.5)" fill="none" stroke="#cc0024" stroke-width="3"/></g></svg>
+                    </div>
                 </div>
                 
                 <div class="output-box">
@@ -58,18 +71,23 @@
             <!-- End of .container -->
         </div>
 
-        <p class="planco-text">Planco is the official language of Planet Coaster. To  learn more, please visit the <a href="#">official Planco page</a>.</p>
+        <p class="planco-text">Planco is the official language of Planet Coaster. To  learn more, please visit the <a href="https://www.planetcoaster.com/en-gb/official-planco-dictionary">official Planco page</a>.</p>
 
+        <!-- End of .wrapper -->
+    </div>
+    
+
+    <!-- <div class="footer-wrapper"> -->
         <footer>
             <p class="t12">Hayo Translate © 2019 created by Jay Waddy.</p>
             <br>
             <p class="t12">Planet Coaster is a registered trademark of Frontier Developments plc. All images included on this site belong to Frontier Developments plc. We're in no way affiliated or partnered with Frontier. Planco, is developed by Frontier Developments plc.</p>
         </footer>
-        
-        <!-- End of .wrapper -->
-    </div>
+    <!-- </div> -->
     
+
     <script src="js/data.js"></script>
     <script src="js/app.js"></script>
+    <script src="js/ui.js"></script>
 </body>
 </html>

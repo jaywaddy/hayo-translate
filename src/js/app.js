@@ -11,27 +11,32 @@ window.onload = () => {
 
 input.addEventListener('focus', () => {
 
+    // App function.
     timer = setInterval( () => {
 
         translate();
     
     }, 1000);
+
+    // Show clear button.
+    clearBtn.classList.remove('hide');
     
 });
 
 input.addEventListener('blur', () => {
 
-    clearInterval( timer )
+    // Stop translate().
+    clearInterval( timer );
+
+    // Hide clear button.
+    // clearBtn.classList.add('hide');
 
 });
-
-// input.addEventListener('keypress', translate);
 
 function translate() {
 
     let array = [];
     let str = '';
-    let counter;
 
     // Loop through input values, adds each to array (including punctuation).
     for ( let i = 0, string = input.value.split( /(\W+|\s)/ ); i < string.length; i++ ) {
@@ -44,22 +49,25 @@ function translate() {
     // Loop through array.
     for ( let i = 0; i < array.length; i++ ) {
 
-        counter = 0;
+        const word = array[i];
+
+        let counter = 0;
 
         // Search through dictionary to match input with planco.
         for ( let j = 0; j < App.data.length; j++ ) {
-            
-            if ( array[i].toLowerCase() === App.data[j].eng.toLowerCase() ) {
 
-            str += `${App.data[j].plc}`;
+            const match = App.data[j].plc;
 
-                
+            // If the word is in the dictionary.
+            if ( word.toLowerCase() === App.data[j].eng.toLowerCase() ) {
+
+                str += match;
 
             } else {
 
-                if ( array[i] === /\W/ ) {
+                if ( word === /\W/ ) {
 
-                    str += `${App.data[j].plc}`;
+                    str += match;
 
                 }
 
@@ -69,21 +77,14 @@ function translate() {
 
             // Word not found (all items have been searched with no match).
             if ( counter === App.data.length ) {
-
-                str += `${array[i]}`;
-
-                if (array[i] === /\W/ ) {
-
-                    console.log(`${array[i]} is not in the dictionary.`);
-
-                }
-
+  
+                str += word;
             } 
 
         } // End of search.
 
     }; // End of array loop.
 
-    return output.textContent = str;
+    return output.innerHTML = str;
 
 } // End of concat().
