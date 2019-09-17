@@ -14,15 +14,15 @@
 <body>
     <header class="nav-wrap">
 
-        <div class="logo" alt="logo">
-            <svg xmlns="http://www.w3.org/2000/svg" width="139" height="62" viewBox="0 0 139 62"><g transform="translate(-435 -20)"><text transform="translate(435 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">H</tspan></text><text transform="translate(469 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">A</tspan></text><text transform="translate(499 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">Y</tspan></text><text transform="translate(533 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">O</tspan></text></g></svg>
+        <div class="logo" alt="logo"><a href="#">
+            <svg xmlns="http://www.w3.org/2000/svg" width="139" height="62" viewBox="0 0 139 62"><g transform="translate(-435 -20)"><text transform="translate(435 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">H</tspan></text><text transform="translate(469 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">A</tspan></text><text transform="translate(499 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">Y</tspan></text><text transform="translate(533 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">O</tspan></text></g></svg></a>
         </div>
 
         <nav class="links">
             <ul>
                 <li>
                     <div class="search">
-                        <input type="text" placeholder="search">
+                        <input class="search-input" type="text" placeholder="search">
                         <div class="search-icon">
                             <svg xmlns="http://www.w3.org/2000/svg" width="22.984" height="18" viewBox="0 0 22.984 18"><g transform="translate(-1243 -76)"><g transform="translate(1243 76)" fill="none" stroke="#fff" stroke-width="3"><circle cx="9" cy="9" r="9" stroke="none"/><circle cx="9" cy="9" r="7.5" fill="none"/></g><line x2="7.491" y2="4" transform="translate(1257.786 88.5)" fill="none" stroke="#fff" stroke-width="3"/></g></svg>
                         </div>
@@ -47,10 +47,15 @@
                     <div class="lang">
                         <p>English</p>
                     </div>
-                    <textarea class="input t24" maxlength="250"></textarea>
+                    <textarea id="input" class="input t24" maxlength="250"></textarea>
                     <div class="clear">
                         <svg xmlns="http://www.w3.org/2000/svg" width="17.209" height="17.209" viewBox="0 0 17.209 17.209"><g transform="translate(-904.439 -241.439)"><line x2="15.088" y2="15.088" transform="translate(905.5 242.5)" fill="none" stroke="#cc0024" stroke-width="3"/><line y1="15.088" x2="15.088" transform="translate(905.5 242.5)" fill="none" stroke="#cc0024" stroke-width="3"/></g></svg>
                     </div>
+                    <div class="word-counter">
+                        <p><span class="counter">0</span>/250</p>
+                    </div>
+
+                    <!-- End of .input-box -->
                 </div>
                 
                 <div class="output-box">
@@ -58,11 +63,15 @@
                         <p>Planco</p>
                     </div>
                     <p class="output t24"></p>
+                    <div class="copy">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="19.913" height="24.868" viewBox="0 0 19.913 24.868"><g transform="translate(-48.65)"><g transform="translate(48.65)"><path d="M62.176,85.4H50.616a1.967,1.967,0,0,0-1.966,1.966v16.587a1.967,1.967,0,0,0,1.966,1.966H62.176a1.967,1.967,0,0,0,1.966-1.966V87.366A1.974,1.974,0,0,0,62.176,85.4Zm.586,18.548a.591.591,0,0,1-.591.591H50.611a.591.591,0,0,1-.591-.591V87.366a.591.591,0,0,1,.591-.591H62.171a.591.591,0,0,1,.591.591Z" transform="translate(-48.65 -81.051)" fill="#008acc"/><path d="M148.976,0H137.416a1.967,1.967,0,0,0-1.966,1.966.688.688,0,0,0,1.375,0,.591.591,0,0,1,.591-.591h11.561a.591.591,0,0,1,.591.591V18.553a.591.591,0,0,1-.591.591.688.688,0,0,0,0,1.375,1.967,1.967,0,0,0,1.966-1.966V1.966A1.967,1.967,0,0,0,148.976,0Z" transform="translate(-131.029)" fill="#008acc"/></g></g></svg>
+                    </div>
                 </div>
 
                 <div class="feedback">
                     <a href="#">Send feedback</a>
                 </div>
+                
                 <!-- End of .translator-box -->
             </div>
             

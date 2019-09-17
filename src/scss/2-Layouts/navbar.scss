@@ -15,6 +15,12 @@
 
         display: flex;
         margin-right: auto;
+
+        &:hover {
+
+            cursor: pointer;
+
+        }
     
     }
 
@@ -22,11 +28,7 @@
 
         display: flex;
         flex-direction: row;
-        border: solid white 2px;
-        border-radius: 10px;
-        padding: 5px 10px 5px 20px;
-
-        transition: 0.2s;
+        align-items: center;
 
         input {
 
@@ -34,7 +36,13 @@
             border: none;
             outline: none;
 
-            
+            display: flex;
+            flex-direction: row;
+            border: solid white 2px;
+            border-radius: 10px;
+            padding: 5px 5px 5px 10px;
+
+            transition: 0.2s;
 
             &::placeholder {
 
@@ -45,21 +53,30 @@
 
             }
 
+
+            &:focus, &:hover {
+
+                background: rgba( 114, 209, 255, 0.2 );
+                border-color: $light-blue;
+                border-radius: 10px;
+                // color: $light-blue;
+    
+            }
             
         } // End of input
 
-        &:focus, &:hover {
+        
 
-            background: rgba( 114, 209, 255, 0.2 );
-            border-color: $light-blue;
-            // color: $light-blue;
+        .search-icon {
 
-        }
+            margin-right: 5px;
+            transform: translateX( -130% );
 
-        .search-icon:hover {
+            &:hover {
 
-            cursor: pointer;
+                cursor: pointer;
 
+            }
         }
 
         // add class in JS.

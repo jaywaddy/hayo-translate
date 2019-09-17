@@ -44,6 +44,19 @@
 
         }
 
+        .word-counter {
+
+            margin-left: 30px;
+            margin-top: 270px;
+            p {
+
+                color: $dark;
+                opacity: 0.7;
+
+            }
+
+        }
+
         .clear {
 
             margin-top: 62px;
@@ -56,14 +69,6 @@
                 cursor: pointer;
 
             }
-
-        }
-
-        // add class in JS.
-        .hide {
-
-            opacity: 0;
-            pointer-events: none;
 
         }
 
@@ -90,9 +95,17 @@
 
             color: $blue;
 
-            .test {
-                color: $blue;
-                opacity: 0.6;
+        } // End of .output
+
+        .copy {
+
+            margin-left: 30px;
+            margin-top: 45px;
+
+            &:hover {
+
+                cursor: pointer;
+
             }
 
         }

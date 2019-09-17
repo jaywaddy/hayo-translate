@@ -1,21 +1,35 @@
 const clearBtn = document.querySelector('.clear');
+const copyBtn = document.querySelector('.copy');
 
-outClick = function() {
+// Clear text.
+clearBtn.addEventListener( 'click', function() {
 
-
-
-}
-
-clearBtn.addEventListener('click', () => {
-
-    
-    //Clear input.
+    // Clear input.
     input.value = '';
 
     // Clear output.
     translate();
 
-    clearBtn.classList.add('hide');
-    
-    input.focus();
+    // Keep input active.
+    setTimeout( () => {
+
+        input.focus();
+
+    }, 1);
+
+}); // End clear text.
+
+// Word counter.
+
+// Copy button.
+copyBtn.addEventListener('click', () => {
+
+    let text = document.createElement('textarea');
+
+    document.body.appendChild(text)
+    text.value = output.textContent;
+    text.select();
+    document.execCommand('copy');
+    document.body.removeChild(text);
+
 });

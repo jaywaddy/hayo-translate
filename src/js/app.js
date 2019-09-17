@@ -7,31 +7,28 @@ window.onload = () => {
 
     input.focus();
 
+    document.addEventListener( 'click', ( element ) => {
+
+        if ( element.target.id !== 'input' ) {
+
+            // Stop translate().
+            clearInterval( timer );
+            translate();
+
+        } else if ( element.target.id === 'input' ) {
+
+            // App function.
+            timer = setInterval( () => {
+
+                translate();
+
+            }, 1000 );
+
+        }
+
+    });
+
 };
-
-input.addEventListener('focus', () => {
-
-    // App function.
-    timer = setInterval( () => {
-
-        translate();
-    
-    }, 1000);
-
-    // Show clear button.
-    clearBtn.classList.remove('hide');
-    
-});
-
-input.addEventListener('blur', () => {
-
-    // Stop translate().
-    clearInterval( timer );
-
-    // Hide clear button.
-    // clearBtn.classList.add('hide');
-
-});
 
 function translate() {
 
