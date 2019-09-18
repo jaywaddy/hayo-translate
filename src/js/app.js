@@ -7,6 +7,7 @@ let timer;
 window.onload = () => {
 
     input.focus();
+    remove( aboutPage );
 
     // App function.
     timer = setInterval( () => {

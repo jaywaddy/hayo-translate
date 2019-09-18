@@ -1,0 +1,37 @@
+.about-box {
+
+    background: white;
+    border-radius: 15px;
+
+    .secondary-wrapper {
+
+        width: 90%;
+        margin-left: 50%;
+        transform: translateX( -50% );
+
+        // border: solid red 1px;
+
+        h1 {
+
+            padding: 40px 0 20px 0;
+            color: $blue;
+    
+        }
+    
+        p {
+
+            padding-bottom: 20px;
+            color: $dark;
+
+            &:last-child {
+
+                padding-bottom: 50px;
+
+            }
+
+        }
+
+    }
+
+    
+}

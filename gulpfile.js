@@ -10,7 +10,7 @@ const SCSS_SOURCE = './src/scss/**/*.scss';
 const JS_SOURCE = './src/js/**/*.js';
 const HTML_SOURCE = './src/*.html';
 
-const SCSS_DEST = './src/css';
+const SCSS_DEST = './src/css/';
 const ROOT = './src'
 
 // Compile SCSS into CSS

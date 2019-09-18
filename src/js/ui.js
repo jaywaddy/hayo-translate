@@ -3,9 +3,13 @@ const clearBtn = document.querySelector( '.clear' );
 const copyBtn = document.querySelector( '.copy' );
 
 // Nav links.
-const transLink = document.querySelector( '.translate-link' );
+const homeLink = document.querySelector( '.translate-link' );
 const dictLink = document.querySelector( '.dictionary-link' );
 const aboutLink = document.querySelector( '.about-link' );
+
+// Pages
+const homePage = document.querySelector( '.translator-box' );
+const aboutPage = document.querySelector( '.about-box' );
 
 // Clear text.
 clearBtn.addEventListener( 'click', function() {
@@ -39,70 +43,71 @@ copyBtn.addEventListener( 'click', () => {
 });
 
 // New page script.
-transLink.firstElementChild.classList.add( 'active-link' );
+homeLink.firstElementChild.classList.add( 'active-link' );
 
 window.addEventListener('hashchange', function () {
 
     const url = this.location.hash;
 
-    const trans = transLink.firstElementChild.classList;
+    const home = homeLink.firstElementChild.classList;
     const dict = dictLink.firstElementChild.classList;
     const about = aboutLink.firstElementChild.classList;
 
-    const homePage = document.querySelector( '.translator-box' ).classList;
+    
 
+    remove( aboutPage );
+
+    // Home.
     if ( url === '' || url === '#translate' ) {
 
-        trans.add( 'active-link' );
+        // Active link.
+        home.add( 'active-link' );
         dict.remove( 'active-link' );
         about.remove( 'active-link' );
 
-        homePage.remove( 'disable' );
-        homePage.remove( 'hide' );
-        homePage.add( 'show' );
+        show( homePage );
+        remove( aboutPage );
     
-    } else if ( url === '#dictionary' ) {
+    } 
     
-        trans.remove( 'active-link' );
+    // Dictionary.
+    if ( url === '#dictionary' ) {
+    
+        // Active link
+        home.remove( 'active-link' );
         dict.add( 'active-link' );
         about.remove( 'active-link' );
 
-        // Home
-        homePage.add( 'hide' );
-        homePage.remove( 'show' );
-        setTimeout( () => {
-
-            homePage.add( 'disable' );
-
-        }, 200)
-
-        // Dictionary
-
-
-        // About
-    
-    } else if ( url === '#about' ) {
-    
-        trans.remove( 'active-link' );
-        dict.remove( 'active-link' );
-        about.add( 'active-link' );
-
-        // Home
-        homePage.add( 'hide' );
-        homePage.remove( 'show' );
-        setTimeout( () => {
-
-            homePage.add( 'disable' );
-
-        }, 200)
-
-        // Dictionary
-
-
-        // About
+        remove( homePage );
+        remove( aboutPage );
     
     }
 
+
+    // About.
+    if ( url === '#about' ) {
+    
+        // Active link.
+        home.remove( 'active-link' );
+        dict.remove( 'active-link' );
+        about.add( 'active-link' );
+
+        show( aboutPage );
+        remove( homePage );
+
+    }
+    
 }); // End new page script.
 
+function show ( page ) {
+
+    page.style = 'display: auto';
+
+}
+
+function remove ( page ) {
+ 
+    page.style = 'display: none';
+
+}
 
