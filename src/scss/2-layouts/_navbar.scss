@@ -1,5 +1,4 @@
 .nav-wrap {
-
     width: 90%;
     margin-top: 50px;
     margin-left: 50%;
@@ -9,77 +8,54 @@
     justify-content: space-between;
     align-items: center;
 
-    // border: solid yellow 1px;
-
     .logo {
-
         display: flex;
         margin-right: auto;
-        transform: scale( 0.9 );
+        transform: scale(0.9);
 
         text {
-
             font-family: planco;
-
         }
 
         &:hover {
-
             cursor: pointer;
-
         }
-    
     }
     
     .links {
-    
         display: flex;
         width: 100%;
     
         ul {
-    
             margin-left: auto;
             position: relative;
     
             li {
-    
                 margin-left: 30px;
                 display: inline-block;
     
                 a {
-    
                     list-style: none;
                     font-weight: 600;
-                    border: solid rgba( 255, 255, 255, 0 ) 2px;
+                    border: solid rgba(255, 255, 255, 0) 2px;
                     border-radius: 50px;
                     padding: 10px 20px;
-    
                     transition: 0.2s;
     
                     &:hover {
-    
                         background: white;
                         border-color: white;
                         color: $blue;
-    
                         transition: 0.2s;
-    
                     }
-    
                 }
     
                 .active-link {
-    
                     border: solid $light-blue 2px;
-                    background: rgba( 114, 209, 255, 0.2 );
+                    background: rgba(114, 209, 255, 0.2);
                     color: $light-blue;
-    
                 }
-    
-            } // End of li
-    
-        } // End of ul
-        
-    } // End of .links
-
-} // End of .nav-wrap
+            } // li
+        } // ul
+    } // .links
+} // .nav-wrap

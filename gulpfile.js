@@ -8,10 +8,10 @@ const browserSync = require( 'browser-sync' ).create();
 // Sources & destinations
 const SCSS_SOURCE = './src/scss/**/*.scss';
 const JS_SOURCE = './src/js/**/*.js';
-const HTML_SOURCE = './src/*.html';
+const HTML_SOURCE = './*.html';
 
 const SCSS_DEST = './src/css/';
-const ROOT = './src'
+const ROOT = './'
 
 // Compile SCSS into CSS
 function style() {

@@ -1,159 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
 
     <title>Hayo Translate</title>
 
-    <link rel="stylesheet" href="/main.css">
-
+    <link rel="stylesheet" href="/src/css/main.min.css">
 </head>
 
 <body>
-
     <header class="nav-wrap">
-
         <div class="logo" alt="logo"><a href="#">
             <svg xmlns="http://www.w3.org/2000/svg" width="139" height="62" viewBox="0 0 139 62"><g transform="translate(-435 -20)"><text transform="translate(435 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">H</tspan></text><text transform="translate(469 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">A</tspan></text><text transform="translate(499 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">Y</tspan></text><text transform="translate(533 69)" fill="#fff" font-size="43" font-family="OPTIEagle-Bold, OPTIEagle" font-weight="700"><tspan x="0" y="0">O</tspan></text></g></svg></a>
         </div>
 
         <nav class="links">
-
             <ul>
-
                 <li class="translate-link"><a href="#translate">translate</a></li>
                 <li class="dictionary-link" style="display: none"><a href="#dictionary">dictionary</a></li>
                 <li class="about-link"><a href="#about">about</a></li>
 
                 <li>
-
                     <div class="search">
-
                         <input class="search-input" type="text" placeholder="search" maxlength="20">
 
                         <div class="search-icon">
-
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22.984" height="18" viewBox="0 0 22.984 18"><g transform="translate(-1243 -76)"><g transform="translate(1243 76)" fill="none" stroke="#fff" stroke-width="3"><circle cx="9" cy="9" r="9" stroke="none"/><circle cx="9" cy="9" r="7.5" fill="none"/></g><line x2="7.491" y2="4" transform="translate(1257.786 88.5)" fill="none" stroke="#fff" stroke-width="3"/></g></svg>
-
+                            <svg xmlns="http://www.w3.org/2000/svg" width="27" height="27" viewBox="0 0 27 27"><g transform="translate(-1210 112)"><circle cx="13.5" cy="13.5" r="13.5" transform="translate(1210 -112)" fill="#fff"/><path d="M10.171,8.281a5.474,5.474,0,1,1,.774-2.808,5.47,5.47,0,0,1-.774,2.808l4.991,2.665Z" transform="translate(1217.932 -104.338)" fill="none" stroke="#008acc" stroke-width="3"/></g></svg>
                         </div>
-
                     </div>
-
                 </li>
-
             </ul>
-
         </nav>
-        
-        <!-- End of header-->
-    </header>
+    </header><!-- End of header-->
 
     <div class="wrapper">
-
         <div class="container">
-        
             <div class="translator-box">
-                
                 <div class="input-box">
-
                     <div class="secondary-wrapper">
-
                         <div class="lang">
                             <p>English</p>
                         </div>
 
                         <textarea id="input" class="input t24" maxlength="250"></textarea>
 
-                        <div class="clear">
-
+                        <div class="clear" style="display: none">
                             <svg xmlns="http://www.w3.org/2000/svg" width="17.209" height="17.209" viewBox="0 0 17.209 17.209"><g transform="translate(-904.439 -241.439)"><line x2="15.088" y2="15.088" transform="translate(905.5 242.5)" fill="none" stroke="#cc0024" stroke-width="3"/><line y1="15.088" x2="15.088" transform="translate(905.5 242.5)" fill="none" stroke="#cc0024" stroke-width="3"/></g></svg>
-
                         </div>
 
                         <div class="char-counter">
-
-                            <p><span class="counter">0</span>/250</p>
-
+                            <p><span class="counter">0</span> / 250</p>
                         </div>
-
-                        <!-- End of .seconary-wrapper -->
-                    </div>
-
-                    <!-- End of .input-box -->
-                </div>
+                    </div><!-- End of .seconary-wrapper -->
+                </div><!-- End of .input-box -->
                 
                 <div class="output-box">
-
                     <div class="secondary-wrapper">
-
                         <div class="lang">
-
                             <p>Planco</p>
-    
                         </div>
-    
+
                         <p class="output t24"></p>
-    
                         <p class="copy">copy</p>
-
                     </div>
-
-                    <!-- End of .output-box -->
-                </div>
-
-                
-                
-                <!-- End of .translator-box -->
-            </div>
+                </div><!-- End of .output-box -->
+            </div><!-- End of .translator-box -->
 
             <div class="about-box" style="display: none">
-
                 <div class="secondary-wrapper">
-
                     <h1 class="t30">About Hayo</h1>
-
                     <p>Hayo is a project made to have both a Planco translator and dictionary all together in the same application. Thought there are already Planco translators on the web, I thought it would be fun to give it a shot and not only show that I am capable of creating an application in JavaScript, but also create a layout that still falls under the Planet Coaster style as a redesign.</p>
-
-                    <p>This project is in no way affiliated with Planet Coaster or Frontier Development plc. This app was simply created as a test of strength and portfolio entry.</p>
-                            
+                    <p>This project is in no way affiliated with Planet Coaster or Frontier Development plc. This app was simply created as a test of strength and portfolio entry.</p> 
                     <p>Feel free to send any questions or feedback to info@hayo.com that pertain to the website, NOT to Planet Coaster or Frontier Development plc. Any inquiries about the Planco language should go directly to Frontier Development plc.</p>
-
-                </div>
-                
-                <!-- End of .abuot-box -->
-            </div>
-
-            <!-- End of .container -->
-        </div>
+                </div><!-- End of .secondary-wrapper -->
+            </div><!-- End of .about-box -->
+        </div><!-- End of .container -->
 
 
         <div class="feedback">
-
             <a href="#" class="t12">Send feedback</a>
-
         </div>
 
         <p class="planco-text">Planco is the official language of Planet Coaster and Planet Zoo, created by Frontier Development plc. To  learn more, please visit the <a href="https://www.planetcoaster.com/en-gb/official-planco-dictionary">official Planco page</a>.</p>
-
-        <!-- End of .wrapper -->
-    </div>
+    </div><!-- End of .wrapper -->
     
     <footer>
-
         <p class="t12">Hayo Translate © 2019 created by Jay Waddy.</p>
         <br>
         <p class="t12">Planet Coaster is a registered trademark of Frontier Developments plc. All images included on this site belong to Frontier Developments plc. We're in no way affiliated or partnered with Frontier. Planco, is developed by Frontier Developments plc.</p>
-        
     </footer>
     
     <script src="/src/js/data.js"></script>
     <script src="/src/js/app.js"></script>
     <script src="/src/js/ui.js"></script>
-
 </body>
-
 </html>

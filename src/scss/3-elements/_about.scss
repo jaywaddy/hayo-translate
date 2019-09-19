@@ -1,37 +1,26 @@
 .about-box {
-
     background: white;
-    border-radius: 15px;
+    // border-radius: 15px;
 
     .secondary-wrapper {
-
-        width: 90%;
+        width: 95%;
+        padding: 20px;
         margin-left: 50%;
-        transform: translateX( -50% );
-
+        transform: translateX(-50%);
         // border: solid red 1px;
 
         h1 {
-
-            padding: 40px 0 20px 0;
-            color: $blue;
-    
+            padding-bottom: 20px;
+            color: $dark;
         }
     
         p {
-
-            padding-bottom: 20px;
+            padding-bottom: 10px;
             color: $dark;
 
             &:last-child {
-
-                padding-bottom: 50px;
-
+                padding-bottom: 20px;
             }
-
         }
-
-    }
-
-    
-}
+    } // .secondary-wrapper
+} // .about-box
