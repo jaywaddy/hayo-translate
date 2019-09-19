@@ -1,113 +1,91 @@
 // App buttons.
-const clearBtn = document.querySelector( '.clear' );
-const copyBtn = document.querySelector( '.copy' );
+const clearBtn = document.querySelector('.clear');
+const copyBtn = document.querySelector('.copy');
 
 // Nav links.
-const homeLink = document.querySelector( '.translate-link' );
-const dictLink = document.querySelector( '.dictionary-link' );
-const aboutLink = document.querySelector( '.about-link' );
+const homeLink = document.querySelector('.translate-link');
+const dictLink = document.querySelector('.dictionary-link');
+const aboutLink = document.querySelector('.about-link');
 
 // Pages
-const homePage = document.querySelector( '.translator-box' );
-const aboutPage = document.querySelector( '.about-box' );
+const homePage = document.querySelector('.translator-box');
+const aboutPage = document.querySelector('.about-box');
+
+window.onload = () => {
+    input.focus();
+    remove(aboutPage);
+    setInterval(() => runApp(), 1000);
+}
 
 // Clear text.
 clearBtn.addEventListener( 'click', function() {
-
-    // Clear input.
     input.value = '';
-
-    // Clear output.
     runApp();
-
-    // Keep input active.
-    setTimeout( () => {
-
-        input.focus();
-
-    }, 1);
-
-}); // End clear text.
+    setTimeout(() => input.focus(), 1);
+});
 
 // Copy button.
-copyBtn.addEventListener( 'click', () => {
+copyBtn.addEventListener('click', () => {
+    let text = document.createElement('textarea');
 
-    let text = document.createElement( 'textarea' );
-
-    document.body.appendChild( text )
+    document.body.appendChild(text)
     text.value = output.textContent;
     text.select();
-    document.execCommand( 'copy' );
-    document.body.removeChild( text );
-
+    document.execCommand('copy');
+    document.body.removeChild(text);
 });
 
 // New page script.
-homeLink.firstElementChild.classList.add( 'active-link' );
+homeLink.firstElementChild.classList.add('active-link');
 
 window.addEventListener('hashchange', function () {
-
     const url = this.location.hash;
-
     const home = homeLink.firstElementChild.classList;
     const dict = dictLink.firstElementChild.classList;
     const about = aboutLink.firstElementChild.classList;
 
-    
-
-    remove( aboutPage );
+    remove(aboutPage);
 
     // Home.
-    if ( url === '' || url === '#translate' ) {
-
+    if (url === '' || url === '#translate') {
         // Active link.
-        home.add( 'active-link' );
-        dict.remove( 'active-link' );
-        about.remove( 'active-link' );
+        home.add('active-link');
+        dict.remove('active-link');
+        about.remove('active-link');
 
-        show( homePage );
-        remove( aboutPage );
+        show(homePage);
+        remove(aboutPage);
     
     } 
     
     // Dictionary.
-    if ( url === '#dictionary' ) {
-    
+    if (url === '#dictionary') {
         // Active link
-        home.remove( 'active-link' );
-        dict.add( 'active-link' );
-        about.remove( 'active-link' );
+        home.remove('active-link');
+        dict.add('active-link');
+        about.remove('active-link');
 
-        remove( homePage );
-        remove( aboutPage );
-    
+        remove(homePage);
+        remove(aboutPage);
     }
 
 
     // About.
-    if ( url === '#about' ) {
-    
+    if (url === '#about') {
         // Active link.
-        home.remove( 'active-link' );
-        dict.remove( 'active-link' );
-        about.add( 'active-link' );
+        home.remove('active-link');
+        dict.remove('active-link');
+        about.add('active-link');
 
-        show( aboutPage );
-        remove( homePage );
-
+        show(aboutPage);
+        remove(homePage);
     }
-    
 }); // End new page script.
 
 function show ( page ) {
-
     page.style = 'display: auto';
-
 }
 
 function remove ( page ) {
- 
     page.style = 'display: none';
-
 }
-
