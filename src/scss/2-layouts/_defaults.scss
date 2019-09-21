@@ -18,10 +18,9 @@ html {
 .wrapper {
     display: flex;
     flex-direction: column;
-    position: fixed;
+    // position: fixed;
 
     width: 60%;
-    min-height: 78%;
     margin-left: 50%;
     margin-top: 200px;
     transform: translateX(-50%);
@@ -29,6 +28,34 @@ html {
 
 .container {
     width: 100%;
+}
+
+// Layout text
+.planco-text {
+    margin-top: 10px;
+    margin-bottom: 50px;
+}
+
+.feedback {
+    display: flex;
+    
+    a {
+        flex-flow: row;
+        white-space: nowrap;
+        margin-left: auto;
+    }
+}
+
+// JS
+.cover {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background: $blue;
+    z-index: 99;
+    content: '';
+
+    transition: 0.1s ease;
 }
 
 .hide {

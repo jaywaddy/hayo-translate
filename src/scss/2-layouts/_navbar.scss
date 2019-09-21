@@ -1,66 +1,78 @@
-.nav-wrap {
+header {
+    position: fixed;
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
 
-    width: 90%;
-    margin-top: 50px;
-    margin-left: 50%;
-    transform: translateX(-50%);
+    background: $blue;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+    width: 100%;
+    z-index: 999;
 
-    .logo {
+    .nav-wrap {
         display: flex;
-        margin-right: auto;
-
-        transform: scale(0.9);
-
-        text {
-            font-family: planco;
-        }
-
-        &:hover {
-            cursor: pointer;
-        }
-    }
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        justify-items: center;
     
-    .links {
-        display: flex;
         width: 100%;
+        padding: 10px 100px;
+        // margin-left: 50%;
+        // transform: translateX(-50%);
     
-        ul {
-            margin-left: auto;
-            position: relative;
+        .logo {
+            display: flex;
+            margin-right: auto;
     
-            li {
-                margin-left: 30px;
-                display: inline-block;
+            transform: scale(0.9);
     
-                a {
-                    list-style: none;
-                    font-weight: 600;
-                    border: solid $clear 2px;
-                    border-radius: 50px;
-                    padding: 10px 20px;
+            text {
+                font-family: planco;
+            }
     
-                    transition: 0.2s;
-    
-                    &:hover {
-                        background: white;
-                        border-color: white;
-                        color: $blue;
-    
+            &:hover {
+                cursor: pointer;
+            }
+        }
+        
+        .links {
+            display: flex;
+            width: 100%;
+        
+            ul {
+                margin-left: auto;
+                position: relative;
+        
+                li {
+                    margin-left: 30px;
+                    display: inline-block;
+        
+                    a {
+                        list-style: none;
+                        font-weight: 600;
+                        border: solid $clear 2px;
+                        border-radius: 50px;
+                        padding: 10px 20px;
+        
                         transition: 0.2s;
+        
+                        &:hover {
+                            background: white;
+                            border-color: white;
+                            color: $blue;
+        
+                            transition: 0.2s;
+                        }
                     }
-                }
-    
-                .active-link {
-                    border: solid $light-blue 2px;
-                    background: $light-blue-20;
-                    color: $light-blue;
-                }
-    
-            } // End of li
-        } // End of ul
-    } // End of .links
-} // End of .nav-wrap
+        
+                    .active-link {
+                        border: solid $light-blue 2px;
+                        background: $light-blue-20;
+                        color: $light-blue;
+                    }
+        
+                } // End of li
+            } // End of ul
+        } // End of .links
+    } // End of .nav-wrap
+} // End of header

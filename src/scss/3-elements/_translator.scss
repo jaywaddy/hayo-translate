@@ -17,7 +17,7 @@
         width: 50%;
         height: 100%;
         background: white;
-        border-radius: 15px 0 0 15px;
+        border-radius: 10px 0 0 10px;
 
         .secondary-wrapper {
             display: flex;
@@ -25,7 +25,7 @@
 
             width: 85%;
             margin-left: 50%;
-            transform: translateX( -50% );
+            transform: translateX(-50%);
 
             textarea {
                 border: none;
@@ -42,9 +42,8 @@
             .char-counter {
                 margin-left: auto;
 
-                p {
-                    color: $dark;
-                    opacity: 0.7;
+                p, span {
+                    color: $dark-50;
                 }
             }
     
@@ -71,7 +70,7 @@
         width: 50%;
         height: 100%;
         background: rgba( 255, 255, 255, 0.8 );
-        border-radius: 0 15px 15px 0;
+        border-radius: 0 10px 10px 0;
         content: '';
 
         .secondary-wrapper {
@@ -80,7 +79,7 @@
 
             width: 85%;
             margin-left: 50%;
-            transform: translateX( -50% );
+            transform: translateX(-50%);
 
             .output {
                 width: 100%;

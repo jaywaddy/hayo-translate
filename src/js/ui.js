@@ -1,32 +1,41 @@
-// App buttons.
+// App buttons
 const clearBtn = document.querySelector('.clear');
 const copyBtn = document.querySelector('.copy');
 
-// Nav links.
+// Nav links
 const homeLink = document.querySelector('.translate-link');
 const dictLink = document.querySelector('.dictionary-link');
 const aboutLink = document.querySelector('.about-link');
 
 // Pages
 const homePage = document.querySelector('.translator-box');
+const dictPage = document.querySelector('.dictionary-box');
 const aboutPage = document.querySelector('.about-box');
+
+// Elements
+const letterTabs = document.querySelector('.letter-tabs');
+const searchInput = document.querySelector('.search input');
+const searchIcon = document.querySelector('.search-icon circle');
+const cover = document.querySelector('.cover');
 
 window.onload = () => {
     input.focus();
-    remove(aboutPage);
+    loadURLvar();
+    dictionary();
+    fadeIn();
     setInterval(() => runApp(), 1000);
 }
 
-// Clear text.
-clearBtn.addEventListener( 'click', function() {
+// Clear text
+clearBtn.addEventListener('click', function() {
     input.value = '';
     runApp();
     setTimeout(() => input.focus(), 1);
 });
 
-// Copy button.
+// Copy button
 copyBtn.addEventListener('click', () => {
-    let text = document.createElement('textarea');
+    const text = document.createElement('textarea');
 
     document.body.appendChild(text)
     text.value = output.textContent;
@@ -35,57 +44,120 @@ copyBtn.addEventListener('click', () => {
     document.body.removeChild(text);
 });
 
-// New page script.
-homeLink.firstElementChild.classList.add('active-link');
-
+// New page script
 window.addEventListener('hashchange', function () {
-    const url = this.location.hash;
+    newPage();
+});
+
+// Search focus
+searchInput.addEventListener('focus', () => searchInput.style = 'fill: rgb(114, 209, 255)');
+
+// Functions
+function loadURLvar() {
     const home = homeLink.firstElementChild.classList;
     const dict = dictLink.firstElementChild.classList;
     const about = aboutLink.firstElementChild.classList;
 
-    remove(aboutPage);
-
-    // Home.
-    if (url === '' || url === '#translate') {
-        // Active link.
+    if (window.location.hash === '' || window.location.hash === '#translate') {
         home.add('active-link');
         dict.remove('active-link');
         about.remove('active-link');
 
-        show(homePage);
         remove(aboutPage);
-    
-    } 
-    
-    // Dictionary.
-    if (url === '#dictionary') {
-        // Active link
+        remove(dictPage);
+        show(homePage);
+
+    } else if (window.location.hash === '#dictionary') {
         home.remove('active-link');
         dict.add('active-link');
         about.remove('active-link');
 
         remove(homePage);
         remove(aboutPage);
-    }
+        show(dictPage);
 
-
-    // About.
-    if (url === '#about') {
-        // Active link.
+    } else if (window.location.hash === '#about') {
         home.remove('active-link');
         dict.remove('active-link');
         about.add('active-link');
 
-        show(aboutPage);
         remove(homePage);
+        remove(dictPage);
+        show(aboutPage);
     }
-}); // End new page script.
-
-function show ( page ) {
-    page.style = 'display: auto';
 }
 
-function remove ( page ) {
-    page.style = 'display: none';
+function fadeIn() {
+    cover.style.opacity = '0';
+    setTimeout(() => cover.style.display = 'none', 200);
 }
+
+function newPage() {
+    cover.style = 'disply: auto';
+    cover.style.opacity = '1';
+    loadURLvar();
+    setTimeout(() => fadeIn(), 200);
+}
+
+function show (element) {
+    element.style = 'display: auto';
+}
+
+function remove (element) {
+    element.style = 'display: none';
+}
+
+function dictionary() {
+    const letter = 'abcdefghijklmnopqrstuvwxyz'.split('');
+    let letterCount = 0;
+
+    // Display letter tabs
+    for (let i = 0; i < letter.length; i++) {
+        const newDiv = document.createElement('div');
+        const newSpan = document.createElement('span');
+        const div = letterTabs.appendChild(newDiv);
+        const span = div.appendChild(newSpan);
+
+        span.innerText = letter[i].toUpperCase();
+        span.classList.add('t12');
+
+        div.addEventListener('click', function() {
+            const active = document.querySelector('.active-tab');
+
+            active.classList.remove('active-tab');
+            this.classList.add('active-tab');
+
+            // Load dictionary content
+            for (let j = 0; j < App.data.length; j++) {
+                if (App.data[j].eng.charAt(0).toLowerCase() === letter[i]) {
+                    letterCount += 1;
+                }
+            }
+            
+            console.log(letterCount)
+        });
+    }
+
+    letterTabs.firstElementChild.classList.add('active-tab');
+}
+
+// function createDiv (language) {
+
+                        //     card.appendChild(newLang).classList.add;
+
+                        //     if (language === 'eng') {
+                        //         small.textContent = 'English';
+                        //         span.textContent = 'new text';
+                        //         em.textContent = '(n)';
+                        //     } else {
+                        //         lang.classList.add('plc');
+                        //         small.textContent = 'Planco';
+                        //         span.textContent = 'noss zelet';
+                        //         em.textContent = 'nos zel-et';
+                        //     }
+
+                        //     return lang;
+                        // };
+
+                        // createDiv('eng');
+                        // createDiv('plc');

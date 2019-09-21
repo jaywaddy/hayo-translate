@@ -3,6 +3,8 @@
     flex-direction: row;
     align-items: center;
 
+    transition: 0.2s;
+
     input {
         background: none;
         border: none;
@@ -24,16 +26,10 @@
 
             transition: 0.2s;
         }
-
-
-        &:focus, &:hover {
-            background: rgba( 114, 209, 255, 0.2 );
-            border-color: $light-blue;
-        }
     } // End of input
 
     .search-icon {
-        transform: translateX( -150% );
+        transform: translate( -100%, 2px) scale(0.95);
 
         &:hover {
             cursor: pointer;
@@ -43,5 +39,21 @@
     .search-focus {
         background: $light-blue-20;
         border-color: $light-blue;
+
+        circle {
+            fill: $light-blue;
+        }
+    }
+
+    &:focus, &:hover {
+        input {
+            background: rgba( 114, 209, 255, 0.2 );
+            border-color: $light-blue;
+        }
+        
+        circle {
+            fill: $light-blue;
+            transition: 0.2s;
+        }
     }
 } // End of .search

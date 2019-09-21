@@ -4,21 +4,21 @@
 }
 
 @font-face {
-    src: url(../fonts/Yantramanav-Regular.ttf);
-    font-family: yantramanav;
-    font-weight: 400;
-}
-
-@font-face {
-    src: url(../fonts/Yantramanav-Bold.ttf);
-    font-family: yantramanav;
+    src: url(../fonts/OpenSans-Bold.ttf);
+    font-family: HKG;
     font-weight: 600;
 }
 
-h1, h2, p, a, textarea, input {
+@font-face {
+    src: url(../fonts/OpenSans-Regular.ttf);
+    font-family: HKG;
+    font-weight: 400;
+}
+
+h1, h2, p, a, textarea, input, small, span, em {
     color: white;
     text-decoration: none;
-    font-family: 'Yantramanav', sans-serif;
+    font-family: 'HKG', sans-serif;
     font-weight: 300;
     font-size: 16px;
     letter-spacing: 0.5px;
@@ -53,19 +53,4 @@ a {
 
 .t12 {
     font-size: 12px;
-}
-
-// Layout text
-.planco-text {
-    margin-top: 10px;
-}
-
-.feedback {
-    display: flex;
-    
-    a {
-        flex-flow: row;
-        white-space: nowrap;
-        margin-left: auto;
-    }
 }
