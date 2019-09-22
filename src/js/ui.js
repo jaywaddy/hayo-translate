@@ -106,7 +106,7 @@ function remove (element) {
 
 function dictionary() {
     const letter = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    let letterCount = 0;
+    let letterCount;
 
     // Display letter tabs
     for (let i = 0; i < letter.length; i++) {
@@ -120,7 +120,12 @@ function dictionary() {
 
         div.addEventListener('click', function() {
             const active = document.querySelector('.active-tab');
+            const cardWrapper = letterTabs.nextElementSibling;
+            const createDiv = document.createElement('div');
 
+            let iterates = 0;
+
+            cardWrapper.innerHTML = '';
             letterCount = 0;
 
             active.classList.remove('active-tab');
@@ -128,36 +133,36 @@ function dictionary() {
 
             // Load dictionary content
             for (let j = 0; j < App.data.length; j++) {
+                iterates += 1;
                 if (App.data[j].eng.charAt(0).toLowerCase() === letter[i]) {
                     letterCount += 1;
+                    loadCards();
+                    console.log(iterates)
                 }
-                createCard();
+
+                function loadCards() {
+                    const card = cardWrapper.appendChild(createDiv);
+
+                    for (let i = 0; i < iterates.length; i++) {
+                        card.innerHTML = `
+                        <div class="card">
+                            <div class="eng">
+                                <small class="t12">English</small>
+                                <span class="t30">${App.data[iterates].eng}</span>
+                                <em>(n)</em>
+                            </div>
+                            <div class="plc">
+                                <small class="t12">Planco</small>
+                                <span class="t30">hayo</span>
+                                <em>ha-yo</em>
+                            </div>
+                        </div>
+                        `
+                    }
+                }
             }
-            console.log(letterCount);
         });
     }
 
     letterTabs.firstElementChild.classList.add('active-tab');
-}
-
-function createCard() {
-    const virtDiv = document.createElement('div');
-    const newCard = document.querySelector('.dictionary-box .secondary-box').appendChild(virtDiv);
-
-    console.log(newCard);
-
-    // card.innerHTML = `
-    // <div class="card">
-    //     <div class="eng">
-    //         <small class="t12">English</small>
-    //         <span class="t30">hello</span>
-    //         <em>(n)</em>
-    //     </div>
-    //     <div class="plc">
-    //         <small class="t12">Planco</small>
-    //         <span class="t30">hayo</span>
-    //         <em>ha-yo</em>
-    //     </div>
-    // </div>
-    // `
 }

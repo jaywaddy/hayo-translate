@@ -36,11 +36,11 @@
     .search-icon {
         transform: translate( -100%, 2px) scale(1);
 
-        transition: 0.2s;
+        transition: transform 0.2s cubic-bezier(1, -0.15, .64, 1.38);
 
         &:hover {
             cursor: pointer;
-            transform: translate( -100%, 2px) scale(1.1);
+            transform: translate(-100%, 2px) scale(1.1);
             
             circle {
                 fill: $light-blue;
@@ -65,3 +65,22 @@
         }
     }
 } // End of .search
+
+// Responsiveness
+@media only screen and (max-width: 1250px) {
+    .links li {
+        margin: 0 !important;
+
+        &:not(:last-child) {
+            display: none !important;
+        }
+}
+
+    .logo {
+        margin-right: 0;
+    }
+
+    .search {
+        width: 100%;
+    }
+}
