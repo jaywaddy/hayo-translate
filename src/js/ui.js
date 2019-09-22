@@ -106,63 +106,53 @@ function remove (element) {
 
 function dictionary() {
     const letter = 'abcdefghijklmnopqrstuvwxyz'.split('');
-    let letterCount;
-
-    // Display letter tabs
+    
     for (let i = 0; i < letter.length; i++) {
         const newDiv = document.createElement('div');
         const newSpan = document.createElement('span');
         const div = letterTabs.appendChild(newDiv);
         const span = div.appendChild(newSpan);
 
+        // Display letter tabs
         span.innerText = letter[i].toUpperCase();
         span.classList.add('t12');
 
         div.addEventListener('click', function() {
             const active = document.querySelector('.active-tab');
-            const cardWrapper = letterTabs.nextElementSibling;
-            const createDiv = document.createElement('div');
+            const cardWrapper = document.querySelector('.card-wrapper');
 
-            let iterates = 0;
-
-            cardWrapper.innerHTML = '';
-            letterCount = 0;
-
+            // Relocate active tab & clear cards
             active.classList.remove('active-tab');
             this.classList.add('active-tab');
 
             // Load dictionary content
             for (let j = 0; j < App.data.length; j++) {
-                iterates += 1;
+                const createCard = document.createElement('div');
+                const card = cardWrapper.appendChild(createCard);
+                
                 if (App.data[j].eng.charAt(0).toLowerCase() === letter[i]) {
-                    letterCount += 1;
-                    loadCards();
-                    console.log(iterates)
-                }
+                    cardWrapper.innerHTML = '';
 
-                function loadCards() {
-                    const card = cardWrapper.appendChild(createDiv);
-
-                    for (let i = 0; i < iterates.length; i++) {
-                        card.innerHTML = `
-                        <div class="card">
-                            <div class="eng">
-                                <small class="t12">English</small>
-                                <span class="t30">${App.data[iterates].eng}</span>
-                                <em>(n)</em>
-                            </div>
-                            <div class="plc">
-                                <small class="t12">Planco</small>
-                                <span class="t30">hayo</span>
-                                <em>ha-yo</em>
-                            </div>
+                    card.innerHTML = `
+                    <div class="card">
+                        <div class="eng">
+                            <small class="t12">English</small>
+                            <span class="t30">${App.data[j].eng}</span>
+                            <em>${App.data[j].pos}</em>
                         </div>
-                        `
-                    }
+                        <div class="plc">
+                            <small class="t12">Planco</small>
+                            <span class="t30">${App.data[j].plc}</span>
+                            <em>${App.data[j].pro}</em>
+                        </div>
+                    </div>
+                    `
+                    console.log(card);
+                    return card;
                 }
-            }
-        });
-    }
+            } // End of App.data.length loop
+        }); // End of click event listener
+    } // End of letter.length loop
 
     letterTabs.firstElementChild.classList.add('active-tab');
-}
+} // End of dictionary()
