@@ -69,14 +69,18 @@
         }
     } // End of .letter-tabs
 
-    .secondary-wrapper {
-        display: flex;
-        flex-direction: row;
-        flex-flow: wrap;
-        justify-content: space-between;
+    .card-wrapper {
+        // display: flex;
+        // flex-direction: row;
+        // flex-flow: wrap;
+        // justify-content: space-between;
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+        grid-gap: 20px;
 
-        width: 98%;
+        width: 97%;
         margin-left: 50%;
+        padding: 20px 0;
         transform: translateX(-50%);
 
         small, span, em {
@@ -89,9 +93,8 @@
             border-radius: 10px;
             max-width: 100%;
             min-width: 20%;
-            padding: 1.1%;
-            margin: 20px 1%;
-            
+            padding: 10px;
+            // margin: 20px 1%;
             content: '';
 
             .eng, .plc {

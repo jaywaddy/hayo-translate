@@ -24,6 +24,7 @@ window.onload = () => {
     dictionary();
     fadeIn();
     setInterval(() => runApp(), 100);
+    letterTabs.firstElementChild.click();
 }
 
 // Clear text
@@ -124,31 +125,33 @@ function dictionary() {
             // Relocate active tab & clear cards
             active.classList.remove('active-tab');
             this.classList.add('active-tab');
+            cardWrapper.innerHTML = '';
 
             // Load dictionary content
             for (let j = 0; j < App.data.length; j++) {
-                const createCard = document.createElement('div');
-                const card = cardWrapper.appendChild(createCard);
+                const card = document.createElement('div');
+
+                let arr = [];
                 
                 if (App.data[j].eng.charAt(0).toLowerCase() === letter[i]) {
-                    cardWrapper.innerHTML = '';
-
                     card.innerHTML = `
                     <div class="card">
                         <div class="eng">
                             <small class="t12">English</small>
-                            <span class="t30">${App.data[j].eng}</span>
+                            <span class="t30">${App.data[j].eng.toLowerCase()}</span>
                             <em>${App.data[j].pos}</em>
                         </div>
                         <div class="plc">
                             <small class="t12">Planco</small>
-                            <span class="t30">${App.data[j].plc}</span>
+                            <span class="t30">${App.data[j].plc.toLowerCase()}</span>
                             <em>${App.data[j].pro}</em>
                         </div>
                     </div>
                     `
-                    console.log(card);
-                    return card;
+                    arr.push(card);
+                    for (n = 0; n < arr.length; n ++) {
+                        cardWrapper.appendChild(arr[n]);
+                    }
                 }
             } // End of App.data.length loop
         }); // End of click event listener
