@@ -26,13 +26,26 @@
 
             transition: 0.2s;
         }
+
+        &:focus, &:hover {
+            background: $light-blue-20;
+            border-color: $light-blue;
+        }
     } // End of input
 
     .search-icon {
-        transform: translate( -100%, 2px) scale(0.95);
+        transform: translate( -100%, 2px) scale(1);
+
+        transition: 0.2s;
 
         &:hover {
             cursor: pointer;
+            transform: translate( -100%, 2px) scale(1.1);
+            
+            circle {
+                fill: $light-blue;
+                transition: 0.2s;
+            }
         }
     }
 
@@ -49,11 +62,6 @@
         input {
             background: rgba( 114, 209, 255, 0.2 );
             border-color: $light-blue;
-        }
-        
-        circle {
-            fill: $light-blue;
-            transition: 0.2s;
         }
     }
 } // End of .search

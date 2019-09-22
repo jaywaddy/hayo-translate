@@ -23,7 +23,7 @@ window.onload = () => {
     loadURLvar();
     dictionary();
     fadeIn();
-    setInterval(() => runApp(), 1000);
+    setInterval(() => runApp(), 100);
 }
 
 // Clear text
@@ -48,9 +48,6 @@ copyBtn.addEventListener('click', () => {
 window.addEventListener('hashchange', function () {
     newPage();
 });
-
-// Search focus
-searchInput.addEventListener('focus', () => searchInput.style = 'fill: rgb(114, 209, 255)');
 
 // Functions
 function loadURLvar() {
@@ -124,6 +121,8 @@ function dictionary() {
         div.addEventListener('click', function() {
             const active = document.querySelector('.active-tab');
 
+            letterCount = 0;
+
             active.classList.remove('active-tab');
             this.classList.add('active-tab');
 
@@ -132,32 +131,33 @@ function dictionary() {
                 if (App.data[j].eng.charAt(0).toLowerCase() === letter[i]) {
                     letterCount += 1;
                 }
+                createCard();
             }
-            
-            console.log(letterCount)
+            console.log(letterCount);
         });
     }
 
     letterTabs.firstElementChild.classList.add('active-tab');
 }
 
-// function createDiv (language) {
+function createCard() {
+    const virtDiv = document.createElement('div');
+    const newCard = document.querySelector('.dictionary-box .secondary-box').appendChild(virtDiv);
 
-                        //     card.appendChild(newLang).classList.add;
+    console.log(newCard);
 
-                        //     if (language === 'eng') {
-                        //         small.textContent = 'English';
-                        //         span.textContent = 'new text';
-                        //         em.textContent = '(n)';
-                        //     } else {
-                        //         lang.classList.add('plc');
-                        //         small.textContent = 'Planco';
-                        //         span.textContent = 'noss zelet';
-                        //         em.textContent = 'nos zel-et';
-                        //     }
-
-                        //     return lang;
-                        // };
-
-                        // createDiv('eng');
-                        // createDiv('plc');
+    // card.innerHTML = `
+    // <div class="card">
+    //     <div class="eng">
+    //         <small class="t12">English</small>
+    //         <span class="t30">hello</span>
+    //         <em>(n)</em>
+    //     </div>
+    //     <div class="plc">
+    //         <small class="t12">Planco</small>
+    //         <span class="t30">hayo</span>
+    //         <em>ha-yo</em>
+    //     </div>
+    // </div>
+    // `
+}
