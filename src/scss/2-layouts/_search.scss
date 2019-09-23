@@ -65,22 +65,3 @@
         }
     }
 } // End of .search
-
-// Responsiveness
-@media only screen and (max-width: 1250px) {
-    .links li {
-        margin: 0 !important;
-
-        &:not(:last-child) {
-            display: none !important;
-        }
-}
-
-    .logo {
-        margin-right: 0;
-    }
-
-    .search {
-        width: 100%;
-    }
-}
