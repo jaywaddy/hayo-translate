@@ -36,6 +36,7 @@
 
             span {
                 color: $white-50;
+                font-weight: 600;
             }
         }
 
@@ -70,10 +71,6 @@
     } // End of .letter-tabs
 
     .card-wrapper {
-        // display: flex;
-        // flex-direction: row;
-        // flex-flow: wrap;
-        // justify-content: space-between;
         display: grid;
         grid-template-columns: 1fr 1fr 1fr 1fr;
         grid-gap: 20px;
@@ -94,7 +91,6 @@
             max-width: 100%;
             min-width: 20%;
             padding: 10px;
-            // margin: 20px 1%;
             content: '';
 
             .eng, .plc {

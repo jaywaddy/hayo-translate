@@ -13,9 +13,9 @@ const dictPage = document.querySelector('.dictionary-box');
 const aboutPage = document.querySelector('.about-box');
 
 // Elements
-const letterTabs = document.querySelector('.letter-tabs');
 const searchInput = document.querySelector('.search input');
 const searchIcon = document.querySelector('.search-icon circle');
+const letterTabs = document.querySelector('.letter-tabs');
 const cover = document.querySelector('.cover');
 
 window.onload = () => {
@@ -85,24 +85,11 @@ function loadURLvar() {
     }
 }
 
-function fadeIn() {
-    cover.style.opacity = '0';
-    setTimeout(() => cover.style.display = 'none', 200);
-}
-
 function newPage() {
     cover.style = 'disply: auto';
     cover.style.opacity = '1';
     loadURLvar();
     setTimeout(() => fadeIn(), 200);
-}
-
-function show (element) {
-    element.style = 'display: auto';
-}
-
-function remove (element) {
-    element.style = 'display: none';
 }
 
 function dictionary() {
@@ -159,3 +146,16 @@ function dictionary() {
 
     letterTabs.firstElementChild.classList.add('active-tab');
 } // End of dictionary()
+
+function show (element) {
+    element.style = 'display: auto';
+}
+
+function remove (element) {
+    element.style = 'display: none';
+}
+
+function fadeIn() {
+    cover.style.opacity = '0';
+    setTimeout(() => cover.style.display = 'none', 200);
+}
