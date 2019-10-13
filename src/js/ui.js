@@ -13,19 +13,33 @@ const dictPage = document.querySelector('.dictionary-box');
 const aboutPage = document.querySelector('.about-box');
 
 // Elements
-const searchInput = document.querySelector('.search input');
+const searchInput = document.querySelector('.search-input');
 const searchIcon = document.querySelector('.search-icon circle');
 const letterTabs = document.querySelector('.letter-tabs');
 const cover = document.querySelector('.cover');
+
+let searchArr = [];
+
+console.log(searchInput);
 
 window.onload = () => {
     input.focus();
     loadURLvar();
     dictionary();
     fadeIn();
-    setInterval(() => runApp(), 100);
     letterTabs.firstElementChild.click();
 }
+
+// Translate feature
+input.addEventListener('keyup', () => runApp());
+
+// Search function
+searchIcon.addEventListener('click', () => search());
+searchInput.addEventListener('keyup', event => {
+    if (event.keyCode === 13) {
+        search();
+    }
+});
 
 // Clear text
 clearBtn.addEventListener('click', function() {
@@ -83,6 +97,21 @@ function loadURLvar() {
         remove(dictPage);
         show(aboutPage);
     }
+}
+
+function search() {
+    searchArr = searchInput.value.split( /(\W+|\s)/ );
+
+    // for (let a = 0; a < searchArr.length; a++) {
+
+    //     for (let b = 0; b < App.data.length; b++) {
+    //         if (searchArr[a] === App.data[b]) {
+    //             console.log(App.data[b]);
+    //         }
+    //     }
+    // }
+
+    console.log(searchArr)
 }
 
 function newPage() {
