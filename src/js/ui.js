@@ -23,7 +23,7 @@ window.onload = () => {
     loadURLvar();
     dictionary();
     fadeIn();
-    setInterval(() => runApp(), 100);
+    setInterval(() => runApp(), 200);
     letterTabs.firstElementChild.click();
 }
 
