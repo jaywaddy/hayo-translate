@@ -2,6 +2,8 @@ const input = document.querySelector('.input');
 const output = document.querySelector('.output');
 const charCount = document.querySelector('.counter');
 
+// const searchInput = document.querySelector('.search-input').value;
+
 let timer;
 
 function runApp() {

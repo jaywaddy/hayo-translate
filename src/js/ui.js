@@ -7,13 +7,17 @@ const homeLink = document.querySelector('.translate-link');
 const dictLink = document.querySelector('.dictionary-link');
 const aboutLink = document.querySelector('.about-link');
 
+const home = homeLink.firstElementChild.classList;
+const dict = dictLink.firstElementChild.classList;
+const about = aboutLink.firstElementChild.classList;
+
 // Pages
 const homePage = document.querySelector('.translator-box');
 const dictPage = document.querySelector('.dictionary-box');
 const aboutPage = document.querySelector('.about-box');
 
 // Elements
-const searchInput = document.querySelector('.search input');
+const searchInput = document.querySelector('.search-input');
 const searchIcon = document.querySelector('.search-icon circle');
 const letterTabs = document.querySelector('.letter-tabs');
 const cover = document.querySelector('.cover');
@@ -23,9 +27,20 @@ window.onload = () => {
     loadURLvar();
     dictionary();
     fadeIn();
-    setInterval(() => runApp(), 200);
+    
     letterTabs.firstElementChild.click();
 }
+
+// Translate feature
+input.addEventListener('keyup', () => runApp());
+
+// Search function
+searchIcon.addEventListener('click', () => search());
+searchInput.addEventListener('keyup', event => {
+    if (event.keyCode === 13) {
+        search();
+    }
+});
 
 // Clear text
 clearBtn.addEventListener('click', function() {
@@ -52,36 +67,21 @@ window.addEventListener('hashchange', function () {
 
 // Functions
 function loadURLvar() {
-    const home = homeLink.firstElementChild.classList;
-    const dict = dictLink.firstElementChild.classList;
-    const about = aboutLink.firstElementChild.classList;
-
     if (window.location.hash === '' || window.location.hash === '#translate') {
-        home.add('active-link');
-        dict.remove('active-link');
-        about.remove('active-link');
-
-        remove(aboutPage);
-        remove(dictPage);
-        show(homePage);
-
+        loadHome();
     } else if (window.location.hash === '#dictionary') {
-        home.remove('active-link');
-        dict.add('active-link');
-        about.remove('active-link');
-
-        remove(homePage);
-        remove(aboutPage);
-        show(dictPage);
-
+        loadDictionary();
     } else if (window.location.hash === '#about') {
-        home.remove('active-link');
-        dict.remove('active-link');
-        about.add('active-link');
+        loadAbout();
+    }
+}
 
-        remove(homePage);
-        remove(dictPage);
-        show(aboutPage);
+function search() {
+    for (let i = 0; i < App.data.length; i++) {
+        if (App.data[i].eng.toLowerCase() == searchInput.value.toLowerCase()) {
+            loadDictionary();
+            console.log('load searchInput card only');
+        }
     }
 }
 
@@ -136,16 +136,46 @@ function dictionary() {
                     </div>
                     `
                     arr.push(card);
+
                     for (n = 0; n < arr.length; n ++) {
                         cardWrapper.appendChild(arr[n]);
                     }
                 }
+
+                
             } // End of App.data.length loop
         }); // End of click event listener
     } // End of letter.length loop
 
     letterTabs.firstElementChild.classList.add('active-tab');
 } // End of dictionary()
+
+function loadHome() {
+    home.add('active-link');
+    dict.remove('active-link');
+    about.remove('active-link');
+    remove(aboutPage);
+    remove(dictPage);
+    show(homePage);
+}
+
+function loadDictionary() {
+    home.remove('active-link');
+    dict.add('active-link');
+    about.remove('active-link');
+    remove(homePage);
+    remove(aboutPage);
+    show(dictPage);
+}
+
+function loadAbout() {
+    home.remove('active-link');
+    dict.remove('active-link');
+    about.add('active-link');
+    remove(homePage);
+    remove(dictPage);
+    show(aboutPage);
+}
 
 function show (element) {
     element.style = 'display: auto';
