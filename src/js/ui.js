@@ -6,7 +6,6 @@ const copyBtn = document.querySelector('.copy');
 const homeLink = document.querySelector('.translate-link');
 const dictLink = document.querySelector('.dictionary-link');
 const aboutLink = document.querySelector('.about-link');
-
 const home = homeLink.firstElementChild.classList;
 const dict = dictLink.firstElementChild.classList;
 const about = aboutLink.firstElementChild.classList;
@@ -25,9 +24,8 @@ const cover = document.querySelector('.cover');
 window.onload = () => {
     input.focus();
     loadURLvar();
-    dictionary();
+    runDictionary();
     fadeIn();
-    
     letterTabs.firstElementChild.click();
 }
 
@@ -65,17 +63,17 @@ window.addEventListener('hashchange', function () {
     newPage();
 });
 
-// Functions
 function loadURLvar() {
     if (window.location.hash === '' || window.location.hash === '#translate') {
         loadHome();
     } else if (window.location.hash === '#dictionary') {
         loadDictionary();
-    } else if (window.location.hash === '#about') {
+    } else {
         loadAbout();
     }
 }
 
+// Feature not implemented
 function search() {
     for (let i = 0; i < App.data.length; i++) {
         if (App.data[i].eng.toLowerCase() == searchInput.value.toLowerCase()) {
@@ -92,7 +90,7 @@ function newPage() {
     setTimeout(() => fadeIn(), 200);
 }
 
-function dictionary() {
+function runDictionary() {
     const letter = 'abcdefghijklmnopqrstuvwxyz'.split('');
     
     for (let i = 0; i < letter.length; i++) {
@@ -114,67 +112,68 @@ function dictionary() {
             this.classList.add('active-tab');
             cardWrapper.innerHTML = '';
 
+            loadDictionaryContent();
+
             // Load dictionary content
-            for (let j = 0; j < App.data.length; j++) {
-                const card = document.createElement('div');
-
-                let arr = [];
-                
-                if (App.data[j].eng.charAt(0).toLowerCase() === letter[i]) {
-                    card.innerHTML = `
-                    <div class="card">
-                        <div class="eng">
-                            <small class="t12">English</small>
-                            <span class="t30">${App.data[j].eng.toLowerCase()}</span>
-                            <em>${App.data[j].pos}</em>
+            function loadDictionaryContent() {
+                for (let j = 0; j < App.data.length; j++) {
+                    const card = document.createElement('div');
+    
+                    let arr = [];
+                    
+                    if (App.data[j].eng.charAt(0).toLowerCase() === letter[i]) {
+                        card.innerHTML = `
+                        <div class="card">
+                            <div class="eng">
+                                <small class="t12">English</small>
+                                <span class="t30">${App.data[j].eng.toLowerCase()}</span>
+                                <em>${App.data[j].pos}</em>
+                            </div>
+                            <div class="plc">
+                                <small class="t12">Planco</small>
+                                <span class="t30">${App.data[j].plc.toLowerCase()}</span>
+                                <em>${App.data[j].pro}</em>
+                            </div>
                         </div>
-                        <div class="plc">
-                            <small class="t12">Planco</small>
-                            <span class="t30">${App.data[j].plc.toLowerCase()}</span>
-                            <em>${App.data[j].pro}</em>
-                        </div>
-                    </div>
-                    `
-                    arr.push(card);
-
-                    for (n = 0; n < arr.length; n ++) {
-                        cardWrapper.appendChild(arr[n]);
-                    }
+                        `
+                        arr.push(card);
+    
+                        for (n = 0; n < arr.length; n ++) {
+                            cardWrapper.appendChild(arr[n]);
+                        }
+                    } 
                 }
-
-                
-            } // End of App.data.length loop
+            } // End of loadDictionaryContent()
         }); // End of click event listener
-    } // End of letter.length loop
-
+    }
     letterTabs.firstElementChild.classList.add('active-tab');
 } // End of dictionary()
 
+function loadLinkClass(current, old_1, old_2) {
+    current.add('active-link');
+    old_1.remove('active-link');
+    old_2.remove('active-link');
+}
+
+function loadLinkPage(current, old_1, old_2) {
+    show(current);
+    remove(old_1);
+    remove(old_2);
+}
+
 function loadHome() {
-    home.add('active-link');
-    dict.remove('active-link');
-    about.remove('active-link');
-    remove(aboutPage);
-    remove(dictPage);
-    show(homePage);
+    loadLinkClass(home, dict, about);
+    loadLinkPage(homePage, dictPage, aboutPage);
 }
 
 function loadDictionary() {
-    home.remove('active-link');
-    dict.add('active-link');
-    about.remove('active-link');
-    remove(homePage);
-    remove(aboutPage);
-    show(dictPage);
+    loadLinkClass(dict, about, home);
+    loadLinkPage(dictPage, aboutPage, homePage);
 }
 
 function loadAbout() {
-    home.remove('active-link');
-    dict.remove('active-link');
-    about.add('active-link');
-    remove(homePage);
-    remove(dictPage);
-    show(aboutPage);
+    loadLinkClass(about, dict, home);
+    loadLinkPage(aboutPage, homePage, dictPage);
 }
 
 function show (element) {
