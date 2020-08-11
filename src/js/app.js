@@ -1,7 +1,7 @@
 const input = document.querySelector('.input');
 const output = document.querySelector('.output');
 const charCount = document.querySelector('.counter');
-// const searchInput = document.querySelector('.search-input').value;
+
 let timer;
 
 function runApp() {
@@ -36,7 +36,6 @@ function runApp() {
                     if (word === /\W/) str += match;
                     counter += 1;
                 }
-    
                 // When all items have been searched and no match
                 if (counter === App.data.length) str += word;
             } // End of search loop
