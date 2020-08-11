@@ -3,8 +3,11 @@ const searchInput = document.querySelector('.search-input');
 const searchIcon = document.querySelector('.search-icon circle');
 
 searchIcon.addEventListener('click', () => runSearch());
-searchInput.addEventListener('input', event => {
+searchInput.addEventListener('keyup', event => {
     // runSearch() on 'enter' pressed
+    if (event.keyCode == 13) {
+        runSearch();
+    }
 });
 
 // Search functionality
@@ -27,11 +30,9 @@ function runSearch() {
             const mathcPlc = App.data[i].plc;
             const card = document.createElement('div');
 
-
             // If user input matches an App.data entry, display it
             if (matchEng.toLowerCase() == userInput.toLowerCase() ||
                 mathcPlc.toLowerCase() == userInput.toLowerCase()) {
-
                 card.innerHTML = `
                 <div class="card">
                     <div class="eng">
