@@ -34,23 +34,5 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  },
-  "description": "This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).",
-  "main": "index.js",
-  "devDependencies": {},
-  "keywords": [
-    "hayo",
-    "planco",
-    "translator"
-  ],
-  "author": "Jay Waddy",
-  "license": "MIT",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/JayWaddy/Hayo.git"
-  },
-  "bugs": {
-    "url": "https://github.com/JayWaddy/Hayo/issues"
-  },
-  "homepage": "https://github.com/JayWaddy/Hayo#readme"
+  }
 }
