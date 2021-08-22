@@ -5,7 +5,7 @@ import {
     CardContainer,
     EnglishInfo,
     PlancoInfo
-} from "./styles/EntryCardStyles";
+} from './GlossaryCardStyles';
 
 export default function EntryCard(props) {
     const [toggle, setToggle] = React.useState(false);

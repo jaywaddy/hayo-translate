@@ -18,7 +18,7 @@ import {
     Output
 } from "./TranslateStyles";
 
-export default props => {
+export default function Translate(props) {
     const [input, setInput] = React.useState("");
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);

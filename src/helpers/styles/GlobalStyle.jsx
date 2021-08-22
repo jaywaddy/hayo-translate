@@ -13,8 +13,8 @@ export const color = {
     componentDark: '#525a62',
 
     // Text colors
-    textLight: this.black,
-    textDark: this.white,
+    textLight: '#20272e',
+    textDark: '#ffffff',
     textDeselected: '#969da3'
 }
 

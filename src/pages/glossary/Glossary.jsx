@@ -1,8 +1,9 @@
+/* eslint-disable import/no-anonymous-default-export */
 import React from 'react';
 
 // SVGs
 import ArrowIcon from "../../assets/icons/ArrowIcon";
-import EntryCard from './components/EntryCard';
+import EntryCard from '../../components/glossaryCard/GlossaryCard';
 
 // Scripts
 import Data from '../../helpers/scripts/data';
@@ -17,7 +18,7 @@ import {
 	LetterSearch,
 } from "./GlossaryStyles";
 
-export default () => {
+export default function Glossary() {
 	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 	const [active, setActive]  = React.useState(letters[0]);
