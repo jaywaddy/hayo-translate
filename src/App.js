@@ -1,5 +1,5 @@
 import React from "react";
-import { Route, BrowserRouter as Router, Switch } from "react-dom";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
 
 // Styles
 import GlobalStyle, { AppContainer } from "./helpers/styles/GlobalStyle";
