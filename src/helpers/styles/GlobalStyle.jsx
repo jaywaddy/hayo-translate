@@ -1,8 +1,22 @@
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 
-// Color scheme
-export const color = {
+export const global = {};
+
+// Constants
+global.component = {
+    corners: `${20}px`,
+    padding: `${20}px`
+}
+
+global.cta = {
+    borderRadius: "100%",
+    width: `${160}px`,
+    height: `${40}px`
+}
+
+// Color
+global.color = {
     // Constants
     primary: '#0f7ddb',
     white: '#ffffff',
@@ -30,7 +44,7 @@ export const AppContainer = styled.div`
 `;
 
 // Global styles
-const GlobalStyle = createGlobalStyle`
+const GlobalStyles = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
@@ -93,7 +107,7 @@ const GlobalStyle = createGlobalStyle`
 
         width: 90px;
         padding: 15px;
-        background: ${color.lightDefaultElement};
+        background: ${global.color.lightDefaultElement};
 
         cursor: pointer;
 
@@ -102,8 +116,8 @@ const GlobalStyle = createGlobalStyle`
         }
 
         &:hover {
-            background: ${color.action};
-            color: ${color.white}
+            background: ${global.color.action};
+            color: ${global.color.white}
         }
     }
 
@@ -120,74 +134,8 @@ const GlobalStyle = createGlobalStyle`
     }
 
     /* Light Theme */
-    .light-theme {
-        body {
-            background: ${color.lightBackground};
-        }
-
-        p, a {
-            color: ${color.lightDefaultText};
-        }
-
-        span, em, .light {
-            color: ${color.lightSecondaryText}
-        }
-
-        .component {
-            background-color: ${color.lightDefaultElement};
-            border-radius: 10px;
-        }
-
-        .focus {
-            background: ${color.lightFocusElement};
-
-            p, button {
-                color: ${color.lightFocusText};
-            }
-
-            span, em, button {
-                color: ${color.lightFocusSencondaryText};
-                border-color: rgba(16, 92, 191, 0.15);
-            }
-        }
-    }
 
     /* Dark Theme */
-    .dark-theme {
-        body {
-            background: ${color.darkBackground};
-            color: ${color.darkDefaultText};
-        }
-
-        p, a {
-            color: ${color.darkDefaultText};
-        }
-
-        span, em {
-            color: ${color.darkSecondaryText}
-        }
-
-        .component {
-            background: ${color.darkDefaultElement};
-            border-radius: 10px;
-
-            .cta {
-                background: ${color.darkCTA};
-            }
-        }
-
-        .focus {
-            background: ${color.darkFocusElement};
-
-            p {
-                color: ${color.darkFocusText}
-            }
-
-            span, em {
-                color: ${color.darkFocusSencondaryText}
-            }
-        }
-    }
 `;
 
-export default GlobalStyle;
+export default GlobalStyles;
