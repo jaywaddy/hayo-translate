@@ -7,9 +7,7 @@ import React from 'react';
 import Data from '../../helpers/scripts/data';
 
 // Components
-// import Component from '../../components/blankComponent/BlankComponent';
-import Action from "../../components/ctas/mainAction/MainAction";
-import ToggleMenu from "../../components/ctas/toggleMenu/ToggleMenu";
+import Header from '../../components/header/Header';
 
 // Styles
 import {
@@ -67,15 +65,10 @@ export default function Translate(props) {
 
     return (
         <>
+        <Header actionTitle="English" />
         <TranslateContainer className="translate-page-content">
             <IntputContainer className="input component">
                 <div className="input-content content">
-                    <LanguageHeading>
-                        <Action 
-                        title="English"
-                        dropdown={true} />
-                        <ToggleMenu isToggled={false} />
-                    </LanguageHeading>
                     <Input 
                     className="user-input" 
                     onChange={getUserInput}

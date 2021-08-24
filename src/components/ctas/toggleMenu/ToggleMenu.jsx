@@ -5,17 +5,23 @@ import { MenuIconContainer, MenuContainer } from "./ToggleMenuStyles";
 
 // Components
 import Icon from "../../../assets/icons/MenuIcon";
-import MainAction from '../mainAction/MainAction';
+import Menu from "../../menu/Menu";
 
 export default function ToggleMenu ({ isToggled }) {
     const [toggle, setToggle] = React.useState(false);
 
     const setToggleState = () => setToggle(toggle => !toggle);
 
-    const MenuIcon = props => {
-        return !toggle ?
-            <Icon isToggled={false} /> :
-            <Icon isToggled={true} />;
+    const MenuIcon = function() {
+        return !toggle 
+            ? <Icon isToggled={false} />
+            : <Icon isToggled={true} />;
+    }
+
+    const ShowMenu = function() {
+        return toggle 
+            ? <Menu />
+            : null
     }
 
     return (
@@ -26,7 +32,7 @@ export default function ToggleMenu ({ isToggled }) {
                 <MenuIcon />
             </MenuIconContainer>
             <MenuContainer>
-                <MainAction title="test" />
+                <ShowMenu />
             </MenuContainer>
         </>
     );

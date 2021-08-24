@@ -1,17 +1,20 @@
 import React from 'react';
 
 // Styles
-import { HeaderContainer } from './HeaderStyles';
+import { CTAContainer, HeaderContainer } from './HeaderStyles';
 
 // Components
-import MenuButton from "../ctas/toggleMenu/ToggleMenu"
-import SearchBar from '../components/SearchBar';
+import MainAction from '../ctas/mainAction/MainAction';
+import ToggleMenu from '../ctas/toggleMenu/ToggleMenu';
 
-export default function Header() {
+export default function Header({ actionTitle }) {
     return (
-        <HeaderContainer className="header">
-            <MenuButton/>
-            <SearchBar/>
+        <HeaderContainer>
+            <p>Hayo</p>
+            <CTAContainer>
+                <MainAction title={actionTitle} />
+                <ToggleMenu isToggled={false} />
+            </CTAContainer>
         </HeaderContainer>
     );
 }
