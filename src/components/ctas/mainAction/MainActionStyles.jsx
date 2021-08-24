@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { global } from "../../../helpers/styles/GlobalStyle";
 
 export const Container = styled.button`
-    background: ${global.color.prima};
+    background: ${global.color.componentLight};
     border: none;
     border-radius: ${global.component.corners};
 

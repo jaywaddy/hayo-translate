@@ -5,14 +5,16 @@ export const global = {};
 
 // Constants
 global.component = {
-    corners: `${20}px`,
-    padding: `${20}px`
+    width: "100%",
+    height: "auto",
+    corners: "20px",
+    padding: "20px"
 }
 
 global.cta = {
     borderRadius: "100%",
-    width: `${160}px`,
-    height: `${40}px`
+    width: "160px",
+    height: "40px"
 }
 
 // Color
@@ -58,6 +60,10 @@ const GlobalStyles = createGlobalStyle`
     /* Defaul text */
     h1, p, a, li, span, em, textarea, .button{
         font-family: Arial, Helvetica, sans-serif;
+    }
+
+    button:focus {
+        -webkit-tap-highlight-color: transparent;
     }
 
     span, em, input, .button {

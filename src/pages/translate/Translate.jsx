@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Asssets
-import CancelIcon from '../../assets/icons/CancelIcon';
+// import CancelIcon from '../../assets/icons/CancelIcon';
 
 // Helpers
 import Data from '../../helpers/scripts/data';
@@ -9,6 +9,7 @@ import Data from '../../helpers/scripts/data';
 // Components
 // import Component from '../../components/blankComponent/BlankComponent';
 import Action from "../../components/ctas/mainAction/MainAction";
+import ToggleMenu from "../../components/ctas/toggleMenu/ToggleMenu";
 
 // Styles
 import {
@@ -70,11 +71,10 @@ export default function Translate(props) {
             <IntputContainer className="input component">
                 <div className="input-content content">
                     <LanguageHeading>
-                        {/* <span>English</span> */}
                         <Action 
                         title="English"
                         dropdown={true} />
-                        <div className="cancel-icon cta" onClick={() => setInput(() => "")}><CancelIcon/></div>
+                        <ToggleMenu isToggled={false} />
                     </LanguageHeading>
                     <Input 
                     className="user-input" 
