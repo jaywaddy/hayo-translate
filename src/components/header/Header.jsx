@@ -8,8 +8,8 @@ import {
 } from './HeaderStyles';
 
 // Components
-import DropDown from '../ctas/dropDown/DropDown';
-import ToggleMenuCTA from '../ctas/toggleMenu/ToggleMenu';
+import DropDownCTA from '../ctas/dropDownCTA/DropDownCTA';
+import ToggleMenuCTA from '../ctas/toggleMenuCTA/ToggleMenuCTA';
 import Menu from "../menu/Menu";
 
 export default function Header({ actionTitle }) {
@@ -23,7 +23,7 @@ export default function Header({ actionTitle }) {
         <HeaderContainer>
             <AppTitle>Hayo Translate</AppTitle>
             <CTAContainer>
-                <DropDown 
+                <DropDownCTA 
                 title={actionTitle} 
                 menuToggled={toggle}
                 disabled={toggle}/>

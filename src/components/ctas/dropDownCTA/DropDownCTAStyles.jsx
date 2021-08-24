@@ -1,7 +1,12 @@
 import styled from "styled-components";
 import { global } from "../../../helpers/styles/GlobalStyle";
 
-export const Container = styled.button`
+export const DropDownContainer = styled.div`
+    display: flex;
+    flex-flow: column;
+`;
+
+export const CTAContainer = styled.button`
     background: ${global.color.componentLight};
     border-radius: ${global.component.corners};
     border: ${props => props.disabled && global.component.disabled};

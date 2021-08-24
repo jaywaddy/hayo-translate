@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Styles
-import { MenuIconContainer } from "./ToggleMenuStyles";
+import { MenuIconContainer } from "./ToggleMenuCTAStyles";
 
 // Components
 import Icon from "../../../assets/icons/MenuIcon";

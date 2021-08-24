@@ -11,7 +11,7 @@ export const MenuOptionContainer = styled.div`
     border-radius: ${global.component.corners};
     color: ${props => props.disabled && global.color.disabled};
 
-    margin-bottom: ${global.component.margin};
+    margin-top: ${global.component.margin};
     width: ${global.component.width};
     height: ${global.cta.height};
     padding: 0 ${global.component.padding};
