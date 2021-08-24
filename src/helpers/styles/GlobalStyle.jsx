@@ -8,7 +8,9 @@ global.component = {
     width: "100%",
     height: "auto",
     corners: "20px",
-    padding: "20px"
+    margin: "20px",
+    padding: "20px",
+    disabled: `dashed 1px #969da3`
 }
 
 global.cta = {
@@ -22,6 +24,7 @@ global.color = {
     // Constants
     primary: '#0f7ddb',
     white: '#ffffff',
+    disabled: '#969da3',
     black: '#20272e',
 
     // Components
@@ -30,15 +33,13 @@ global.color = {
 
     // Text colors
     textLight: '#20272e',
-    textDark: '#ffffff',
-    textDeselected: '#969da3'
+    textDark: '#ffffff'
 }
 
 // Containers
 export const AppContainer = styled.div`
     display: flex;
     flex-direction: column;
-    align-items: center;
 
     width: 90%;
     height: 100vh;
@@ -62,8 +63,12 @@ const GlobalStyles = createGlobalStyle`
         font-family: Arial, Helvetica, sans-serif;
     }
 
-    button:focus {
-        -webkit-tap-highlight-color: transparent;
+    button {
+        border: none;
+
+        &:focus {
+            -webkit-tap-highlight-color: transparent;
+        }
     }
 
     span, em, input, .button {
@@ -125,18 +130,6 @@ const GlobalStyles = createGlobalStyle`
             background: ${global.color.action};
             color: ${global.color.white}
         }
-    }
-
-    /* Icons */
-    .icon {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        width: 25px;
-        height: 25px;
-
-        cursor: pointer;
     }
 
     /* Light Theme */

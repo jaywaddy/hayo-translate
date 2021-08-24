@@ -2,6 +2,10 @@ import styled from "styled-components";
 import { global } from "../../../helpers/styles/GlobalStyle";
 
 export const MenuIconContainer = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
     background: ${global.color.componentLight};
     border: none;
     border-radius: ${global.cta.borderRadius};
@@ -10,14 +14,4 @@ export const MenuIconContainer = styled.button`
     height: ${global.cta.height};
 
     cursor: pointer;
-`;
-
-export const MenuContainer = styled.div`
-    position: absolute;
-
-    width: ${global.component.width};
-    height: ${global.component.height};
-
-    margin-top: 40px;
-    padding: ${global.component.padding} 0;
 `;

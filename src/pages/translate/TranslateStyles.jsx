@@ -33,12 +33,6 @@ export const OutputContainer = styled.div`
 export const LanguageHeading = styled.div`
     display: flex;
     justify-content: space-between;
-
-    .cancel-icon {
-        cursor: pointer;
-
-        transform: translateX(15px);
-    }
 `;
 
 export const InputCount = styled.div`

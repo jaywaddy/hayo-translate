@@ -1,10 +1,17 @@
 import React from 'react';
 
-export default function MenuOption() {
+// Styles
+import { MenuOptionContainer, MenuOptionTitle } from './MenuOptionStyles'
+
+// Components
+import ToggleMenuOption from '../ctas/toggleMenuOption/ToggleMenuOption';
+
+export default function MenuOption({ title, disabled }) {
     return (
-        <div>
-            
-        </div>
+        <MenuOptionContainer disabled={disabled}>
+            <MenuOptionTitle>{title}</MenuOptionTitle>
+            <ToggleMenuOption />
+        </MenuOptionContainer>
     );
 }
 

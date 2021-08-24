@@ -1,0 +1,13 @@
+import styled from "styled-components";
+import { global } from "../../helpers/styles/GlobalStyle";
+
+export const MenuContainer = styled.div`
+    width: ${global.component.width};
+    height: ${global.component.height};
+    padding: ${global.component.padding} 0;
+`;
+
+export const MenuOptionsContainer = styled.div`
+    display: flex;
+    flex-flow: column;
+`;
