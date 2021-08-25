@@ -1,70 +1,59 @@
 import styled from 'styled-components';
+import { global } from '../../helpers/styles/GlobalStyle';
 
 export const TranslateContainer = styled.div`
-    width: 100%;
-    min-height: vh;
+    display: flex;
+    flex-flow: column;
 
-    .input-content, .output-content {
-        flex-direction: column;
-    }
+    background: ${global.color.componentLight};
+    border-radius: ${global.component.corners};
 
-    .input-content {
-        width: 100%;
-    }
+    width: ${global.component.width};
+    height: ${global.component.height};
+    margin-top: ${global.component.margin};
 `;
 
-export const IntputContainer = styled.div`
+export const ContentWrapper = styled.div`
     display: flex;
-    margin-top: 10px;
+    flex-flow: column;
+
+    margin: 0 ${global.component.margin};
 `;
 
-export const OutputContainer = styled.div`
-    display: flex;
+export const LanguageHeading = styled.span`
+    color: ${global.color.disabled};
+    margin: ${global.component.margin} 0;
+`;
 
-    width: 100%;
+export const InputContainer = styled.div`
+    display: flex;
+    flex-flow: column;
+
+    background: none;
+
+    width: auto;
     height: auto;
-    margin-top: 10px;
+    padding-bottom: ${global.component.padding};
 
-    .output-content {
-        width: 100%;
-    }
-`;
-
-export const LanguageHeading = styled.div`
-    display: flex;
-    justify-content: space-between;
-`;
-
-export const InputCount = styled.div`
-    position: inherit;
-    display: flex;
-    justify-content: right;
-
-    span {
-        text-align: right;
-        margin-top: auto;
-    }
-`;
-
-export const CopyButton = styled.div`
-    justify-content: right;
-
-    button {
-        transform: translateX(10px);
-    }
+    border: none;
+    border-bottom: solid ${global.color.disabled} 1px;
 `;
 
 export const Input = styled.textarea`
     background: none;
     font-size: 20px;
 
-    width: 100%;
-    margin-top: 10px;
-
     border: none;
 `;
 
-export const Output = styled.div`
+export const OutputContainer = styled.div`
+    display: flex;
+    flex-flow: column;
+
+    /* margin-top: ; */
+`;
+
+export const Output = styled.p`
     width: 100%;
     min-height: 100px;
 
@@ -74,3 +63,23 @@ export const Output = styled.div`
         content: '';
     }
 `;
+
+export const TranslateFooter = styled.div`
+    display: flex;
+
+    margin-top: ${global.component.margin};
+`;
+
+export const CopyCTA = styled.span`
+    color: ${global.color.disabled};
+`;
+
+export const InputCount = styled.span`
+    display: flex;
+    align-items: right;
+
+    color: ${global.color.disabled};
+    margin: 0 ${global.component.margin} ${global.component.margin} auto;
+`;
+
+

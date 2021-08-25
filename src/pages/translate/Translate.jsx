@@ -12,16 +12,18 @@ import Header from '../../components/header/Header';
 // Styles
 import {
     TranslateContainer, 
-    IntputContainer, 
+    ContentWrapper,
+    InputContainer, 
     OutputContainer, 
     LanguageHeading, 
     InputCount, 
-    CopyButton, 
+    CopyCTA, 
     Input, 
-    Output
+    Output,
+    TranslateFooter
 } from "./TranslateStyles";
 
-export default function Translate(props) {
+export default function Translate() {
     const [input, setInput] = React.useState("");
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
@@ -46,15 +48,15 @@ export default function Translate(props) {
                 const planco = entry.plc;
 
                 // If a match has been found, setOutput to term
-                inputText === match ?
-                    outputString += planco
-                    : inputText === /\W/ ?
-                        outputString += planco
+                inputText === match
+                    ? outputString += planco
+                    : inputText === /\W/
+                        ? outputString += planco
                         : counter++;
 
                 // If there are no matches, return the input
-                return counter === Data.length ?
-                    outputString += inputText
+                return counter === Data.length
+                    ? outputString += inputText
                     : null
             });
         });
@@ -66,9 +68,10 @@ export default function Translate(props) {
     return (
         <>
         <Header actionTitle="English" />
-        <TranslateContainer className="translate-page-content">
-            <IntputContainer className="input component">
-                <div className="input-content content">
+        <TranslateContainer>
+            <ContentWrapper>
+                <LanguageHeading>English</LanguageHeading>
+                <InputContainer>
                     <Input 
                     className="user-input" 
                     onChange={getUserInput}
@@ -78,24 +81,18 @@ export default function Translate(props) {
                     maxLength="250">
                         {input}
                     </Input>
-                    <InputCount className="input-counter">
-                        <span>{count} / 250</span>
-                    </InputCount>
-                </div>
-            </IntputContainer>
-            <OutputContainer className="output component focus">
-                <div className="output-content content">
-                    <LanguageHeading>
-                        <span>Planco</span>
-                    </LanguageHeading>
+                </InputContainer>
+                <OutputContainer>
+                    <LanguageHeading>Planco</LanguageHeading>
                     <Output>
-                        <InputConversion/>
+                        <InputConversion />
                     </Output>
-                    <CopyButton>
-                        <button className="cta">Copy</button>
-                    </CopyButton>
-                </div>
-            </OutputContainer>
+                </OutputContainer>
+                <TranslateFooter>
+                    <CopyCTA>copy</CopyCTA>
+                    <InputCount>{count} / 250</InputCount>
+                </TranslateFooter>
+            </ContentWrapper>
         </TranslateContainer>
         </>
     );

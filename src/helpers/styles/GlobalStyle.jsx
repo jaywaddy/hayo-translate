@@ -113,25 +113,6 @@ const GlobalStyles = createGlobalStyle`
         margin-bottom: 10px;
 	}
 
-    .drop-down {
-        text-align: center;
-
-        width: 90px;
-        padding: 15px;
-        background: ${global.color.lightDefaultElement};
-
-        cursor: pointer;
-
-        &:not(:last-child) {
-            border-bottom: solid rgba(0, 0, 0, 0.1) 1px;
-        }
-
-        &:hover {
-            background: ${global.color.action};
-            color: ${global.color.white}
-        }
-    }
-
     /* Light Theme */
 
     /* Dark Theme */
