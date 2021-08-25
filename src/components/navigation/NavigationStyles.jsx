@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { color } from '../../pages/GlobalStyle';
+import { global } from "../../helpers/styles/GlobalStyle";
 
 const navbarWidth = 150;
 const navbarHeight = 45;
@@ -20,7 +20,7 @@ export const Navbar = styled.ul`
         width: ${ navbarWidth / 2 }px;
         height: 100%;
         font-size: 12px;
-        color: ${color.lightSecondaryText};
+        color: ${global.color.textLight};
 
         &:hover {
             cursor: pointer;
@@ -36,7 +36,7 @@ export const Navbar = styled.ul`
     }
 
     .active-link li {
-        background: ${color.action};
-        color: ${color.white};
+        background: ${global.color.primary};
+        color: ${global.color.white};
     }
 `;

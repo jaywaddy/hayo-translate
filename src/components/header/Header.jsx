@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLocation } from 'react-router';
 
 // Styles
 import { 
@@ -12,8 +13,13 @@ import DropDownCTA from '../ctas/dropDownCTA/DropDownCTA';
 import ToggleMenuCTA from '../ctas/toggleMenuCTA/ToggleMenuCTA';
 import Menu from "../menu/Menu";
 
-export default function Header({ actionTitle }) {
+export default function Header() {
+    const location = useLocation();
     const [toggle, setToggle] = React.useState(false);
+    const [language] = React.useState({
+        eng: "English",
+        plc: "Planco"
+    });
 
     const toggleMenu = () => {
         setToggle(toggle => !toggle);
@@ -24,7 +30,7 @@ export default function Header({ actionTitle }) {
             <AppTitle>Hayo Translate</AppTitle>
             <CTAContainer>
                 <DropDownCTA 
-                title={actionTitle} 
+                title={location.pathname === "/" ? language.eng : null} 
                 menuToggled={toggle}
                 disabled={toggle}/>
                 <ToggleMenuCTA 

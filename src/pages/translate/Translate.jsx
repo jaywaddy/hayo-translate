@@ -6,9 +6,6 @@ import React from 'react';
 // Helpers
 import Data from '../../helpers/scripts/data';
 
-// Components
-import Header from '../../components/header/Header';
-
 // Styles
 import {
     TranslateContainer, 
@@ -66,8 +63,6 @@ export default function Translate() {
     }
 
     return (
-        <>
-        <Header actionTitle="English" />
         <TranslateContainer>
             <ContentWrapper>
                 <LanguageHeading>English</LanguageHeading>
@@ -94,6 +89,5 @@ export default function Translate() {
                 </TranslateFooter>
             </ContentWrapper>
         </TranslateContainer>
-        </>
     );
 }

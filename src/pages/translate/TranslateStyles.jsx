@@ -49,11 +49,9 @@ export const Input = styled.textarea`
 export const OutputContainer = styled.div`
     display: flex;
     flex-flow: column;
-
-    /* margin-top: ; */
 `;
 
-export const Output = styled.p`
+export const Output = styled.div`
     width: 100%;
     min-height: 100px;
 
@@ -81,5 +79,3 @@ export const InputCount = styled.span`
     color: ${global.color.disabled};
     margin: 0 ${global.component.margin} ${global.component.margin} auto;
 `;
-
-
