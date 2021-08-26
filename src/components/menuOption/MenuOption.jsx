@@ -1,16 +1,20 @@
 import React from 'react';
 
 // Styles
-import { MenuOptionContainer, MenuOptionTitle } from './MenuOptionStyles'
+import { MenuOptionContainer } from './MenuOptionStyles'
 
-// Components
-import ToggleMenuOption from '../toggleMenuOption/ToggleMenuOption';
+// Icons
+import ToggleIcon from "../../assets/icons/ToggleIcon";
 
 export default function MenuOption({ title, disabled }) {
+    const [toggle, setToggle] = React.useState(false);
+
+    const toggleMenuOption = () => !disabled && setToggle(toggle => !toggle);
+
     return (
-        <MenuOptionContainer disabled={disabled}>
-            <MenuOptionTitle>{title}</MenuOptionTitle>
-            <ToggleMenuOption />
+        <MenuOptionContainer disabled={disabled} onClick={toggleMenuOption}>
+            <span>{title}</span>
+            <ToggleIcon toggled={toggle} />
         </MenuOptionContainer>
     );
 }

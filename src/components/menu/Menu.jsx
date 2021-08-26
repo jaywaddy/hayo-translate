@@ -5,16 +5,20 @@ import { MenuContainer, MenuOptionsContainer } from './MenuStyles';
 
 // Components
 import MenuOption from '../menuOption/MenuOption';
+import Info from "../info/Info";
+import ExternalLink from "../ctas/externalLinkCTA/ExternalLinkCTA";
 
 export default function Menu({ toggle }) {
     return (
         <MenuContainer>
-            { toggle && 
+            { toggle && <>
             <MenuOptionsContainer>
-                <MenuOption title="Setting 1" />
-                <MenuOption title="Setting 2" disabled />
-                <MenuOption title="Setting 3" disabled />
-            </MenuOptionsContainer> }
+                <MenuOption title="Dark Mode" />
+                <MenuOption title="Disabled Setting" disabled />
+                <MenuOption title="Disabled Setting" disabled />
+            </MenuOptionsContainer>
+            <Info />
+            <ExternalLink text="External Link" /></>}
         </MenuContainer>
     );
 }

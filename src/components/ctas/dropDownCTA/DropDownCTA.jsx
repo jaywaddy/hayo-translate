@@ -2,7 +2,7 @@ import React from 'react';
 import DropDown from '../../dropDown/DropDown';
 
 // Styles
-import { DropDownContainer, CTAContainer } from "./DropDownCTAStyles";
+import { DropDownContainer, CTAContainer, Title } from "./DropDownCTAStyles";
 
 export default function DropDownCTA ({ title, menuToggled, disabled }) {
     const [toggle, setToggle] = React.useState(false);
@@ -11,18 +11,14 @@ export default function DropDownCTA ({ title, menuToggled, disabled }) {
         !menuToggled && setToggle(toggle => !toggle);
     }
 
-    const ShowDropDown = () => !menuToggled & toggle ? <DropDown translate/> : null;
-
-    const ShowCTATitle = () => menuToggled ? "Settings" : title;
-
     return (
         <DropDownContainer>
             <CTAContainer 
             onClick={toggleDropDown}
             disabled={disabled}>
-                <ShowCTATitle />
+                <Title>{menuToggled ? "Settings" : title}</Title>
             </CTAContainer>
-            <ShowDropDown />
+            {!menuToggled & toggle ? <DropDown translate/> : null}
         </DropDownContainer>
     );
 }

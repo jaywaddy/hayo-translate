@@ -14,9 +14,5 @@ export const MenuOptionContainer = styled.div`
     margin-top: ${global.component.margin};
     width: ${global.component.width};
     height: ${global.cta.height};
-    padding: 0 ${global.component.padding};
-`;
-
-export const MenuOptionTitle = styled.span`
-
+    padding: 0 6px 0 ${global.component.padding};
 `;

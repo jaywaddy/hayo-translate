@@ -10,7 +10,7 @@ import Glossary from "./pages/glossary/Glossary";
 
 // Components
 import Header from "./components/header/Header";
-// import Navigation from "./components/navigation/Navigation";
+import Navigation from "./components/navigation/Navigation";
 
 export default function App() {
 	return (
@@ -23,7 +23,7 @@ export default function App() {
 						<Route exact path="/" component={Translate} />
 						<Route exact path="/glossary" component={Glossary} />
 					</Switch>
-					{/* <Navigation /> */}
+					<Navigation />
 				</BrowserRouter>
 			</AppContainer>
 		</>

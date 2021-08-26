@@ -15,3 +15,7 @@ export const CTAContainer = styled.button`
     width: ${global.cta.width};
     height: ${global.cta.height};
 `;
+
+export const Title = styled.span`
+    font-weight: bold;
+`;
