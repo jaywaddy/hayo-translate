@@ -45,7 +45,7 @@ export const AppContainer = styled.div`
     overflow: none;
 
     width: var(--component_width);
-    max-height: calc(100% + 95px);
+    max-height: calc(100% + var(--nav_height));
     padding: 0 var(--component_padding) var(--nav_clearance) var(--component_padding);
     top: 0;
     bottom: 0;
@@ -59,6 +59,8 @@ const GlobalStyles = createGlobalStyle`
         --app-version: "0.2.0";
 
         --nav_clearance: 115px;
+        --nav_width: 120px;
+        --nav_height: 95px;
 
         --color_primary: #0f7ddb;
         --color_white: #ffffff;
