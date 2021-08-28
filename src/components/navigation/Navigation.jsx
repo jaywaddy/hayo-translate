@@ -6,7 +6,7 @@ import { useLocation } from 'react-router';
 import { 
     NavContainer,
     NavLinkContainer,
-    Text
+    PageIndicator
  } from './NavigationStyles';
 
 // Assets
@@ -15,19 +15,11 @@ import GlossaryIcon from '../../assets/icons/GlossaryIcon';
 
 export default function Navigation() {
     const [toggle, setToggle] = React.useState(false);
-    // const [activeLink, setActiveLink] = React.useState(true);
-
     const location = useLocation();
 
-    const setPage = () => {
-        setToggle(() => !toggle);
-    }
+    const setPage = () => location.pathname === "/" ? setToggle(false) : setToggle(true);
 
-    const NavText = () => {
-        return location.pathname === "/"
-        ? <Text>Translate</Text>
-        : <Text>Glossary</Text>
-    }
+    React.useEffect(() => setPage());
 
     return (
         <NavContainer>
@@ -36,7 +28,7 @@ export default function Navigation() {
                 exact to="/"
                 activeClassName="active-link"
                 onClick={setPage}>
-                    <TranslateIcon/>
+                    <TranslateIcon />
                 </NavLink> 
                 <NavLink 
                 exact to="/glossary"
@@ -44,10 +36,8 @@ export default function Navigation() {
                 onClick={setPage}>
                     <GlossaryIcon />
                 </NavLink>
+                <PageIndicator page={toggle} />
             </NavLinkContainer>
-            {/* {toggle 
-            ? <NavText active />
-            : <NavText />} */}
         </NavContainer>
     );
 }

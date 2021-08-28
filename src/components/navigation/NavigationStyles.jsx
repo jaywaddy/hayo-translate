@@ -1,23 +1,25 @@
 import styled from 'styled-components';
 
-export const NavContainer = styled.ul`
+export const NavContainer = styled.div`
     position: fixed;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
 
-    background-image: url("../../assets/images/navbg.png");
-    box-shadow: 0 3px 50px rgba(0, 0, 0, 0.05);
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
     overflow: hidden;
-    /* border: solid blue 1px; */
 
     width: var(--component_width);
-    height: 95px;
+    height: var(--nav_height);
     left: 0;
     bottom: 0;
 
+    backdrop-filter: blur(15px);
+
     .active-link {
+        transform: translateY(-8px);
+
         svg g path:nth-child(2) {
             fill: var(--color_primary);
         }
@@ -26,41 +28,31 @@ export const NavContainer = styled.ul`
             stroke: var(--color_primary);
         }
     }
-
-    &:before {
-        position: absolute;
-        content: "";
-
-        background: inherit;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        margin: -20px;
-
-        /* box-shadow: inset 0 0 2000px rgba(255, 255, 255, 0.5); */
-        /* filter: blur(10px); */
-        backdrop-filter: blur(10px);
-        z-index: -1;
-    }
 `;
 
 export const NavLinkContainer = styled.div`
+    position: relative;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 
     width: var(--nav_width);
+    transform: translateY(5px);
+
+    a:not(:nth-child(2)) {
+        margin-right: auto;
+    }
 `;
 
-export const Text = styled.li`
-    position: relative;
+export const PageIndicator = styled.div`
+    position: absolute;
+    content: "";
 
-    font-size: 12px;
-    color: var(--color_primary);
+    background: var(--color_primary);
+    border-radius: var(--component_corners);
 
-    transform: ${props => props.active ? "translateX(100%)" : "translateX(-100%)"};
-    
-    &:hover {
-        cursor: pointer;
-    }
+    width: 35px;
+    height: 3px;
+    bottom: 0;
+
+    transform: ${props => props.page ? "translateX(140%)" : "translateX(-140%)"};
 `;
