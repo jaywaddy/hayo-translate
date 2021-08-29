@@ -7,7 +7,7 @@ export const NavContainer = styled.div`
     justify-content: center;
     align-items: center;
 
-    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+    background: var(--color_frost-light);
     overflow: hidden;
 
     width: var(--component_width);
@@ -51,7 +51,7 @@ export const PageIndicator = styled.div`
     border-radius: var(--component_corners);
 
     width: 35px;
-    height: 3px;
+    height: 2px;
     bottom: 0;
 
     transform: ${props => props.page ? "translateX(140%)" : "translateX(-140%)"};

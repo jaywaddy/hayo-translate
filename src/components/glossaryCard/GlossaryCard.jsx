@@ -3,31 +3,20 @@ import React from 'react';
 // Styles
 import {
     CardContainer,
-    EnglishInfo,
-    PlancoInfo
+    LanguageInfo
 } from './GlossaryCardStyles';
 
-export default function EntryCard(props) {
-    const [toggle, setToggle] = React.useState(false);
-
-    const RevealInfo = (props) => {
-        return toggle ?
-            <PlancoInfo className="more-info">
-                <p className="light">{props.plc}</p>
-                <em>{props.pro}</em>
-            </PlancoInfo> 
-            : null;
-    }
-
+export default function EntryCard({ eng, pos, pro, plc }) {
     return (
-        <CardContainer className="component glossary-card-content" onClick={() => setToggle(toggle => !toggle)}>
-            <div className="content">
-                <EnglishInfo>
-                    <p>{props.eng}</p>
-                    <em>{props.pos}</em>
-                </EnglishInfo>
-                <RevealInfo show={toggle} plc={props.plc} pro={props.pro}/>
-            </div>
+        <CardContainer>
+            <LanguageInfo>
+                <p>{eng}</p>
+                <em>{pos}</em>
+            </LanguageInfo>
+            <LanguageInfo>
+                <p>{plc}</p>
+                <em>{pro}</em>
+            </LanguageInfo>
         </CardContainer>
     );
 }

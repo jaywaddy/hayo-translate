@@ -1,31 +1,29 @@
 import styled from 'styled-components';
 
 export const CardContainer = styled.div`
-    cursor: pointer;
-    margin-bottom: 10px;
+    background: var(--color_bg-light);
+    border-radius: var(--component_corners);
 
-    .content {
-        flex-direction: column;
-        padding: 10px 15px;
-
-        margin: 0;
-    }
+    padding: var(--component_padding);
 `;
 
-export const EnglishInfo = styled.div`
+export const LanguageInfo = styled.div`
     display: flex;
+    flex-flow: column;
     align-items: center;
+    
+    color: var(--color_disabled);
 
-    width: 100%;
-`;
+    &:first-child p {
+        color: var(--color_black);
+    }
 
-export const PlancoInfo = styled.div`
-    width: 100%;
-    margin-top: 10px;
+    &:first-child {
+        padding-bottom: var(--component_padding);
+        border-bottom: solid var(--color_disabled) 1px;
+    }
 
-    border-top: solid rgba(0, 0, 0, 0.15) 1px;
-
-    p {
-        margin-top: 10px;
+    &:last-child {
+        padding-top: var(--component_padding);
     }
 `;

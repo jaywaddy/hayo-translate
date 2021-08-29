@@ -68,6 +68,8 @@ const GlobalStyles = createGlobalStyle`
         --color_black: #20272e;
         --color_bg-light: #eff0f2;
         --color_bg-dark: #525a62;
+        --color_frost-light: rgba(255, 255, 255, 0.3);
+        --color_frost-dark: rgba(32, 49, 36, 0.3);
 
         --component_width: 100%;
         --component_height: auto;
@@ -91,7 +93,6 @@ const GlobalStyles = createGlobalStyle`
         overflow: none;
     }
     
-    /* Defaul text */
     h1, p, a, li, span, em, textarea, .button{
         font-family: Arial, Helvetica, sans-serif;
     }
@@ -109,7 +110,7 @@ const GlobalStyles = createGlobalStyle`
     }
 
     p, textarea {
-        font-size: 20px;
+        font-size: 18px;
     }
 
     ul, li , a{
@@ -121,21 +122,6 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         resize: none;
     }
-
-    /* List items */
-    .list-item {
-        display: flex;
-        flex-direction: row;
-		align-items: center;
-
-        height: 45px;
-		margin-left: 15px;
-        margin-bottom: 10px;
-	}
-
-    /* Light Theme */
-
-    /* Dark Theme */
 `;
 
 export default GlobalStyles;
