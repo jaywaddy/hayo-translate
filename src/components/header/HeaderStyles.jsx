@@ -9,20 +9,21 @@ export const AppTitle = styled.span`
 `;
 
 export const HeaderContainer = styled.div`
+    position: relative;
     display: flex;
     flex-flow: column;
     align-items: center;
 
-    width: ${global.component.width};
-    height: ${global.component.height};
-    margin-top: ${global.component.padding};
+    width: var(--component_width);
+    height: var(--component_height);
+    margin-top: var(--component_margin);
 `;
 
 export const CTAContainer = styled.div`
     display: flex;
-    justify-content: space-between;
+    align-items: flex-start;
 
-    width: ${global.component.width};
-    height: ${global.component.height};
-    margin-top: ${global.component.padding};
+    width: var(--component_width);
+    height: var(--component_height);
+    margin-top: var(--component_margin);
 `;

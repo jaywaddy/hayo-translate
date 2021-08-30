@@ -1,43 +1,18 @@
 import React from 'react';
 
-// SVGs
-import ArrowIcon from "../../assets/icons/ArrowIcon";
+// Styles
+import { GlossaryContainer } from "./GlossaryStyles";
+
+// Components
 import EntryCard from '../../components/glossaryCard/GlossaryCard';
 
 // Scripts
 import Data from '../../helpers/scripts/data';
 
-// Styles
-import {
-	GlossaryContent,
-	GlossaryContainer,
-	DropDownContainer,
-	LinksContainer,
-	ListContainer,
-	LetterSearch,
-} from "./GlossaryStyles";
-
 export default function Glossary() {
 	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
 
 	const [active, setActive]  = React.useState(letters[0]);
-	const [toggle, setToggle] = React.useState(false);
-	
-	// Items in dropdown menu
-    // const ListItems = letters.map((letter, key) => (
-    //     <li 
-    //     className="drop-down"
-    //     key={key}
-    //     onClick={() => {
-    //         setActive(letter); 
-    //         setToggle(false);
-	// 	}}>
-    //         {letter}
-    //     </li>
-	// ));
-	
-	// Render dropdown menu
-    // const List = () => toggle ? <ul>{ListItems}</ul> : null;
 
 	// Render glossary cards
 	const RenderContent = () => {

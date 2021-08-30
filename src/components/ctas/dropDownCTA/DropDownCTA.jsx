@@ -16,9 +16,9 @@ export default function DropDownCTA ({ title, menuToggled, disabled }) {
             <CTAContainer 
             onClick={toggleDropDown}
             disabled={disabled}>
-                <Title>{menuToggled ? "Settings" : title}</Title>
+                <Title>{menuToggled ? "Settings" : "English"}</Title>
             </CTAContainer>
-            {!menuToggled & toggle ? <DropDown translate/> : null}
+            {!menuToggled & toggle ? <DropDown activeLetter/> : null}
         </DropDownContainer>
     );
 }

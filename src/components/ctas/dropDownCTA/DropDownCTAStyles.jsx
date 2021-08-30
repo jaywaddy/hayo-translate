@@ -4,6 +4,8 @@ import { global } from "../../../helpers/styles/GlobalStyle";
 export const DropDownContainer = styled.div`
     display: flex;
     flex-flow: column;
+
+    width: var(--component_width);
 `;
 
 export const CTAContainer = styled.button`
@@ -12,7 +14,7 @@ export const CTAContainer = styled.button`
     border: ${props => props.disabled && global.component.disabled};
     color: ${props => props.disabled && global.color.disabled};
 
-    width: ${global.cta.width};
+    width: var(--cta_width);
     height: ${global.cta.height};
 `;
 

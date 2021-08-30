@@ -1,20 +1,34 @@
 import styled from "styled-components";
-import { global } from '../../helpers/styles/GlobalStyle';
 
 export const DropDownContainer = styled.div`
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: var(--component_margin);
+
+    width: var(--component_width);
+    margin-top: var(--component_margin);
+`;
+
+export const Menu = styled.div`
     display: flex;
     flex-flow: column;
     align-items: center;
 
-    background: ${global.color.componentLight};
-    border-radius: ${global.component.corners};
+    background: var(--color_bg-light);
+    border-radius: var(--component_corners);
 
-    width: ${global.cta.width};
-    height: ${global.component.height};
-    margin-top: ${global.component.margin};
-    padding: ${global.component.padding};
+    width: var(--component_width);
+    padding: var(--component_padding);
+`;
 
-    span:not(:nth-child(1)) {
-        padding-top: ${global.component.padding};
+export const MenuText = styled.span`
+    display: flex;
+    justify-content: center;
+
+    color: ${props => props.disabled && "var(--color_disabled)"};
+    width: 20px;
+
+    &:not(:nth-child(1)) {
+        margin-top: var(--component_margin);
     }
 `;
