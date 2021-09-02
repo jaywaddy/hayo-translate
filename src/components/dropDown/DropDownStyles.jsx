@@ -25,7 +25,7 @@ export const MenuText = styled.span`
     display: flex;
     justify-content: center;
 
-    color: ${props => props.active === true && "var(--color_black)"};
+    color: ${props => props.disabled === true && "var(--color_disabled)"};
     width: 20px;
 
     &:not(:nth-child(1)) {

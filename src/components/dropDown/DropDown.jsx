@@ -12,11 +12,11 @@ export default function DropDown() {
     const location = useLocation().pathname;
 
     const {activeLetter, setActiveLetter, letters} = React.useContext(ActiveLetterContext);
-    const { setToggleDropdown } = React.useContext(DropdownContext);
+    const {setToggleDropdown} = React.useContext(DropdownContext);
 
     const handleOnClick = (letter) => {
         setActiveLetter(letter);
-        setToggleDropdown(() => false)
+        setToggleDropdown(false)
     }
 
     const generateMenu = (start, end) => {
@@ -34,14 +34,13 @@ export default function DropDown() {
 
     return (
         <DropDownContainer>
-            {location === "/"
+            {location === "/" 
             ? <Menu>
-                <MenuText>English</MenuText>
-                <MenuText disabled>Spanish</MenuText>
-                <MenuText disabled>German</MenuText>
+                <MenuText
+                onClick={() => setToggleDropdown(false)}>English</MenuText>
+                <MenuText disabled>Planco</MenuText>
             </Menu>
-           
-            : <>
+            :<>
                 <Menu>
                     {generateMenu(letters[0], letters.length / 2)}
                 </Menu>

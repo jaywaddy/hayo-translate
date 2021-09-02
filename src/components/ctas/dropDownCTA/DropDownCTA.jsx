@@ -13,11 +13,10 @@ import { DropDownContainer, CTAContainer, Title } from "./DropDownCTAStyles";
 
 export default function DropDownCTA ({ menuToggled, disabled }) {
     const [toggleDropdown, setToggleDropdown] = React.useState(false);
+    const {activeLetter} = React.useContext(ActiveLetterContext);
     const location = useLocation().pathname;
 
-    const {activeLetter} = React.useContext(ActiveLetterContext);
-
-    const toggleDropDown = () => {
+    const toggleDropdownMenu = () => {
         !menuToggled && setToggleDropdown(toggle => !toggle);
     }
 
@@ -25,7 +24,7 @@ export default function DropDownCTA ({ menuToggled, disabled }) {
         <DropdownContext.Provider value={{setToggleDropdown}}>
             <DropDownContainer>
                 <CTAContainer 
-                onClick={toggleDropDown}
+                onClick={toggleDropdownMenu}
                 disabled={disabled}>
                     <Title>
                     {menuToggled 
@@ -36,7 +35,9 @@ export default function DropDownCTA ({ menuToggled, disabled }) {
                     }
                     </Title>
                 </CTAContainer>
-                {!menuToggled & toggleDropdown ? <DropDown activeLetter={activeLetter} /> : null}
+                {!menuToggled && toggleDropdown &&
+                    <DropDown activeLetter={activeLetter} />
+                }
             </DropDownContainer>
         </DropdownContext.Provider>
     );
