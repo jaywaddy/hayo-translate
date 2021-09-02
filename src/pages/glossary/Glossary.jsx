@@ -1,5 +1,8 @@
 import React from 'react';
 
+// Context
+import { ActiveLetterContext } from '../../helpers/contexts/ActiveLetterContext';
+
 // Styles
 import { GlossaryContainer } from "./GlossaryStyles";
 
@@ -10,16 +13,13 @@ import EntryCard from '../../components/glossaryCard/GlossaryCard';
 import Data from '../../helpers/scripts/data';
 
 export default function Glossary() {
-	const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('');
+	const { activeLetter } = React.useContext(ActiveLetterContext);
 
-	const [active, setActive]  = React.useState(letters[0]);
-
-	// Render glossary cards
 	const RenderContent = () => {
 		let cards = [];
 
 		Data.map((entry, key) => {
-			return entry.eng.charAt(0) === active && cards.push(
+			return entry.eng.charAt(0) === activeLetter && cards.push(
 				<li key={key}>
 					<EntryCard 
 					eng={entry.eng}

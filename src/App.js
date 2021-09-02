@@ -1,6 +1,9 @@
 import React from "react";
 import { Route, BrowserRouter, Switch} from "react-router-dom";
 
+// Context
+import { ActiveLetterContext, letters } from "./helpers/contexts/ActiveLetterContext"; 
+
 // Styles
 import GlobalStyle, { AppContainer } from "./helpers/styles/GlobalStyle";
 
@@ -13,19 +16,24 @@ import Header from "./components/header/Header";
 import Navigation from "./components/navigation/Navigation";
 
 export default function App() {
+	const [activeLetter, setActiveLetter] = React.useState("A");
+
 	return (
 		<>
-			<GlobalStyle />
-			<AppContainer className="light-theme">
-				<BrowserRouter>
+		<GlobalStyle />
+		<AppContainer className="light-theme">
+			<BrowserRouter>
+				<ActiveLetterContext.Provider 
+				value={{activeLetter, setActiveLetter, letters}}>
 					<Header />
 					<Switch>
 						<Route exact path="/" component={Translate} />
 						<Route exact path="/glossary" component={Glossary} />
 					</Switch>
 					<Navigation />
-				</BrowserRouter>
-			</AppContainer>
+				</ActiveLetterContext.Provider>
+			</BrowserRouter>
+		</AppContainer>
 		</>
 	);
 }

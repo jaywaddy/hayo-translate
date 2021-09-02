@@ -1,21 +1,31 @@
 import React from 'react';
 import { useLocation } from 'react-router';
 
+// Context
+import { ActiveLetterContext } from '../../helpers/contexts/ActiveLetterContext';
+import { DropdownContext } from '../../helpers/contexts/DropdownContext';
+
 // Styles
 import { DropDownContainer, Menu, MenuText } from './DropDownStyles';
 
-export default function DropDown({ activeLetter }) {
-    const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+export default function DropDown() {
     const location = useLocation().pathname;
 
-    const [active, setActive] = React.useState(letters[0]); // Change defult state to be dynamic
+    const {activeLetter, setActiveLetter, letters} = React.useContext(ActiveLetterContext);
+    const { setToggleDropdown } = React.useContext(DropdownContext);
+
+    const handleOnClick = (letter) => {
+        setActiveLetter(letter);
+        setToggleDropdown(() => false)
+    }
 
     const generateMenu = (start, end) => {
         return letters.slice(start, end).map(letter => { 
             return (
                 <MenuText 
+                onClick={() => handleOnClick(letter)}
                 key={letter}
-                onClick={() => setActive(letter)}>
+                active={() => letter === activeLetter}>
                     {letter}
                 </MenuText>
             );
@@ -24,14 +34,14 @@ export default function DropDown({ activeLetter }) {
 
     return (
         <DropDownContainer>
-            {location === "/" && 
-            <Menu>
+            {location === "/"
+            ? <Menu>
                 <MenuText>English</MenuText>
                 <MenuText disabled>Spanish</MenuText>
                 <MenuText disabled>German</MenuText>
-            </Menu>}
-            {location === "/glossary" &&
-            <>
+            </Menu>
+           
+            : <>
                 <Menu>
                     {generateMenu(letters[0], letters.length / 2)}
                 </Menu>
