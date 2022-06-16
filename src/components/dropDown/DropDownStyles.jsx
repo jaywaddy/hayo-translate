@@ -28,6 +28,8 @@ export const MenuText = styled.span`
     color: ${props => props.disabled === true && "var(--color_disabled)"};
     width: 20px;
 
+    cursor: pointer;
+
     &:not(:nth-child(1)) {
         margin-top: var(--component_margin);
     }

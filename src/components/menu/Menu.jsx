@@ -13,12 +13,10 @@ export default function Menu({ toggle }) {
         <MenuContainer>
             { toggle && <>
             <MenuOptionsContainer>
-                <MenuOption title="Dark Mode" />
-                <MenuOption title="Disabled Setting" disabled />
-                <MenuOption title="Disabled Setting" disabled />
+                <MenuOption title="Dark Mode" disabled/>
             </MenuOptionsContainer>
             <Info />
-            <ExternalLink text="External Link" /></>}
+            <ExternalLink text="More from Jay Waddy" /></>}
         </MenuContainer>
     );
 }

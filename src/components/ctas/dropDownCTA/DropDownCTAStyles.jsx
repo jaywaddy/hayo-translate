@@ -16,6 +16,8 @@ export const CTAContainer = styled.button`
 
     width: var(--cta_width);
     height: ${global.cta.height};
+
+    cursor: pointer;
 `;
 
 export const Title = styled.span`
