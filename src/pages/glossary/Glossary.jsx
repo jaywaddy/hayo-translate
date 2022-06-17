@@ -1,39 +1,49 @@
 import React from 'react';
 
-// Context
-import { ActiveLetterContext } from '../../helpers/contexts/ActiveLetterContext';
-
 // Styles
 import { GlossaryContainer } from "./GlossaryStyles";
 
 // Components
+import SearchBar from '../../components/ctas/searchBarCTA/SearchBar';
 import EntryCard from '../../components/glossaryCard/GlossaryCard';
 
 // Scripts
 import Data from '../../helpers/scripts/data';
 
 export default function Glossary() {
-	const { activeLetter } = React.useContext(ActiveLetterContext);
+	const [filteredCards, setFilteredCards] = React.useState([]);
 
-	const RenderContent = () => {
-		let cards = [];
-
-		Data.map((entry, key) => {
-			return entry.eng.charAt(0) === activeLetter && cards.push(
-				<li key={key}>
-					<EntryCard 
-					eng={entry.eng}
-					pos={entry.pos}
-					plc={entry.plc}
-					pro={entry.pro} />
-				</li>
-			);
+	const filterCards = event => {
+		const searchInput = event.target.value;
+		const newFilter = Data.filter((entry, key) => {
+			return entry.eng.toLowerCase().includes(searchInput.toLowerCase());
 		});
 
-		return <GlossaryContainer>{cards}</GlossaryContainer>
+		searchInput === ""
+			? setFilteredCards([])
+			: setFilteredCards(newFilter);
+	}
+
+	const GlossaryOfCards = () => {
+		return filteredCards.slice(0, 100).map((entry, key) => (
+			<li key={key}>
+				<EntryCard 
+				eng={entry.eng}
+				pos={entry.pos}
+				plc={entry.plc}
+				pro={entry.pro} />
+			</li>
+		));
 	}
 
 	return (
-		<RenderContent />
+		<>
+		<SearchBar placeholder="Search..." func={filterCards} />
+		<GlossaryContainer>{
+			filteredCards.length !== 0 
+				? <GlossaryOfCards />
+				: <p>Search instructions here...</p>
+		}</GlossaryContainer>
+		</>
 	);
 }

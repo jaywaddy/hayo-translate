@@ -109,7 +109,7 @@ const GlobalStyles = createGlobalStyle`
         font-size: 12px;
     }
 
-    p, textarea {
+    p, textarea, input {
         font-size: 18px;
     }
 
