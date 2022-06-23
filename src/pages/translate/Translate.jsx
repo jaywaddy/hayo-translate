@@ -25,30 +25,36 @@ export default function Translate() {
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
 
+    const copyOutput = target => {
+        navigator.clipboard.writeText(target);
+    }
+
     const getUserInput = event => {
         setInput(event.target.value);
+        setOutput(getOutputString(event));
         setCount(event.target.textLength);
     }
 
-    const InputConversion = () => {
-        let userInput = input.split(/(\W+|\s)/);
+    const getOutputString = event => {
+        const userInput = event.target.value.split(/(\W+|\s)/);
         let outputString = "";
 
-        // Iterate through user input to isolate earch term
         userInput.map(inputTerm => {
-            const matchCase = (planco, inputString = null) => {
-                let output = "";
+            let counter = 0;
+            
+            const calcPlancoCase = (planco, inputString) => {
+                let plancoOutput = "";
 
                 // Return the case values for each character for every term
                 const getCase = target => {
-                    let cases = new Array(0);
+                    let cases = [];
 
-                    target.split("").map(character => {
+                    target.split("").map((character, index) => {
                         return character === character.toLowerCase()
-                            ? cases.push(0)  // Lowercase characters
-                            : cases.push(1); // Uppercase characters;
+                            ? cases.push(false)  // Lowercase characters
+                            : cases.push(true); // Uppercase characters
                     });
-                    
+
                     return cases;
                 }
 
@@ -56,24 +62,22 @@ export default function Translate() {
 
                 // Create a new planco string with matching case values
                 planco.split("").forEach((character, index) => {
-                    matchCaseValue[index] === 1
-                        ? output += character.toUpperCase()
-                        : output += character;
+                    matchCaseValue[index]
+                        ? plancoOutput += character.toUpperCase()
+                        : plancoOutput += character;
                 });
 
-                return output;
+                return plancoOutput;
             }
-
-            let counter = 0;
 
             // Iterate through Data to see if any terms match
             return Data.map(entry => {
                 const match = entry.eng.toLowerCase();
                 const planco = entry.plc;
 
-                // If a match has been found, setOutput to planco term
+                // If a match has been found, set output to planco term
                 inputTerm.toLowerCase() === match || inputTerm === /\W/
-                    ? outputString += matchCase(planco, inputTerm)
+                    ? outputString += calcPlancoCase(planco, inputTerm)
                     : counter++;
 
                 // If there are no matches, return the user input
@@ -83,8 +87,7 @@ export default function Translate() {
             });
         });
 
-        setOutput(outputString);
-        return <p>{output}</p>;
+        return outputString;
     }
 
     return (
@@ -93,9 +96,10 @@ export default function Translate() {
                 <LanguageHeading>English</LanguageHeading>
                 <InputContainer>
                     <Input 
+                    type="text"
                     className="user-input" 
-                    onChange={getUserInput}
                     value={input}
+                    onChange={getUserInput}
                     name="textarea"
                     rows="4"
                     maxLength="250">
@@ -105,11 +109,12 @@ export default function Translate() {
                 <OutputContainer>
                     <LanguageHeading>Planco</LanguageHeading>
                     <Output>
-                        <InputConversion />
+                        <p>{output}</p>
                     </Output>
                 </OutputContainer>
                 <TranslateFooter>
-                    <CopyCTA>copy</CopyCTA>
+                    <CopyCTA
+                    onClick={() => copyOutput(output)}>copy</CopyCTA>
                     <InputCount>{count} / 250</InputCount>
                 </TranslateFooter>
             </ContentWrapper>

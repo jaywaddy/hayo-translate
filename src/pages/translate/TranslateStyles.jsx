@@ -70,6 +70,7 @@ export const TranslateFooter = styled.div`
 
 export const CopyCTA = styled.span`
     color: ${global.color.disabled};
+    cursor: pointer;
 `;
 
 export const InputCount = styled.span`
