@@ -1,17 +1,17 @@
-import React from 'react';
+import React from "react";
+
+// Components
+import SearchBar from "../../components/ctas/searchBarCTA/SearchBar";
+import EntryCard from "../../components/glossaryCard/GlossaryCard";
+
+// Scripts
+import Data from "../../helpers/scripts/data";
 
 // Styles
 import { GlossaryContainer } from "./GlossaryStyles";
 
-// Components
-import SearchBar from '../../components/ctas/searchBarCTA/SearchBar';
-import EntryCard from '../../components/glossaryCard/GlossaryCard';
-
-// Scripts
-import Data from '../../helpers/scripts/data';
-
 export default function Glossary() {
-	const [filteredCards, setFilteredCards] = React.useState([]);
+    const [filteredCards, setFilteredCards] = React.useState([]);
 
 	const filterCards = event => {
 		const searchInput = event.target.value;
@@ -36,8 +36,8 @@ export default function Glossary() {
 		));
 	}
 
-	return (
-		<>
+    return (
+        <>
 		<SearchBar placeholder="Search..." func={filterCards} />
 		<GlossaryContainer>{
 			filteredCards.length !== 0 
@@ -45,5 +45,5 @@ export default function Glossary() {
 				: <p>Search instructions here...</p>
 		}</GlossaryContainer>
 		</>
-	);
+    );
 }

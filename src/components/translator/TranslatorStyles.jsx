@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { global } from '../../helpers/styles/GlobalStyle';
+import { global } from "../../helpers/styles/GlobalStyle";
 
 export const TranslateContainer = styled.div`
     display: flex;

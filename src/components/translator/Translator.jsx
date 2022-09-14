@@ -1,7 +1,4 @@
-import React from 'react';
-
-// Asssets
-// import CancelIcon from '../../assets/icons/CancelIcon';
+import React from "react";
 
 // Helpers
 import Data from '../../helpers/scripts/data';
@@ -18,9 +15,9 @@ import {
     Input, 
     Output,
     TranslateFooter
-} from "./TranslateStyles";
+} from "./TranslatorStyles";
 
-export default function Translate() {
+export default function Translator() {
     const [input, setInput] = React.useState("");
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
@@ -91,7 +88,8 @@ export default function Translate() {
     }
 
     return (
-        <TranslateContainer>
+        <>
+            <TranslateContainer>
             <ContentWrapper>
                 <LanguageHeading>English</LanguageHeading>
                 <InputContainer>
@@ -119,5 +117,6 @@ export default function Translate() {
                 </TranslateFooter>
             </ContentWrapper>
         </TranslateContainer>
-    );
+        </>
+  )
 }
