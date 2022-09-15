@@ -1,3 +1,4 @@
+import { render } from "@testing-library/react";
 import React from "react";
 
 // Helpers
@@ -9,6 +10,8 @@ import {
     ContentWrapper,
     InputContainer, 
     OutputContainer, 
+    TranslatorHeader,
+    CancelIcon,
     LanguageHeading, 
     InputCount, 
     CopyCTA, 
@@ -22,14 +25,29 @@ export default function Translator() {
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
 
+    const inputElement = React.useRef(null);
+
     const copyOutput = target => {
         navigator.clipboard.writeText(target);
     }
 
-    const getUserInput = event => {
+    const clearInput = () => {
+        setInput("");
+        setOutput("");
+        setCount(0);
+
+        // Reset textarea height
+        inputElement.current.style.height = "auto";
+    }
+
+    const handleStateChanges = event => {
         setInput(event.target.value);
         setOutput(getOutputString(event));
         setCount(event.target.textLength);
+
+        // Textarea auto-wrap
+        inputElement.current.style.height = "auto";
+        inputElement.current.style.height = event.target.scrollHeight + "px";
     }
 
     const getOutputString = event => {
@@ -46,12 +64,11 @@ export default function Translator() {
                 const getCase = target => {
                     let cases = [];
 
-                    target.split("").map((character, index) => {
+                    target.split("").map(character => {
                         return character === character.toLowerCase()
-                            ? cases.push(false)  // Lowercase characters
+                            ? cases.push(false) // Lowercase characters
                             : cases.push(true); // Uppercase characters
                     });
-
                     return cases;
                 }
 
@@ -63,7 +80,6 @@ export default function Translator() {
                         ? plancoOutput += character.toUpperCase()
                         : plancoOutput += character;
                 });
-
                 return plancoOutput;
             }
 
@@ -78,45 +94,48 @@ export default function Translator() {
                     : counter++;
 
                 // If there are no matches, return the user input
-                return counter === Data.length
-                    ? outputString += inputTerm
-                    : null
+                return counter === Data.length && (outputString += inputTerm);
             });
         });
-
         return outputString;
     }
 
     return (
         <>
-            <TranslateContainer>
-            <ContentWrapper>
+        <TranslateContainer>
+        <ContentWrapper>
+            <TranslatorHeader>
                 <LanguageHeading>English</LanguageHeading>
-                <InputContainer>
-                    <Input 
-                    type="text"
-                    className="user-input" 
-                    value={input}
-                    onChange={getUserInput}
-                    name="textarea"
-                    rows="4"
-                    maxLength="250">
-                        {input}
-                    </Input>
-                </InputContainer>
-                <OutputContainer>
-                    <LanguageHeading>Planco</LanguageHeading>
-                    <Output>
-                        <p>{output}</p>
-                    </Output>
-                </OutputContainer>
-                <TranslateFooter>
-                    <CopyCTA
-                    onClick={() => copyOutput(output)}>copy</CopyCTA>
-                    <InputCount>{count} / 250</InputCount>
-                </TranslateFooter>
-            </ContentWrapper>
-        </TranslateContainer>
-        </>
+                <CancelIcon 
+                onClick={ clearInput } >
+                    <svg xmlns="http://www.w3.org/2000/svg" width="14.242" height="14.243" viewBox="0 0 14.242 14.243"><g transform="translate(5.665 4.121)"><line y1="10" x2="10" transform="translate(-3.543 -2)" fill="none" stroke="#20272e" strokeLinecap="round" strokeWidth="3"/><line x2="10" y2="10" transform="translate(-3.543 -2)" fill="none" stroke="#20272e" strokeLinecap="round" strokeWidth="3"/></g></svg>
+                </CancelIcon>
+            </TranslatorHeader>
+            <InputContainer>
+                <Input 
+                type="text"
+                ref={ inputElement }
+                value={ input }
+                onChange={ handleStateChanges }
+                name="textarea"
+                rows="1"
+                maxLength="250">
+                    { input }
+                </Input>
+            </InputContainer>
+            <OutputContainer>
+                <LanguageHeading>Planco</LanguageHeading>
+                <Output>
+                    <p>{ output }</p>
+                </Output>
+            </OutputContainer>
+            <TranslateFooter>
+                <CopyCTA
+                onClick={ () => copyOutput(output) }>copy</CopyCTA>
+                <InputCount>{ count } / 250</InputCount>
+            </TranslateFooter>
+        </ContentWrapper>
+    </TranslateContainer>
+    </>
   )
 }

@@ -1,11 +1,12 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 
 // Styles
 import { global } from "../../helpers/styles/GlobalStyle";
 
 export const AppTitle = styled.span`
-    color: ${global.color.disabled};
-    margin: ${global.component.padding} 0;
+    font-weight: bold;
+    color: ${global.color.black};
+    margin: ${global.component.padding}/2 0 0;
 `;
 
 export const HeaderContainer = styled.div`

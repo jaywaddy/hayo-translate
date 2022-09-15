@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from "styled-components";
 import { global } from "../../helpers/styles/GlobalStyle";
 
 export const TranslateContainer = styled.div`
@@ -8,9 +8,10 @@ export const TranslateContainer = styled.div`
     background: ${global.color.componentLight};
     border-radius: ${global.component.corners};
 
-    width: ${global.component.width};
-    height: ${global.component.height};
-    margin-top: ${global.component.margin};
+    /* width: ${global.component.width}; */
+    width: 335px; /* create container constant */
+    /* height: ${global.component.height}; */
+    margin: ${global.component.margin} auto;
 `;
 
 export const ContentWrapper = styled.div`
@@ -20,9 +21,22 @@ export const ContentWrapper = styled.div`
     margin: 0 ${global.component.margin};
 `;
 
+export const TranslatorHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+`;
+
 export const LanguageHeading = styled.span`
+    font-size: 11px;
     color: ${global.color.disabled};
     margin: ${global.component.margin} 0;
+`;
+
+export const CancelIcon = styled.button` // Create constant in globals
+    svg g line {
+        stroke: ${global.color.black};
+    }
 `;
 
 export const InputContainer = styled.div`
@@ -41,8 +55,8 @@ export const InputContainer = styled.div`
 
 export const Input = styled.textarea`
     background: none;
-    font-size: 20px;
-
+    font-size: 16px;
+    height: "auto";
     border: none;
 `;
 
@@ -53,12 +67,13 @@ export const OutputContainer = styled.div`
 
 export const Output = styled.div`
     width: 100%;
-    min-height: 100px;
+    min-height: 70px;
 
     p {
+        font-size: 32px;
         overflow-wrap: break-word;
         overflow-y: auto;
-        content: '';
+        content: "";
     }
 `;
 
@@ -78,5 +93,5 @@ export const InputCount = styled.span`
     align-items: right;
 
     color: ${global.color.disabled};
-    margin: 0 ${global.component.margin} ${global.component.margin} auto;
+    margin: 0 0 ${global.component.margin} auto;
 `;

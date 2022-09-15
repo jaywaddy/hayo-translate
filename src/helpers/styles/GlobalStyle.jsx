@@ -1,5 +1,4 @@
-import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from "styled-components";
 
 export const global = {
     version: "0.2.0"
@@ -23,18 +22,18 @@ global.cta = {
 // Color
 global.color = {
     // Constants
-    primary: '#0f7ddb',
-    white: '#ffffff',
-    disabled: '#969da3',
-    black: '#20272e',
+    primary: "#0f7ddb",
+    white: "#ffffff",
+    disabled: "#969da3",
+    black: "#383f46",
 
     // Components
-    componentLight: '#eff0f2',
-    componentDark: '#525a62',
+    componentLight: "#eff0f2",
+    componentDark: "#525a62",
 
     // Text colors
-    textLight: '#20272e',
-    textDark: '#ffffff'
+    textLight: "#383f46",
+    textDark: "#ffffff"
 }
 
 // Containers
@@ -102,6 +101,7 @@ const GlobalStyles = createGlobalStyle`
 
         &:focus {
             -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
         }
     }
 
@@ -111,6 +111,7 @@ const GlobalStyles = createGlobalStyle`
 
     p, textarea, input {
         font-size: 18px;
+        color: ${global.color.black}
     }
 
     ul, li , a{
