@@ -1,40 +1,48 @@
 import styled, { createGlobalStyle } from "styled-components";
 
-export const global = {
-    version: "0.2.0"
+export const global = { // Replace with something more symantic like: style
+    version: "0.2.0", // Can probably be removed
+
+    // Containers
+    container: { // Maybe redundant
+        margin: "20px",
+        padding: "20px",
+    },
+
+    // Main styles
+    component: {
+        width: "335px",
+        height: "auto",
+        corners: "15px",
+        margin: "15px",
+        padding: "20px",
+        disabled: `dashed 1px #969da3`
+    },
+
+    // Buttons
+    cta: {
+        borderRadius: "100%",
+        width: "160px",
+        height: "40px"
+    },
+
+    // Colors
+    color: {
+        // Constants
+        primary: "#E6C347",
+        white: "#ffffff",
+        disabled: "#969da3",
+        black: "#383f46",
+
+        // Components
+        componentLight: "#eff0f2",
+        componentDark: "#525a62",
+
+        // Text colors
+        textLight: "#383f46",
+        textDark: "#ffffff"
+    }
 };
-
-global.component = {
-    width: "100%",
-    height: "auto",
-    corners: "20px",
-    margin: "20px",
-    padding: "20px",
-    disabled: `dashed 1px #969da3`
-}
-
-global.cta = {
-    borderRadius: "100%",
-    width: "160px",
-    height: "40px"
-}
-
-// Color
-global.color = {
-    // Constants
-    primary: "#0f7ddb",
-    white: "#ffffff",
-    disabled: "#969da3",
-    black: "#383f46",
-
-    // Components
-    componentLight: "#eff0f2",
-    componentDark: "#525a62",
-
-    // Text colors
-    textLight: "#383f46",
-    textDark: "#ffffff"
-}
 
 // Containers
 export const AppContainer = styled.div`
@@ -50,6 +58,42 @@ export const AppContainer = styled.div`
     bottom: 0;
     left: 0;
     right: 0;
+`;
+
+export const ContentContainer = styled.div`
+    display: flex;
+    flex-flow: column;
+
+    background: ${ global.color.componentLight };
+    border-radius: ${ global.component.corners };
+
+    width: ${ global.component.width };
+    margin: ${ global.component.margin } auto 0;
+`;
+
+export const ContentWrapper = styled.div`
+    display: flex;
+    flex-flow: column;
+
+    margin: 0 ${ global.component.margin };
+`;
+
+export const ContentHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin: ${ global.component.margin } auto 0;
+`;
+
+export const ContentFooter = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+    margin: ${ global.component.margin } auto;
 `;
 
 // Global styles
@@ -88,12 +132,21 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
     }
 
+    @font-face {
+        font-family: "Roboto";
+        src: url(../src/assets/fonts/Roboto-Regular.ttf) format("ttf");
+    }
+
     body {
         overflow: none;
     }
     
     h1, p, a, li, span, em, textarea, .button{
-        font-family: Arial, Helvetica, sans-serif;
+        font-family: "Roboto", Helvetica, sans-serif;
+    }
+
+    span, button {
+        color: ${ global.color.disabled };
     }
 
     button, a {
@@ -111,7 +164,7 @@ const GlobalStyles = createGlobalStyle`
 
     p, textarea, input {
         font-size: 18px;
-        color: ${global.color.black}
+        color: ${ global.color.black }
     }
 
     ul, li , a{

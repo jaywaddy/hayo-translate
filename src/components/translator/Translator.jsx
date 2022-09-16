@@ -4,28 +4,32 @@ import React from "react";
 // Helpers
 import Data from '../../helpers/scripts/data';
 
+// Components
+import CancelButtonCTA from "../ctas/cancelButtonCTA/CancelButtonCTA";
+import CopyCTA from "../ctas/copyCTA/CopyCTA";
+
 // Styles
 import {
-    TranslateContainer, 
-    ContentWrapper,
     InputContainer, 
-    OutputContainer, 
-    TranslatorHeader,
-    CancelIcon,
-    LanguageHeading, 
-    InputCount, 
-    CopyCTA, 
+    OutputContainer,
+    LanguageHeader,
     Input, 
-    Output,
-    TranslateFooter
+    Output
 } from "./TranslatorStyles";
+
+import {
+    ContentContainer as Container,
+    ContentWrapper as Wrapper,
+    ContentHeader as Header,
+    ContentFooter as Footer
+} from "../../helpers/styles/GlobalStyle";
 
 export default function Translator() {
     const [input, setInput] = React.useState("");
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
 
-    const inputElement = React.useRef(null);
+    const textareaElement = React.useRef(null);
 
     const copyOutput = target => {
         navigator.clipboard.writeText(target);
@@ -37,7 +41,7 @@ export default function Translator() {
         setCount(0);
 
         // Reset textarea height
-        inputElement.current.style.height = "auto";
+        textareaElement.current.style.height = "auto";
     }
 
     const handleStateChanges = event => {
@@ -46,8 +50,8 @@ export default function Translator() {
         setCount(event.target.textLength);
 
         // Textarea auto-wrap
-        inputElement.current.style.height = "auto";
-        inputElement.current.style.height = event.target.scrollHeight + "px";
+        textareaElement.current.style.height = "auto";
+        textareaElement.current.style.height = event.target.scrollHeight + "px";
     }
 
     const getOutputString = event => {
@@ -102,40 +106,40 @@ export default function Translator() {
 
     return (
         <>
-        <TranslateContainer>
-        <ContentWrapper>
-            <TranslatorHeader>
-                <LanguageHeading>English</LanguageHeading>
-                <CancelIcon 
-                onClick={ clearInput } >
-                    <svg xmlns="http://www.w3.org/2000/svg" width="14.242" height="14.243" viewBox="0 0 14.242 14.243"><g transform="translate(5.665 4.121)"><line y1="10" x2="10" transform="translate(-3.543 -2)" fill="none" stroke="#20272e" strokeLinecap="round" strokeWidth="3"/><line x2="10" y2="10" transform="translate(-3.543 -2)" fill="none" stroke="#20272e" strokeLinecap="round" strokeWidth="3"/></g></svg>
-                </CancelIcon>
-            </TranslatorHeader>
-            <InputContainer>
-                <Input 
-                type="text"
-                ref={ inputElement }
-                value={ input }
-                onChange={ handleStateChanges }
-                name="textarea"
-                rows="1"
-                maxLength="250">
-                    { input }
-                </Input>
-            </InputContainer>
-            <OutputContainer>
-                <LanguageHeading>Planco</LanguageHeading>
-                <Output>
-                    <p>{ output }</p>
-                </Output>
-            </OutputContainer>
-            <TranslateFooter>
-                <CopyCTA
-                onClick={ () => copyOutput(output) }>copy</CopyCTA>
-                <InputCount>{ count } / 250</InputCount>
-            </TranslateFooter>
-        </ContentWrapper>
-    </TranslateContainer>
-    </>
-  )
+        <Container>
+            <Wrapper>
+                <Header>
+                    <LanguageHeader>
+                        <span>English</span>
+                    </LanguageHeader>
+                    <CancelButtonCTA func={ clearInput }/>
+                </Header>
+                <InputContainer>
+                    <Input 
+                    type="text"
+                    ref={ textareaElement }
+                    value={ input }
+                    onChange={ handleStateChanges }
+                    name="textarea"
+                    rows="1"
+                    maxLength="250">
+                        { input }
+                    </Input>
+                </InputContainer>
+                <OutputContainer>
+                    <LanguageHeader>
+                        <span>Planco</span>
+                    </LanguageHeader>
+                    <Output>
+                        <p>{ output }</p>
+                    </Output>
+                </OutputContainer>
+                <Footer>
+                    <CopyCTA value={ output }>copy</CopyCTA>
+                    <span>{ count } / 250</span>
+                </Footer>
+            </Wrapper>
+        </Container>
+        </>
+    );
 }
