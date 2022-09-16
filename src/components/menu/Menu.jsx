@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 
 // Styles
-import { MenuContainer, MenuOptionsContainer } from './MenuStyles';
+import { MenuContainer, MenuOptionsContainer } from "./MenuStyles";
 
 // Components
-import MenuOption from '../menuOption/MenuOption';
+import MenuOption from "../menuOption/MenuOption";
 import Info from "../info/Info";
 import ExternalLink from "../ctas/externalLinkCTA/ExternalLinkCTA";
 

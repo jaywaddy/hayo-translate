@@ -1,12 +1,12 @@
-import React from 'react';
-import { useLocation } from 'react-router';
+import React from "react";
+import { useLocation } from "react-router";
 
 // Context
-import { ActiveLetterContext } from '../../helpers/contexts/ActiveLetterContext';
-import { DropdownContext } from '../../helpers/contexts/DropdownContext';
+import { ActiveLetterContext } from "../../helpers/contexts/ActiveLetterContext";
+import { DropdownContext } from "../../helpers/contexts/DropdownContext";
 
 // Styles
-import { DropDownContainer, Menu, MenuText } from './DropDownStyles';
+import { DropDownContainer, Menu, MenuText } from "./DropDownStyles";
 
 export default function DropDown() {
     const location = useLocation().pathname;

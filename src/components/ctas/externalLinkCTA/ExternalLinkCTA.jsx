@@ -1,7 +1,7 @@
-import React from 'react';
+import React from "react";
 
 // Styles
-import { ExternalLinkContainer, LinkText } from './ExternalLinkCTAStyles';
+import { ExternalLinkContainer, LinkText } from "./ExternalLinkCTAStyles";
 
 export default function ExternalLinkCTA({ text }) {
     return (

@@ -1,23 +1,13 @@
 import styled from "styled-components";
+import { style } from "../../../helpers/styles/GlobalStyle";
 
 export const SearchBarContainer = styled.div`
     display: flex;
     flex-flow: row;
-    align-content: center;
+    align-items: center;
 
     width: 100%;
-    background: var(--color_bg-light);
-    border-radius: var(--component_corners);
-    padding: 10px var(--component_padding);
-
-`;
-
-export const Input = styled.input`
-    width: 100%;
-    background: none;
-    border: 0;
-
-    &:focus {
-        outline: none;
-    }
+    background: ${ style.color.componentLight };
+    border-radius: ${ style.component.borderRadius };
+    padding: 10px ${ style.component.padding };
 `;

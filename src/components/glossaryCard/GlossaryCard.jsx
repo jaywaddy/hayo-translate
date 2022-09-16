@@ -1,22 +1,22 @@
-import React from 'react';
+import React from "react";
 
 // Styles
-import {
-    CardContainer,
-    LanguageInfo
-} from './GlossaryCardStyles';
+import { Divider } from "./GlossaryCardStyles";
+
+import { ContentContainer as Container } from "../../helpers/styles/GlobalStyle"
 
 export default function EntryCard({ eng, pos, pro, plc }) {
     return (
-        <CardContainer>
-            <LanguageInfo>
+        <Container>
+            <div>
                 <p>{eng}</p>
                 <em>{pos}</em>
-            </LanguageInfo>
-            <LanguageInfo>
+            </div>
+            <Divider />
+            <div>
                 <p>{plc}</p>
                 <em>{pro}</em>
-            </LanguageInfo>
-        </CardContainer>
+            </div>
+        </Container>
     );
 }

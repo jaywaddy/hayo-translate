@@ -1,12 +1,12 @@
-import React from 'react';
-import { useLocation } from 'react-router';
+import React from "react";
+import { useLocation } from "react-router";
 
 // Constext
-import { ActiveLetterContext } from '../../../helpers/contexts/ActiveLetterContext';
-import { DropdownContext } from '../../../helpers/contexts/DropdownContext';
+import { ActiveLetterContext } from "../../../helpers/contexts/ActiveLetterContext";
+import { DropdownContext } from "../../../helpers/contexts/DropdownContext";
 
 // Components
-import DropDown from '../../dropDown/DropDown';
+import DropDown from "../../dropDown/DropDown";
 
 // Styles
 import { DropDownContainer, CTAContainer, Title } from "./DropDownCTAStyles";

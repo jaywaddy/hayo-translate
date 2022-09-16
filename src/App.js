@@ -9,7 +9,7 @@ import TranslatePage from "./pages/translate/TranslatePage";
 import GlossaryPage from "./pages/glossary/GlossaryPage";
 
 // Components
-import Header from "./components/header/Header";
+import AppHeader from "./components/appHeader/AppHeader";
 import Navigation from "./components/navigation/Navigation";
 
 export default function App() {
@@ -18,7 +18,7 @@ export default function App() {
 		<GlobalStyle />
 		<AppContainer className="light-theme">
 			<BrowserRouter>
-				<Header />
+				<AppHeader />
 				<Switch>
 					<Route exact path="/" component={TranslatePage} />
 					<Route exact path="/glossary" component={GlossaryPage} />

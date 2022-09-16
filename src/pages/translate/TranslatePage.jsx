@@ -8,12 +8,10 @@ export default function TranslatePage() {
     return (
         <>
         <Translator />
-        <div className="history-container"> {/* Turn into styled.div grid */}
-            <TranslateHistory 
-            timeStamp={ 1 }
-            english="This is a test"
-            planco="Lis eu a kyew."/>
-        </div>
+        <TranslateHistory 
+        timeStamp={ 1 }
+        english="This is a test"
+        planco="Lis eu a kyew."/>
         </>
     );
 }

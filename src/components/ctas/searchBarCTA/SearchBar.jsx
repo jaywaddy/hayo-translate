@@ -1,15 +1,17 @@
 import React from "react";
 
 // Styles
-import { SearchBarContainer, Input } from "./SearchBarStyles";
+import { Input } from "../../../helpers/styles/GlobalStyle";
+import { SearchBarContainer as Container } from "./SearchBarStyles";
 
 export default function SearchBar ({placeholder, func}) {
     return (
-        <SearchBarContainer>
+        <Container>
             <Input 
             type="text" 
             placeholder={placeholder}
+            rows="1"
             onChange={func} />
-        </SearchBarContainer>
+        </Container>
     );
 }

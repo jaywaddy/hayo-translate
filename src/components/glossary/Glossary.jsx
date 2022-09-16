@@ -15,7 +15,7 @@ export default function Glossary() {
 
 	const filterCards = event => {
 		const searchInput = event.target.value;
-		const newFilter = Data.filter((entry, key) => {
+		const newFilter = Data.filter(entry => {
 			return entry.eng.toLowerCase().includes(searchInput.toLowerCase());
 		});
 
@@ -26,23 +26,21 @@ export default function Glossary() {
 
 	const GlossaryOfCards = () => {
 		return filteredCards.slice(0, 100).map((entry, key) => (
-			<li key={key}>
+			<li key={ key }>
 				<EntryCard 
-				eng={entry.eng}
-				pos={entry.pos}
-				plc={entry.plc}
-				pro={entry.pro} />
+				eng={ entry.eng }
+				pos={ entry.pos }
+				plc={ entry.plc }
+				pro={ entry.pro } />
 			</li>
 		));
 	}
 
     return (
         <>
-		<SearchBar placeholder="Search..." func={filterCards} />
+		<SearchBar placeholder="Search..." func={ filterCards } />
 		<GlossaryContainer>{
-			filteredCards.length !== 0 
-				? <GlossaryOfCards />
-				: <p>Search instructions here...</p>
+			filteredCards.length !== 0 && <GlossaryOfCards />
 		}</GlossaryContainer>
 		</>
     );

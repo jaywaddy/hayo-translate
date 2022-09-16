@@ -1,23 +1,26 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
-import { useLocation } from 'react-router';
+import React from "react";
+import { NavLink } from "react-router-dom";
+import { useLocation } from "react-router";
 
 //Styles 
 import { 
     NavContainer,
-    NavLinkContainer,
-    PageIndicator
- } from './NavigationStyles';
+    NavLinkContainer
+ } from "./NavigationStyles";
 
 // Assets
-import TranslateIcon from '../../assets/icons/TranslateIcon';
-import GlossaryIcon from '../../assets/icons/GlossaryIcon';
+import TranslateIcon from "../../assets/icons/TranslateIcon";
+import GlossaryIcon from "../../assets/icons/GlossaryIcon";
 
 export default function Navigation() {
     const [toggle, setToggle] = React.useState(false);
     const location = useLocation();
 
-    const setPage = () => location.pathname === "/" ? setToggle(false) : setToggle(true);
+    const setPage = () => {
+        location.pathname === "/" 
+            ? setToggle(false) 
+            : setToggle(true);
+    }
 
     React.useEffect(() => setPage());
 
@@ -36,7 +39,6 @@ export default function Navigation() {
                 onClick={setPage}>
                     <GlossaryIcon />
                 </NavLink>
-                <PageIndicator page={toggle} />
             </NavLinkContainer>
         </NavContainer>
     );

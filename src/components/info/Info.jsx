@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 // Styles
 import { global } from "../../helpers/styles/GlobalStyle";

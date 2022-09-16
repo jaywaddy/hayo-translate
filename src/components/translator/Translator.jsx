@@ -2,7 +2,7 @@ import { render } from "@testing-library/react";
 import React from "react";
 
 // Helpers
-import Data from '../../helpers/scripts/data';
+import Data from "../../helpers/scripts/data";
 
 // Components
 import CancelButtonCTA from "../ctas/cancelButtonCTA/CancelButtonCTA";
@@ -10,18 +10,15 @@ import CopyCTA from "../ctas/copyCTA/CopyCTA";
 
 // Styles
 import {
-    InputContainer, 
-    OutputContainer,
-    LanguageHeader,
-    Input, 
-    Output
+    Output,
+    Divider
 } from "./TranslatorStyles";
 
 import {
     ContentContainer as Container,
-    ContentWrapper as Wrapper,
     ContentHeader as Header,
-    ContentFooter as Footer
+    ContentFooter as Footer,
+    Input
 } from "../../helpers/styles/GlobalStyle";
 
 export default function Translator() {
@@ -105,41 +102,30 @@ export default function Translator() {
     }
 
     return (
-        <>
         <Container>
-            <Wrapper>
-                <Header>
-                    <LanguageHeader>
-                        <span>English</span>
-                    </LanguageHeader>
-                    <CancelButtonCTA func={ clearInput }/>
-                </Header>
-                <InputContainer>
-                    <Input 
-                    type="text"
-                    ref={ textareaElement }
-                    value={ input }
-                    onChange={ handleStateChanges }
-                    name="textarea"
-                    rows="1"
-                    maxLength="250">
-                        { input }
-                    </Input>
-                </InputContainer>
-                <OutputContainer>
-                    <LanguageHeader>
-                        <span>Planco</span>
-                    </LanguageHeader>
-                    <Output>
-                        <p>{ output }</p>
-                    </Output>
-                </OutputContainer>
-                <Footer>
-                    <CopyCTA value={ output }>copy</CopyCTA>
-                    <span>{ count } / 250</span>
-                </Footer>
-            </Wrapper>
+            <Header>
+                <span>English</span>
+                <CancelButtonCTA func={ clearInput }/>
+            </Header>
+            <Input 
+            type="text"
+            ref={ textareaElement }
+            value={ input }
+            onChange={ handleStateChanges }
+            name="textarea"
+            rows="1"
+            maxLength="250">
+                { input }
+            </Input>
+            <Divider />
+            <span>Planco</span>
+            <Output>
+                <p>{ output }</p>
+            </Output>
+            <Footer>
+                <CopyCTA value={ output }>copy</CopyCTA>
+                <span>{ count } / 250</span>
+            </Footer>
         </Container>
-        </>
     );
 }
