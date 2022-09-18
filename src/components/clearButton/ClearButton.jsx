@@ -3,9 +3,9 @@ import React from "react";
 // Assets
 import ClearIcon from "../../assets/icons/ClearIcon";
 
-export default function ClearButton({ func }) {
+export default function ClearButton({ clearInput }) {
     return (
-        <button onClick={ func }>
+        <button onClick={ clearInput }>
             <ClearIcon />
         </button>
     );

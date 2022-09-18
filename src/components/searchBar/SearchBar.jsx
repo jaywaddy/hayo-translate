@@ -8,17 +8,44 @@ import { SearchBarContainer as Container } from "./SearchBarStyles";
 import SearchIcon from "../../assets/icons/SearchIcon"; 
 import ClearButton from "../clearButton/ClearButton";
 
-export default function SearchBar({ placeholder, func }) {
+// Scripts
+import Data from "../../helpers/scripts/data";
+
+export default function SearchBar({ setFilteredCards }) {    
+	const [input, setInput] = React.useState("");
+    const inputRef = React.useRef();
+
+	React.useEffect(() => {
+		handleCardFliter();
+	}, [input]);
+
+	const handleCardFliter = () => {
+		setInput(inputRef.current.value);
+		const entryArray = Data.filter(entry => {
+			return entry.eng.toLowerCase().includes(input.toLowerCase());
+		});
+
+		input === "" 
+            ? setFilteredCards([])
+            : setFilteredCards(entryArray)
+	}
+
+    const clearInput = () => {
+        setInput("");
+    }
+
     return (
         <Container>
-            <SearchIcon gridArea="search-icon"/>
-            <Input 
-            gridArea="input"
+            <SearchIcon />
+            <Input
+            ref={ inputRef }
             type="text" 
-            placeholder={ placeholder }
+            placeholder="Search..."
             rows="1"
-            onChange={ func } />
-            <ClearButton func={ func }/>
+            value={ input }
+            onChange={ handleCardFliter }/>
+            <ClearButton 
+            clearInput={ clearInput }/>
         </Container>
     );
 }
