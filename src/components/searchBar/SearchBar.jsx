@@ -44,8 +44,7 @@ export default function SearchBar({ setFilteredCards }) {
             rows="1"
             value={ input }
             onChange={ handleCardFliter }/>
-            <ClearButton 
-            clearInput={ clearInput }/>
+            <ClearButton setInput={ setInput }/>
         </Container>
     );
 }

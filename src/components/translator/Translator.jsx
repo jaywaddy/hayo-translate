@@ -26,33 +26,29 @@ export default function Translator() {
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
 
-    const textareaElement = React.useRef(null);
+    const textareaRef = React.useRef();
 
-    const copyOutput = target => {
-        navigator.clipboard.writeText(target);
-    }
-
-    const clearInput = () => {
-        setInput("");
-        setOutput("");
-        setCount(0);
-
-        // Reset textarea height
-        textareaElement.current.style.height = "auto";
-    }
-
-    const handleStateChanges = event => {
-        setInput(event.target.value);
-        setOutput(getOutputString(event));
-        setCount(event.target.textLength);
+    React.useEffect(() => {
+        setInput(textareaRef.current.value);
+        setOutput(getOutputString);
+        setCount(textareaRef.current.textLength);
 
         // Textarea auto-wrap
-        textareaElement.current.style.height = "auto";
-        textareaElement.current.style.height = event.target.scrollHeight + "px";
-    }
+        textareaRef.current.style.height = "auto";
+        textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
+        
+        if (input === "") {
+            setInput("");
+            setOutput("");
+            setCount(0);
+    
+            // Reset textarea height
+            textareaRef.current.style.height = "auto";
+        }
+    }, [input]);
 
-    const getOutputString = event => {
-        const userInput = event.target.value.split(/(\W+|\s)/);
+    const getOutputString = () => {
+        const userInput = textareaRef.current.value.split(/(\W+|\s)/);
         let outputString = "";
 
         userInput.map(inputTerm => {
@@ -105,13 +101,13 @@ export default function Translator() {
         <Container>
             <Header>
                 <span>English</span>
-                <ClearButton func={ clearInput }/>
+                <ClearButton setInput={ setInput }/>
             </Header>
             <Input 
             type="text"
-            ref={ textareaElement }
+            ref={ textareaRef }
             value={ input }
-            onChange={ handleStateChanges }
+            onChange={ () => setInput(textareaRef.current.value) }
             name="textarea"
             rows="1"
             maxLength="250">
