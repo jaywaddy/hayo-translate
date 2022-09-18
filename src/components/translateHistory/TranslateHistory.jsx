@@ -2,8 +2,8 @@ import React from "react";
 
 // Components
 import FavoriteIcon from "../../assets/icons/FavoriteIcon";
-import CancelButtonCTA from "../ctas/cancelButtonCTA/CancelButtonCTA";
-import CopyCTA from "../ctas/copyCTA/CopyCTA";
+import ClearButton from "../clearButton/ClearButton";
+import CopyButton from "../copyButton/CopyButton";
 
 // Styles
 import { 
@@ -26,12 +26,12 @@ export default function TranslateHistory({ timeStamp, english, planco }) {
                     <TimeStamp>{ timeStamp + " sec ago" }</TimeStamp>
                     <FavoriteIcon toggle={ true }/>
                 </HistoryInfo>
-                <CancelButtonCTA />
+                <ClearButton />
             </Header>
                 <EnglishText>{ english }</EnglishText>
                 <p>{ planco }</p>
             <Footer>
-                <CopyCTA value={ planco }/>
+                <CopyButton value={ planco }/>
                 <button>Unfavorite</button>
             </Footer>
         </Container>

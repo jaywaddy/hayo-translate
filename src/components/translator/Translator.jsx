@@ -5,8 +5,8 @@ import React from "react";
 import Data from "../../helpers/scripts/data";
 
 // Components
-import CancelButtonCTA from "../ctas/cancelButtonCTA/CancelButtonCTA";
-import CopyCTA from "../ctas/copyCTA/CopyCTA";
+import ClearButton from "../clearButton/ClearButton";
+import CopyButton from "../copyButton/CopyButton";
 
 // Styles
 import {
@@ -105,7 +105,7 @@ export default function Translator() {
         <Container>
             <Header>
                 <span>English</span>
-                <CancelButtonCTA func={ clearInput }/>
+                <ClearButton func={ clearInput }/>
             </Header>
             <Input 
             type="text"
@@ -123,7 +123,7 @@ export default function Translator() {
                 <p>{ output }</p>
             </Output>
             <Footer>
-                <CopyCTA value={ output }>copy</CopyCTA>
+                <CopyButton value={ output }>copy</CopyButton>
                 <span>{ count } / 250</span>
             </Footer>
         </Container>

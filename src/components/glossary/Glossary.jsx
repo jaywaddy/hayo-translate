@@ -1,7 +1,7 @@
 import React from "react";
 
 // Components
-import SearchBar from "../../components/ctas/searchBarCTA/SearchBar";
+import SearchBar from "../../components/searchBar/SearchBar";
 import EntryCard from "../../components/glossaryCard/GlossaryCard";
 
 // Scripts
@@ -27,7 +27,7 @@ export default function Glossary() {
 	const GlossaryOfCards = () => {
 		return filteredCards.slice(0, 100).map((entry, key) => (
 			<li key={ key }>
-				<EntryCard 
+				<EntryCard
 				eng={ entry.eng }
 				pos={ entry.pos }
 				plc={ entry.plc }
@@ -38,10 +38,10 @@ export default function Glossary() {
 
     return (
         <>
-		<SearchBar placeholder="Search..." func={ filterCards } />
-		<GlossaryContainer>{
-			filteredCards.length !== 0 && <GlossaryOfCards />
-		}</GlossaryContainer>
+		<SearchBar placeholder="Search..." func={ filterCards }/>
+		<GlossaryContainer>
+			{ filteredCards.length !== 0 && <GlossaryOfCards /> }
+		</GlossaryContainer>
 		</>
     );
 }
