@@ -1,11 +1,12 @@
 import React from "react";
 
 // Styles
-import { ContentContainer as Container } from "../../helpers/styles/GlobalStyle";
 import { 
     Divider,
     CardHeader as Header
 } from "./GlossaryCardStyles";
+
+import { ContentContainer as Container } from "../../helpers/styles/GlobalStyle";
 
 // Assets
 import FavoriteIcon from "../../assets/icons/FavoriteIcon";
