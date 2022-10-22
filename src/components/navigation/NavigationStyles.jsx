@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import { style } from "../../helpers/styles/GlobalStyle";
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.nav`
     position: fixed;
     display: flex;
     flex-flow: column;
@@ -25,20 +25,25 @@ export const NavContainer = styled.div`
         }
 
         svg path:nth-child(2) {
+            user-select: none;
             fill: ${ style.color.black };
         }
     }
 `;
 
-export const NavLinkContainer = styled.div`
+export const NavLinkContainer = styled.ul`
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
     width: 120px;
     transform: translateY(5px);
 
     a:not(:nth-child(2)) {
         margin-right: auto;
+    }
+
+    li {
+        user-select: none;
     }
 `;

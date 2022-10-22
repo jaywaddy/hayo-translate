@@ -108,6 +108,8 @@ const globalStyles = createGlobalStyle`
     body {
         background: #FFFFFF;
         overflow: none;
+
+        -webkit-tap-highlight-color: transparent;
     }
     
     h1, p, a, li, span, em, textarea, button{
