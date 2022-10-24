@@ -21,7 +21,7 @@ import {
     Input
 } from "../../helpers/styles/GlobalStyle";
 
-export default function Translator() {
+export default function Translator({ setHistory }) {
     const [input, setInput] = React.useState("");
     const [output, setOutput] = React.useState("");
     const [count, setCount] = React.useState(0);
@@ -46,6 +46,17 @@ export default function Translator() {
             textareaRef.current.style.height = "auto";
         }
     }, [input]);
+
+    // React.useEffect(() => {
+    //     setTimeout(() => {
+    //         console.log("Update History");
+    //         setHistory(history => [...history, {
+    //             eng: input,
+    //             plc: output
+    //         }]);
+    //     }, 5000);
+    // }, []);
+
 
     const getOutputString = () => {
         const userInput = textareaRef.current.value.split(/(\W+|\s)/);
