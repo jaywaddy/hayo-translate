@@ -1,116 +1,143 @@
-import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
+import styled, { createGlobalStyle } from "styled-components";
 
-export const global = {
-    version: "0.2.0"
+export const style = {
+    // Main styles
+    component: {
+        width: "335px",
+        height: "auto",
+        navOffset: "115px",
+
+        borderRadius: "20px",
+
+        margin: "15px",
+        padding: "20px"
+    },
+
+    // Buttons
+    cta: {
+        borderRadius: "100%",
+        width: "160px",
+        height: "40px"
+    },
+
+    // Colors
+    color: {
+        // Constants
+        primary: "#E6C347",
+        white: "#ffffff",
+        disabled: "#a7aeb4",
+        black: "#383f46",
+
+        // Components
+        componentLight: "#eff0f2",
+        componentDark: "#525a62"
+    }
 };
-
-global.component = {
-    width: "100%",
-    height: "auto",
-    corners: "20px",
-    margin: "20px",
-    padding: "20px",
-    disabled: `dashed 1px #969da3`
-}
-
-global.cta = {
-    borderRadius: "100%",
-    width: "160px",
-    height: "40px"
-}
-
-// Color
-global.color = {
-    // Constants
-    primary: '#0f7ddb',
-    white: '#ffffff',
-    disabled: '#969da3',
-    black: '#20272e',
-
-    // Components
-    componentLight: '#eff0f2',
-    componentDark: '#525a62',
-
-    // Text colors
-    textLight: '#20272e',
-    textDark: '#ffffff'
-}
 
 // Containers
 export const AppContainer = styled.div`
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-gap: ${ style.component.margin };
 
-    overflow: none;
-
-    width: var(--component_width);
-    max-height: calc(100% + var(--nav_height));
-    padding: 0 var(--component_padding) var(--nav_clearance) var(--component_padding);
+    width: 335px;
+    height: calc(100% + ${ style.component.navOffset });
+    margin: 0 auto ${ style.component.navOffset } auto;
+    
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
 `;
 
-// Global styles
-const GlobalStyles = createGlobalStyle`
-    :root {
-        --app-version: "0.2.0";
+export const ContentContainer = styled.div`
+    display: grid;
+    grid-gap: ${ style.component.margin };
 
-        --nav_clearance: 115px;
-        --nav_width: 120px;
-        --nav_height: 95px;
+    padding: ${ style.component.padding };
 
-        --color_primary: #0f7ddb;
-        --color_white: #ffffff;
-        --color_disabled: #969da3;
-        --color_black: #20272e;
-        --color_bg-light: #eff0f2;
-        --color_bg-dark: #525a62;
-        --color_frost-light: rgba(255, 255, 255, 0.3);
-        --color_frost-dark: rgba(32, 49, 36, 0.3);
+    background: ${ style.color.componentLight };
+    border-radius: ${ style.component.borderRadius };
+`;
 
-        --component_width: 100%;
-        --component_height: auto;
-        --component_corners: 20px;
-        --component_margin: 20px;
-        --component_padding: 20px;
-        --component_disabled-border: dashed var(--color_disabled) 1px;
+export const ContentHeader = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
-        --cta_width: 160px;
-        --cta_height: 40px;
-        --cta_corners: 100%;
+    width: 100%;
+`;
+
+export const ContentFooter = styled.div`
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    width: 100%;
+`;
+
+export const Input = styled.textarea`
+    display: flex;
+    width: 100%;
+    
+    background: none;
+    border: 0;
+
+    &::placeholder {
+        color: ${ style.color.disabled };
     }
 
+    &:focus {
+        outline: none;
+    }
+`;
+
+// Global styles
+const globalStyles = createGlobalStyle`
     * {
         margin: 0;
         padding: 0;
         box-sizing: border-box;
+        overflow: none;
+    }
+
+    @font-face {
+        font-family: "Roboto";
+        src: url(../src/assets/fonts/Roboto-Regular.ttf) format("ttf");
     }
 
     body {
+        background: #FFFFFF;
         overflow: none;
+
+        -webkit-tap-highlight-color: transparent;
     }
     
-    h1, p, a, li, span, em, textarea, .button{
-        font-family: Arial, Helvetica, sans-serif;
+    h1, p, a, li, span, em, textarea, button{
+        font-family: "Roboto", Helvetica, sans-serif;
     }
 
-    button, a {
+    span, em {
+        color: ${ style.color.disabled };
+    }
+
+    button {
         border: none;
+        background: none;
+        color: ${ style.color.black };
 
         &:focus {
             -webkit-tap-highlight-color: transparent;
+            cursor: pointer;
         }
     }
 
-    span, em, input, .button {
+    span, em, input, button {
         font-size: 12px;
     }
 
-    p, textarea, input {
+    p, textarea {
         font-size: 18px;
+        color: ${ style.color.black };
     }
 
     ul, li , a{
@@ -122,6 +149,14 @@ const GlobalStyles = createGlobalStyle`
         outline: none;
         resize: none;
     }
+
+    .grid-main {
+        grid-area: main;
+    }
+
+    .grid-history {
+        grid-area: history;
+    }
 `;
 
-export default GlobalStyles;
+export default globalStyles;

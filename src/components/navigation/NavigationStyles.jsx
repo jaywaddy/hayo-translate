@@ -1,58 +1,49 @@
-import styled from 'styled-components';
+import styled from "styled-components";
+import { style } from "../../helpers/styles/GlobalStyle";
 
-export const NavContainer = styled.div`
+export const NavContainer = styled.nav`
     position: fixed;
     display: flex;
     flex-flow: column;
     justify-content: center;
     align-items: center;
 
-    background: var(--color_frost-light);
+    background: rgba(255, 255, 255, 0.3);
     overflow: hidden;
 
-    width: var(--component_width);
-    height: var(--nav_height);
+    width: 100%;
+    height: 95px;
+
     left: 0;
     bottom: 0;
 
     backdrop-filter: blur(15px);
 
     .active-link {
-        transform: translateY(-8px);
-
-        svg g path:nth-child(2) {
-            fill: var(--color_primary);
+        svg rect {
+            stroke: ${ style.color.black };
         }
 
-        svg g g {
-            stroke: var(--color_primary);
+        svg path:nth-child(2) {
+            user-select: none;
+            fill: ${ style.color.black };
         }
     }
 `;
 
-export const NavLinkContainer = styled.div`
+export const NavLinkContainer = styled.ul`
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
 
-    width: var(--nav_width);
+    width: 120px;
     transform: translateY(5px);
 
     a:not(:nth-child(2)) {
         margin-right: auto;
     }
-`;
 
-export const PageIndicator = styled.div`
-    position: absolute;
-    content: "";
-
-    background: var(--color_primary);
-    border-radius: var(--component_corners);
-
-    width: 35px;
-    height: 2px;
-    bottom: 0;
-
-    transform: ${props => props.page ? "translateX(140%)" : "translateX(-140%)"};
+    li {
+        user-select: none;
+    }
 `;

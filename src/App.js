@@ -1,15 +1,15 @@
 import React from "react";
-import { Route, BrowserRouter, Switch} from "react-router-dom";
+import { Route, BrowserRouter, Switch } from "react-router-dom";
 
 // Styles
 import GlobalStyle, { AppContainer } from "./helpers/styles/GlobalStyle";
 
 // Pages
-import Translate from "./pages/translate/Translate";
-import Glossary from "./pages/glossary/Glossary";
+import TranslatePage from "./pages/translate/TranslatePage";
+import GlossaryPage from "./pages/glossary/GlossaryPage";
 
 // Components
-import Header from "./components/header/Header";
+import AppHeader from "./components/appHeader/AppHeader";
 import Navigation from "./components/navigation/Navigation";
 
 export default function App() {
@@ -18,10 +18,10 @@ export default function App() {
 		<GlobalStyle />
 		<AppContainer className="light-theme">
 			<BrowserRouter>
-				<Header />
+				<AppHeader />
 				<Switch>
-					<Route exact path="/" component={Translate} />
-					<Route exact path="/glossary" component={Glossary} />
+					<Route exact path="/" component={TranslatePage} />
+					<Route exact path="/glossary" component={GlossaryPage} />
 				</Switch>
 				<Navigation />
 			</BrowserRouter>
