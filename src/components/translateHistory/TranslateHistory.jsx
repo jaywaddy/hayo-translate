@@ -18,19 +18,19 @@ import {
     ContentFooter as Footer
 } from "../../helpers/styles/GlobalStyle";
 
-export default function TranslateHistory({ timeStamp, english, planco }) {
+export default function TranslateHistory({ timeStamp, english, planco, setHistory }) {
     const [isFavorited, setIsFavorited] = React.useState(false);
     const englishRef = React.useRef();
     const plancoRef = React.useRef();
 
-    const setAsFavorite = () => {
+    const DisplaySetAsFavorite = () => {
         // Push data into Local Storage
-        console.log(englishRef.current.innerText, plancoRef.current.innerText);
+        return isFavorited ? "Unfavorite" : "Favorite";
     }
 
-    React.useEffect(() => {
-        isFavorited && setAsFavorite();
-    }, [isFavorited]);
+    const clearHistoryEntry = () => {
+        setHistory(prev => prev.filter(history => history.eng !== english));
+    }
 
     return (
         <Container>
@@ -41,14 +41,16 @@ export default function TranslateHistory({ timeStamp, english, planco }) {
                     isFavorited={ isFavorited }
                     setIsFavorited={ setIsFavorited }/>
                 </HistoryInfo>
-                <ClearButton />
+                <ClearButton
+                clearHistoryEntry={ clearHistoryEntry }
+                cancel={ true }/>
             </Header>
             <EnglishText ref={ englishRef }>{ english }</EnglishText>
             <p ref={ plancoRef } >{ planco }</p>
             <Footer>
                 <CopyButton value={ planco }/>
                 <button onClick={ () => setIsFavorited(() => !isFavorited) }>
-                    { isFavorited ? "Unfavorite" : "Favorite" }
+                    <DisplaySetAsFavorite />
                 </button>
             </Footer>
         </Container>
