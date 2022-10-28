@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/hay0-translator-app/static/js/main.4e273608.js",
-    "index.html": "/hay0-translator-app/index.html",
-    "main.4e273608.js.map": "/hay0-translator-app/static/js/main.4e273608.js.map"
+    "main.js": "/hayo-translate/static/js/main.352e3e93.js",
+    "index.html": "/hayo-translate/index.html",
+    "main.352e3e93.js.map": "/hayo-translate/static/js/main.352e3e93.js.map"
   },
   "entrypoints": [
-    "static/js/main.4e273608.js"
+    "static/js/main.352e3e93.js"
   ]
 }
