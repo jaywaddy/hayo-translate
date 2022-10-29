@@ -18,7 +18,7 @@ import {
     ContentFooter as Footer
 } from "../../helpers/styles/GlobalStyle";
 
-export default function TranslateHistory({ timeStamp, english, planco, setHistory }) {
+export default function TranslateHistory({ timeStamp, english, planco, history, setHistory }) {
     const [isFavorited, setIsFavorited] = React.useState(false);
     const englishRef = React.useRef();
     const plancoRef = React.useRef();

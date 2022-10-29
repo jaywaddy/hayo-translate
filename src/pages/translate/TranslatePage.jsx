@@ -15,35 +15,37 @@ export default function TranslatePage() {
     const interval = 2000;
 
     React.useEffect(() => {
+        const currentEntry = { eng: input, plc: output }
         const timer = setTimeout(() => {
-            input !== ""
-            && setHistory(history => [...history, { eng: input, plc: output }]);
+            // Set state only if currentEnrty doesn't already exist
+            input !== "" & !history.some(entry => currentEntry.eng === entry.eng)
+                && setHistory(history => [currentEntry, ...history]);
         }, interval);
         
         return () => clearTimeout(timer);
     }, [output]);
 
     const DisplayEmptyHistoryMessage = () => {
-        return history.length === 0 && (
-            <Container>
-				<span>Favorite translate history items.</span>
-			</Container>
-        );
+        return history.length === 0 
+            ? <Container>
+                <span>Favorite translate history items.</span>
+            </Container>
+            : null;
     }
 
     const DisplayHistory = () => {
         return history.length > 0
-        && history.reverse().map((entry, key) => (
-            entry.eng !== "" && (
+            ? history.map((entry, key) => (
                 <li key={ key }>
                     <TranslateHistory 
-                    timeStamp={ 1 }
+                    timeStamp={ key }
+                    history={ history }
                     setHistory={ setHistory }
                     english={ entry.eng }
                     planco={ entry.plc }/>
                 </li>
-            )
-        ));
+            ))
+            : null;
     }
 
     return (
