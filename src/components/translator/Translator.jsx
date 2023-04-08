@@ -1,5 +1,5 @@
 import { render } from "@testing-library/react";
-import React from "react";
+import React, { useEffect, useRef, useReducer, useState } from "react";
 
 // Helpers
 import Data from "../../helpers/scripts/data";
@@ -21,34 +21,18 @@ import {
     Input
 } from "../../helpers/styles/GlobalStyle";
 
-export default function Translator({ input, setInput, output, setOutput }) {
-    const [count, setCount] = React.useState(0);
-    const textareaRef = React.useRef();
+// Helpers
+import reducer, { ACTION, initState } from "../../helpers/reducers/TranslatorReducer";
 
-    React.useEffect(() => {
-        setInput(textareaRef.current.value);
-        setOutput(getOutputString);
-        setCount(textareaRef.current.textLength);
+export default function Translator() {
+    const [state, dispatch] = useReducer(reducer, initState);
+    const textAreaRef = useRef();
+    const plancoText = useRef();
 
-        // Textarea auto-wrap
-        textareaRef.current.style.height = "auto";
-        textareaRef.current.style.height = textareaRef.current.scrollHeight + "px";
-        
-        if (input === "") {
-            setInput("");
-            setOutput("");
-            setCount(0);
-    
-            // Reset textarea height
-            textareaRef.current.style.height = "auto";
-        }
-    }, [input]);
-
-    const getOutputString = () => {
-        const userInput = textareaRef.current.value.split(/(\W+|\s)/);
+    const PlancoOutput = () => {
         let outputString = "";
 
-        userInput.map(inputTerm => {
+        state.inputValue.split(/(\W+|\s)/).map(inputTerm => {
             let counter = 0;
             
             const calcPlancoCase = (planco, inputString) => {
@@ -59,6 +43,7 @@ export default function Translator({ input, setInput, output, setOutput }) {
                     let cases = [];
 
                     target.split("").map(character => {
+                        // dispatch({ type: ACTION.GENERATE_OUTPUT, payload: { character: character } })
                         return character === character.toLowerCase()
                             ? cases.push(false) // Lowercase characters
                             : cases.push(true); // Uppercase characters
@@ -73,9 +58,12 @@ export default function Translator({ input, setInput, output, setOutput }) {
                     matchCaseValue[index]
                         ? plancoOutput += character.toUpperCase()
                         : plancoOutput += character;
+                        // ? dispatch({ outputValue: state.outputValue + character.toUpperCase() })
+                        // : dispatch({ outputValue: state.outputValue + character })
                 });
                 return plancoOutput;
             }
+            // dispatch(ACTION.CALC_PLANCO_CASE)
 
             // Iterate through Data to see if any terms match
             return Data.map(entry => {
@@ -98,26 +86,35 @@ export default function Translator({ input, setInput, output, setOutput }) {
         <Container>
             <Header>
                 <span>English</span>
-                <ClearButton setInput={ setInput }/>
+                <ClearButton onClick={() => dispatch(ACTION.RESET)}/>
             </Header>
             <Input 
             type="text"
-            ref={ textareaRef }
-            value={ input }
-            onChange={ () => setInput(textareaRef.current.value) }
+            ref={ textAreaRef }
+            value={ state.inputValue }
+            onChange={ () => dispatch({
+                type: ACTION.GENERATE_OUTPUT,
+                payload: {
+                    textArea: textAreaRef,
+                    output: plancoText.current.textContent
+                }
+            }) }
             name="textarea"
             rows="1"
-            maxLength="250">
-                { input }
+            maxLength="250"
+            >
+                { state.inputValue }
             </Input>
             <Divider />
             <span>Planco</span>
             <Output>
-                <p>{ output }</p>
+                <p ref={ plancoText }>
+                    <PlancoOutput />
+                </p>
             </Output>
             <Footer>
-                <CopyButton value={ output }>copy</CopyButton>
-                <span>{ count } / 250</span>
+                <CopyButton value={ state.outputValue }>copy</CopyButton>
+                <span>{ state.charCount } / 250</span>
             </Footer>
         </Container>
     );

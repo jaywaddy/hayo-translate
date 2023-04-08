@@ -4,14 +4,14 @@ import React from "react";
 import ClearIcon from "../../assets/icons/ClearIcon";
 
 export default function ClearButton({ setInput, clearHistoryEntry, cancel }) {
-    const clearInput = () => {
-        cancel
-        ? clearHistoryEntry()
-        : setInput("");
-    }
+    // const clearInput = () => {
+    //     cancel
+    //         ? clearHistoryEntry()
+    //         : setInput("");
+    // }
 
     return (
-        <button onClick={ clearInput }>
+        <button /* onClick={ clearInput }*/>
             <ClearIcon />
         </button>
     );

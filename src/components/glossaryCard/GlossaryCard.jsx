@@ -19,7 +19,7 @@ export default function EntryCard({ eng, pos, pro, plc }) {
     const proRef = React.useRef();
 
     const setAsFavorite = () => {
-        // Push data into Local Storage
+        // TODO: Push data into Local Storage
         console.log(englishRef.current.innerText, plancoRef.current.innerText);
     }
 

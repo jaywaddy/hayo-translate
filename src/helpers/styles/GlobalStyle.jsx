@@ -23,12 +23,15 @@ export const style = {
     // Colors
     color: {
         // Constants
-        primary: "#E6C347",
         white: "#ffffff",
         disabled: "#a7aeb4",
         black: "#383f46",
 
         // Components
+        input: "#E9EAED",
+        pinned: "#E5CC47",
+        copy: "#5A92E4",
+        delete: "#E58047",
         componentLight: "#eff0f2",
         componentDark: "#525a62"
     }
@@ -55,7 +58,11 @@ export const ContentContainer = styled.div`
 
     padding: ${ style.component.padding };
 
-    background: ${ style.color.componentLight };
+    background: ${ props => 
+        props.theme === "pinned" ? style.color.pinned 
+        : props.theme === "input" ? style.color.input
+        : style.color.componentLight
+    };
     border-radius: ${ style.component.borderRadius };
 `;
 
