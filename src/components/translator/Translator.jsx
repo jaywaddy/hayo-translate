@@ -1,8 +1,8 @@
 import { render } from "@testing-library/react";
-import React, { useEffect, useRef, useReducer, useState } from "react";
+import React, { useRef, useReducer, useEffect } from "react";
 
 // Helpers
-import Data from "../../helpers/scripts/data";
+import Dictionary from "../../helpers/scripts/data";
 
 // Components
 import ClearButton from "../clearButton/ClearButton";
@@ -22,99 +22,104 @@ import {
 } from "../../helpers/styles/GlobalStyle";
 
 // Helpers
-import reducer, { ACTION, initState } from "../../helpers/reducers/TranslatorReducer";
+import reducer, { ACTION, initialState } from "../../helpers/reducers/TranslatorReducer";
 
-export default function Translator() {
-    const [state, dispatch] = useReducer(reducer, initState);
+export default () => {
+    const [state, dispatch] = useReducer(reducer, initialState);
     const textAreaRef = useRef();
     const plancoText = useRef();
+    const maxCharacterCount = 250;
+
+    useEffect(() => {
+        textAreaRef.current.style.height = state.textAreaHeight;
+        // TODO: Post history.
+    }, [state.inputValue]);
+
+    const calcPlancoOutput = outputValue => {
+        // TODO: Determine plurals, and tenses.
+        textAreaRef.current.value.split(/(\W+)/).forEach(target => {
+            Dictionary.some(entry => entry.eng.toLowerCase() === target.toLowerCase())
+                ? Dictionary.find(entry => {
+                    target.toLowerCase() === entry.eng.toLowerCase() 
+                        && (outputValue += copyInputCaseToOutput(
+                            entry.plc,
+                            target,
+                            new String
+                        ));
+                    })
+                : outputValue += target;
+        });
+        dispatch({
+            type: ACTION.GENERATE_OUTPUT,
+            payload: {
+                inputValue: textAreaRef.current.value,
+                outputValue: outputValue,
+                charCount: textAreaRef.current.value.length,
+                textAreaHeight: textAreaRef.current.scrollHeight + "px"
+            }
+        });
+        return state.outputValue;
+    }
+
+    const copyInputCaseToOutput = (input, target, output) => {
+        input.split("").forEach((character, index) => {
+            const isUpperCase = value => value === value.toUpperCase();
+            isUpperCase(target)
+                ? (output += character.toUpperCase())
+                    : calcInputCase(target, new Array)[index]
+                        ? output += character.toUpperCase()
+                        : output += character;
+        });
+        return output;
+    }
+
+    const calcInputCase = (target, cases) => {
+        target.split("").forEach(character => {
+            return character === character.toLowerCase()
+                ? cases.push(false) // Lowercase characters
+                : cases.push(true); // Uppercase characters
+        });
+        return cases;
+    }
+
+    const handleClearText = () => {
+        dispatch({ type: ACTION.RESET });
+        textAreaRef.current.style.height = "auto";
+    }
 
     const PlancoOutput = () => {
-        let outputString = "";
-
-        state.inputValue.split(/(\W+|\s)/).map(inputTerm => {
-            let counter = 0;
-            
-            const calcPlancoCase = (planco, inputString) => {
-                let plancoOutput = "";
-
-                // Return the case values for each character for every term
-                const getCase = target => {
-                    let cases = [];
-
-                    target.split("").map(character => {
-                        // dispatch({ type: ACTION.GENERATE_OUTPUT, payload: { character: character } })
-                        return character === character.toLowerCase()
-                            ? cases.push(false) // Lowercase characters
-                            : cases.push(true); // Uppercase characters
-                    });
-                    return cases;
-                }
-
-                const matchCaseValue = getCase(inputString);
-
-                // Create a new planco string with matching case values
-                planco.split("").forEach((character, index) => {
-                    matchCaseValue[index]
-                        ? plancoOutput += character.toUpperCase()
-                        : plancoOutput += character;
-                        // ? dispatch({ outputValue: state.outputValue + character.toUpperCase() })
-                        // : dispatch({ outputValue: state.outputValue + character })
-                });
-                return plancoOutput;
-            }
-            // dispatch(ACTION.CALC_PLANCO_CASE)
-
-            // Iterate through Data to see if any terms match
-            return Data.map(entry => {
-                const match = entry.eng.toLowerCase();
-                const planco = entry.plc;
-
-                // If a match has been found, set output to planco term
-                inputTerm.toLowerCase() === match || inputTerm === /\W/
-                    ? outputString += calcPlancoCase(planco, inputTerm)
-                    : counter++;
-
-                // If there are no matches, return the user input
-                return counter === Data.length && (outputString += inputTerm);
-            });
-        });
-        return outputString;
+        return (
+            <p ref={ plancoText }>
+               { state.outputValue }
+            </p>
+        );
     }
 
     return (
         <Container>
             <Header>
                 <span>English</span>
-                <ClearButton onClick={() => dispatch(ACTION.RESET)}/>
+                <ClearButton func={ handleClearText }/>
             </Header>
             <Input 
             type="text"
             ref={ textAreaRef }
             value={ state.inputValue }
-            onChange={ () => dispatch({
-                type: ACTION.GENERATE_OUTPUT,
-                payload: {
-                    textArea: textAreaRef,
-                    output: plancoText.current.textContent
-                }
-            }) }
+            onChange={() => calcPlancoOutput(new String)}
             name="textarea"
             rows="1"
-            maxLength="250"
+            maxLength={ maxCharacterCount }
             >
                 { state.inputValue }
             </Input>
             <Divider />
             <span>Planco</span>
             <Output>
-                <p ref={ plancoText }>
-                    <PlancoOutput />
-                </p>
+                <PlancoOutput />
             </Output>
             <Footer>
                 <CopyButton value={ state.outputValue }>copy</CopyButton>
-                <span>{ state.charCount } / 250</span>
+                <span>{ state.charCount } / { maxCharacterCount }</span>
             </Footer>
         </Container>
     );

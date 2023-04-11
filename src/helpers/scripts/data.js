@@ -1,4 +1,4 @@
-const Data = [
+export default [
 	{
 		"eng": "A",
 		"plc": "a",
@@ -13494,5 +13494,3 @@ const Data = [
 		"pro": "zool"
 	}
 ]
-
-export default Data;
