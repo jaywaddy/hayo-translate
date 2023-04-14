@@ -1,14 +1,25 @@
 export const ACTION = {
-    USER_HISTORY: "userHistory",
+    HISTORY: "history",
     PINNED_HISTORY: "pinnedHistory"
+}
+
+export const initialState = {
+    history: [],
+    pinnedHistory: []
 }
 
 export default (state, action) => {
     switch (action.type) {
-        case ACTION.USER_HISTORY:
-            return { ...state, userHistory: action.payload }
+        case ACTION.HISTORY:
+            return {
+                ...state,
+                history: [action.payload.history, ...state.history]
+            }
         case ACTION.PINNED_HISTORY:
-            return { ...state, pinnedHistory: action.payload }
+            return {
+                ...state,
+                pinnedHistory: [action.payload.pinnedHistory, ...state.pinnedHistory]
+            }
         default:
             throw new Error();
     }

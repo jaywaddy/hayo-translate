@@ -8,10 +8,6 @@ export const HistoryInfo = styled.div`
     color: ${ style.color.disabled };
 `;
 
-export const TimeStamp = styled.span`
-    margin-right: 15px;
-`;
-
 export const EnglishText = styled.p`
     color: ${ style.color.disabled };
 `;

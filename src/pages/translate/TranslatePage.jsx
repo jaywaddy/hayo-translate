@@ -9,78 +9,53 @@ import { ContentContainer as Container } from "../../helpers/styles/GlobalStyle"
 import { HistoryContainer } from "./TranslatePageStyles";
 
 // Helpers
-import reducer from "../../helpers/reducers/TranslatePageReducer"
-import translatorReducer from "../../helpers/reducers/TranslatorReducer";
-
-const DATA = {
-    HIS: "TRANSLATE_HISTORY",
-    PIN: "PINNED_CARDS"
-}
-
-localStorage.setItem(DATA.HIS, []);
-localStorage.setItem("PINNED_CUSTOM", []);
+import reducer, { ACTION, initialState } from "../../helpers/reducers/TranslatePageReducer"
 
 export default function TranslatePage() {
-    const [state, dispatch] = useReducer(reducer, {
-        userHistory: [],
-        pinnedHistory: []
-    });
+    const [state, dispatch] = useReducer(reducer, initialState);
 
-    // const [input, setInput] = useState("");
-    // const [output, setOutput] = useState("");
-    // const [pinnedCards, setPinnedCards] = useState([]);
-    const [history, setHistory] = useState([]);
-    // const [time, setTime] = useState(0);
+    useEffect(() => {
+        localStorage.setItem(ACTION.HISTORY, JSON.stringify(state.history));
+        localStorage.setItem(ACTION.PINNED_HISTORY, JSON.stringify(state.pinnedHistory));
+    }, []);
 
-    () => {
-        const localData = localStorage.getItem(DATA.HIS);
-        return localData ? JSON.parse(localData) : [];
-    }
-
-    // const cardInfo = {
-    //     id: Date.now(),
-    //     eng: input,
-    //     plc: output,
-    //     timeStamp: time
-    // }
-
-    const createCard = (entry, key) => {
-        // NOTE: grab with state.userHistory[0]
+    const createCard = entry => {
+        // TODO: Figure out how to post each card with separate info (can use it's own key)
+        // NOTE: grab with state.history[0]
+        const generateTimeStamp = () => {
+            return "0 sec ago";
+        }
         return (
-            <li key={ key }>
+            <li key={ entry.id }> {/* Grab key from localStorage */}
                 <HistoryCard
-                engDisplay={ entry.eng }
-                plcDisplay={ entry.plc }
-                // cardInfo={ state }
-                // pinnedCards={ pinnedCards }
-                // setPinnedCards={ setPinnedCards }
-                // setHistory={ setHistory }
+                // timeStamp={() => generateTimeStamp()}
+                engDisplay={ entry.inputValue } /* Grab from localStorage */
+                plcDisplay={ entry.outputValue } /* Grab from localStorage */
                 />
             </li>
         );
     }
 
     const DisplayEmptyHistoryMessage = () => {
-        return state.userHistory.length === 0 && 
+        return state.history.length === 0 && (
             <Container>
                 <span>Favorite translate history items.</span>
             </Container>
+        );
     }
 
     const DisplayHistory = () => {
-        return state.userHistory.length > 0
-            && state.userHistory.map((entry, key) => createCard(entry, key));
+        return state.history.length > 0 && (
+            state.history.map(entry => createCard(entry))
+        );
     }
 
     return (
         <>
-        {/* <Translator
-        input={ state.input }
-        setInput={ dispatch }
-        output={ state.output }
-        setOutput={ dispatch }
-        /> */}
-        <Translator />
+        <Translator
+        hisDispatch={ dispatch }
+        hisState={ state }
+        />
         <DisplayEmptyHistoryMessage />
         <HistoryContainer>
             <DisplayHistory />

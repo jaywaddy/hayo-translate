@@ -22,20 +22,39 @@ import {
 } from "../../helpers/styles/GlobalStyle";
 
 // Helpers
-import reducer, { ACTION, initialState } from "../../helpers/reducers/TranslatorReducer";
+import reducer, { ACTION, initialState } from "../../helpers/reducers/TranslateHistoryReducer";
 
-export default () => {
+export default ({ hisState, hisDispatch }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
     const textAreaRef = useRef();
     const plancoText = useRef();
+    const historyPostInterval = 2000;
     const maxCharacterCount = 250;
+    const localStorageHistory = JSON.parse(localStorage.getItem("history"));
 
     useEffect(() => {
+        const timer = setTimeout(postToLocalStorage, historyPostInterval);
         textAreaRef.current.style.height = state.textAreaHeight;
-        // TODO: Post history.
+        return () => clearTimeout(timer);
     }, [state.inputValue]);
 
+    const postToLocalStorage = () => {
+        if (state.charCount > 0
+        & !hisState.history.some(prev => prev.inputValue === state.inputValue)
+        // & localStorageHistory.some(target => target.inputValue === state.inputValue)
+        ){
+            hisDispatch({
+                type: "history",
+                payload: {
+                    history: state
+                }
+            });
+            localStorage.setItem("history", JSON.stringify(hisState.history)); // TODO: Add to hisstory, not replace
+        }
+    }
+
     const calcPlancoOutput = outputValue => {
+        const newID = Date.now();
         // TODO: Determine plurals, and tenses.
         textAreaRef.current.value.split(/(\W+)/).forEach(target => {
             Dictionary.some(entry => entry.eng.toLowerCase() === target.toLowerCase())
@@ -52,6 +71,7 @@ export default () => {
         dispatch({
             type: ACTION.GENERATE_OUTPUT,
             payload: {
+                id: newID,
                 inputValue: textAreaRef.current.value,
                 outputValue: outputValue,
                 charCount: textAreaRef.current.value.length,
@@ -87,14 +107,6 @@ export default () => {
         textAreaRef.current.style.height = "auto";
     }
 
-    const PlancoOutput = () => {
-        return (
-            <p ref={ plancoText }>
-               { state.outputValue }
-            </p>
-        );
-    }
-
     return (
         <Container>
             <Header>
@@ -115,7 +127,9 @@ export default () => {
             <Divider />
             <span>Planco</span>
             <Output>
-                <PlancoOutput />
+                <p ref={ plancoText }>
+                { state.outputValue }
+                </p>
             </Output>
             <Footer>
                 <CopyButton value={ state.outputValue }>copy</CopyButton>
